@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acento | Azure Data Solutions voor het MKB</title>
+    <meta name="description" content="Je rapportages kloppen niet en je data staat overal. Wij bouwen de Azure-oplossing die dat fixt. Pipelines, dashboards, koppelingen en AI — binnen weken. Regio Rotterdam.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --gray-900: #1a1a1a;
+            --gray-800: #2d2d2d;
+            --gray-700: #404040;
+            --gray-600: #525252;
+            --gray-500: #6b6b6b;
+            --gray-400: #8a8a8a;
+            --gray-300: #b5b5b5;
+            --gray-200: #d4d4d4;
+            --gray-100: #ebebeb;
+            --cream: #F8F7F4;
+            --white: #ffffff;
+            --primary: #6C3CE9;
+            --primary-dark: #5429C7;
+            --primary-light: #A78BFA;
+            --primary-50: #f3effb;
+            --navy: #1a1a2e;
+            --navy-light: #252545;
+            --accent: #10B981;
+            --accent-dark: #059669;
+            --accent-light: #6EE7B7;
+            --accent-50: #ecfdf5;
+            --warm: #F59E0B;
+            --warm-light: #FCD34D;
+            --border: #e5e4e0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body); background: var(--cream);
+            color: var(--gray-600); line-height: 1.7; font-size: 16px;
+            overflow-x: hidden; -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .section-label {
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
+        }
+        .section-title em { font-style: italic; font-weight: 400; }
+        .section-sub { color: var(--gray-500); font-size: 1.05rem; max-width: 560px; line-height: 1.8; }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(248,247,244,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            height: 72px; display: flex; align-items: center;
+        }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-mark { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+        .logo-mark svg { width: 100%; height: 100%; }
+        .logo-text { font-family: var(--font-body); font-size: 1.25rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+        .nav-links a { color: var(--gray-600); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--black); }
+        .nav-cta {
+            background: var(--primary)!important; color: var(--white)!important;
+            padding: 10px 24px; border-radius: 6px; font-weight: 600!important; transition: all 0.2s!important;
+        }
+        .nav-cta:hover { background: var(--primary-dark)!important; transform: translateY(-1px); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--black); font-size: 1.5rem; cursor: pointer; }
+
+        .accent-bar { height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent), var(--warm)); }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 160px 0 100px;
+            background: var(--navy);
+            color: var(--white);
+            position: relative; overflow: hidden;
+        }
+        #particleCanvas {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -30%; right: -15%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(108,60,233,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -20%; left: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1fr; gap: 0; align-items: center; position: relative; z-index: 1; max-width: 640px; }
+        .hero-content { max-width: 640px; }
+        .hero-label {
+            display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px;
+            background: rgba(108,60,233,0.15); border: 1px solid rgba(108,60,233,0.25);
+            border-radius: 100px; font-size: 0.75rem; font-weight: 600;
+            color: var(--primary-light); margin-bottom: 28px; letter-spacing: 0.05em;
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 5vw, 3.6rem);
+            line-height: 1.1; font-weight: 700; margin-bottom: 24px;
+            letter-spacing: -0.02em; color: var(--white);
+        }
+        .hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.85; }
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
+            background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px;
+            font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(108,60,233,0.3); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
+            background: transparent; color: var(--white); text-decoration: none; border-radius: 6px;
+            font-weight: 600; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+
+        /* ── TICKER ── */
+        .ticker {
+            padding: 20px 0; background: var(--white); border-bottom: 1px solid var(--border);
+            overflow: hidden; position: relative;
+        }
+        .ticker-content {
+            display: flex; gap: 48px; align-items: center;
+            animation: ticker 30s linear infinite;
+        }
+        .ticker-item {
+            white-space: nowrap; font-size: 0.8rem; font-weight: 600;
+            color: var(--gray-400); letter-spacing: 0.1em; text-transform: uppercase;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .ticker-item span { color: var(--primary); font-size: 1rem; }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── PAIN POINTS ── */
+        .pain-section { padding: 100px 0; background: var(--white); }
+        .pain-header { margin-bottom: 56px; max-width: 640px; }
+        .pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .pain-card {
+            background: var(--cream); padding: 40px 36px; border-radius: 12px;
+            transition: all 0.3s; border: 1px solid transparent;
+        }
+        .pain-card:hover { border-color: var(--primary-light); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .pain-icon { font-size: 1.5rem; margin-bottom: 16px; }
+        .pain-card h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; line-height: 1.35; color: var(--black); }
+        .pain-card p { color: var(--gray-500); font-size: 0.9rem; line-height: 1.75; }
+
+        /* ── WHAT WE DO ── */
+        .whatwedo-section { padding: 100px 0; background: var(--cream); }
+        .whatwedo-header { margin-bottom: 56px; max-width: 640px; }
+        .whatwedo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+        .whatwedo-main {
+            background: var(--white); padding: 48px 40px; border-radius: 16px;
+            border: 2px solid var(--primary-light);
+        }
+        .whatwedo-main .service-icon {
+            width: 48px; height: 48px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; font-size: 1.4rem; background: var(--primary-50); color: var(--primary);
+        }
+        .whatwedo-main h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; color: var(--black); }
+        .whatwedo-main p { color: var(--gray-500); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px; }
+        .whatwedo-list { list-style: none; }
+        .whatwedo-list li {
+            padding: 10px 0; border-bottom: 1px solid var(--border);
+            font-size: 0.88rem; color: var(--gray-600); display: flex; align-items: center; gap: 10px;
+        }
+        .whatwedo-list li:last-child { border-bottom: none; }
+        .whatwedo-list .check { color: var(--accent); font-weight: 700; font-size: 1rem; }
+        .whatwedo-sub { display: flex; flex-direction: column; gap: 20px; }
+        .whatwedo-card {
+            background: var(--white); padding: 32px 28px; border-radius: 12px;
+            border: 1px solid var(--border); transition: all 0.3s;
+        }
+        .whatwedo-card:hover { border-color: var(--primary-light); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .whatwedo-card h4 { font-size: 1rem; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .whatwedo-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+        .service-tag { font-size: 0.68rem; padding: 5px 12px; border-radius: 100px; font-weight: 500; }
+        .service-tag.purple { background: var(--primary-50); color: var(--primary-dark); }
+        .service-tag.green { background: var(--accent-50); color: var(--accent-dark); }
+        .service-tag.amber { background: #fffbeb; color: #b45309; }
+
+        /* ── FOR WHO ── */
+        .forwho-section { padding: 100px 0; background: var(--white); }
+        .forwho-header { margin-bottom: 56px; max-width: 640px; }
+        .forwho-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .forwho-card {
+            background: var(--cream); padding: 36px 28px; border-radius: 12px;
+            border: 1px solid transparent; transition: all 0.3s;
+        }
+        .forwho-card:hover { border-color: var(--primary-light); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .forwho-card .fw-icon { font-size: 1.8rem; margin-bottom: 16px; }
+        .forwho-card h3 { font-size: 1rem; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+        .forwho-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.7; }
+
+        /* ── WHY US ── */
+        .why-section { padding: 100px 0; background: var(--cream); }
+        .why-header { margin-bottom: 56px; max-width: 640px; }
+        .why-header p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-top: 12px; }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .why-card {
+            background: var(--white); padding: 36px 28px; border-radius: 12px;
+            border: 1px solid var(--border); transition: all 0.3s;
+        }
+        .why-card:hover { border-color: var(--primary-light); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .why-card h4 { font-size: 1rem; font-weight: 600; color: var(--black); margin-bottom: 10px; }
+        .why-card p { font-size: 0.88rem; color: var(--gray-500); line-height: 1.7; }
+
+        /* ── CASES PREVIEW ── */
+        .cases-section { padding: 100px 0; background: var(--white); }
+        .cases-header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+        .cases-header .section-sub { max-width: 480px; }
+        .cases-link { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+        .cases-link:hover { gap: 10px; }
+        .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .case-mini {
+            background: var(--navy); border-radius: 12px; overflow: hidden;
+            transition: all 0.3s; text-decoration: none;
+        }
+        .case-mini:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+        .case-mini img { width: 100%; height: 160px; object-fit: cover; display: block; }
+        .case-mini-body { padding: 24px; }
+        .case-mini-branch {
+            font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+            color: rgba(255,255,255,0.35); margin-bottom: 8px; font-weight: 500;
+        }
+        .case-mini h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.35; }
+        .case-mini-meta { font-size: 0.78rem; color: var(--primary-light); font-weight: 500; }
+
+        /* ── PROCESS ── */
+        .process-section { padding: 100px 0; background: var(--cream); }
+        .process-header { max-width: 560px; margin-bottom: 56px; }
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .process-step {
+            background: var(--white); padding: 36px 24px; border-radius: 12px;
+            transition: all 0.3s; border: 1px solid var(--border);
+        }
+        .process-step:hover { border-color: var(--primary-light); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .step-num { font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: 16px; line-height: 1; }
+        .step-num.c1 { color: var(--primary); }
+        .step-num.c2 { color: var(--primary-light); }
+        .step-num.c3 { color: var(--accent); }
+        .step-num.c4 { color: var(--accent-dark); }
+        .process-step h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--black); }
+        .process-step p { font-size: 0.82rem; color: var(--gray-500); line-height: 1.7; }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, #1e1b4b 100%);
+            color: var(--white); position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(108,60,233,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section::after {
+            content: ''; position: absolute; bottom: -150px; left: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-content { position: relative; z-index: 1; max-width: 580px; }
+        .cta-content .section-label { color: var(--primary-light); }
+        .cta-content .section-title { color: var(--white); margin-bottom: 14px; }
+        .cta-content .section-title em { color: var(--primary-light); }
+        .cta-content p { color: rgba(255,255,255,0.55); margin-bottom: 32px; font-size: 1.05rem; line-height: 1.8; }
+        .cta-content .btn-primary { background: var(--accent); color: var(--white); }
+        .cta-content .btn-primary:hover { background: var(--accent-dark); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
+        .cta-offer {
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px; padding: 24px 28px; margin-bottom: 32px;
+        }
+        .cta-offer h3 { color: var(--white); font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+        .cta-offer ul { list-style: none; }
+        .cta-offer li { color: rgba(255,255,255,0.5); font-size: 0.88rem; padding: 4px 0; display: flex; gap: 8px; align-items: center; }
+        .cta-offer li .check { color: var(--accent-light); }
+        .cta-contact-info { display: flex; gap: 36px; margin-top: 28px; flex-wrap: wrap; }
+        .cta-contact-item { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .cta-contact-item:hover { color: var(--white); }
+
+        /* ── FOOTER ── */
+        footer { padding: 32px 0; border-top: 1px solid var(--border); background: var(--cream); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-content p { color: var(--gray-400); font-size: 0.75rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--gray-400); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--gray-600); }
+
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .container { padding: 0 24px; }
+            .hero { padding: 130px 0 80px; }
+            .whatwedo-grid { grid-template-columns: 1fr; }
+            .forwho-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .cases-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.active {
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+            .pain-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .cta-contact-info { flex-direction: column; gap: 12px; }
+            .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+            .ticker { display: none; }
+            .cases-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="#" class="logo">
+            <span class="logo-mark">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4 L22.5 16 L34 11 L25 20 L36 22.5 L25 25 L34 29 L22.5 24 L20 36 L17.5 24 L6 29 L15 25 L4 22.5 L15 20 L6 11 L17.5 16 Z" fill="var(--primary)" />
+                </svg>
+            </span>
+            <span class="logo-text">Acento</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#herkenbaar">Herkenbaar?</a></li>
+            <li><a href="cases.html">Cases</a></li>
+            <li><a href="#waarom">Waarom wij</a></li>
+            <li><a href="#aanpak">Aanpak</a></li>
+            <li><a href="#contact" class="nav-cta">Gratis data-scan</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
+    </div>
+</nav>
+
+<div class="accent-bar"></div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span>&#9679;</span> Azure Full-Stack Data Solutions
+                </div>
+                <h1>Je rapportages kloppen niet.<br><em>Wij fixen dat.</em></h1>
+                <p class="hero-sub">Iedereen werkt in Excel want niemand vertrouwt de dashboards. Data staat in 4 systemen maar nergens samen. Klinkt bekend? Wij bouwen de Azure-oplossing die dat fixt. Binnen weken, niet maanden.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Gratis data-scan in 30 min &#8594;</a>
+                    <a href="#herkenbaar" class="btn-secondary">Herken jij dit?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="ticker">
+    <div class="ticker-content">
+        <div class="ticker-item"><span>&#9670;</span> Azure Data Factory</div>
+        <div class="ticker-item"><span>&#9670;</span> Power BI</div>
+        <div class="ticker-item"><span>&#9670;</span> SQL Server</div>
+        <div class="ticker-item"><span>&#9670;</span> Azure Logic Apps</div>
+        <div class="ticker-item"><span>&#9670;</span> Azure AI Foundry</div>
+        <div class="ticker-item"><span>&#9670;</span> Copilot Studio</div>
+        <div class="ticker-item"><span>&#9670;</span> Microsoft Fabric</div>
+        <div class="ticker-item"><span>&#9670;</span> DAX &amp; Datamodellering</div>
+        <div class="ticker-item"><span>&#9670;</span> Azure Data Factory</div>
+        <div class="ticker-item"><span>&#9670;</span> Power BI</div>
+        <div class="ticker-item"><span>&#9670;</span> SQL Server</div>
+        <div class="ticker-item"><span>&#9670;</span> Azure Logic Apps</div>
+        <div class="ticker-item"><span>&#9670;</span> Azure AI Foundry</div>
+        <div class="ticker-item"><span>&#9670;</span> Copilot Studio</div>
+        <div class="ticker-item"><span>&#9670;</span> Microsoft Fabric</div>
+        <div class="ticker-item"><span>&#9670;</span> DAX &amp; Datamodellering</div>
+    </div>
+</div>
+
+<!-- ── PAIN POINTS ── -->
+<section class="pain-section" id="herkenbaar">
+    <div class="container">
+        <div class="pain-header reveal">
+            <span class="section-label">Herkenbaar?</span>
+            <h2 class="section-title">Dit horen we <em>elke week</em></h2>
+            <p class="section-sub">Als je je hierin herkent, ben je niet de enige. Dit zijn precies de situaties waar onze klanten mee bij ons aanklopten.</p>
+        </div>
+        <div class="pain-grid">
+            <div class="pain-card reveal">
+                <div class="pain-icon">&#128202;</div>
+                <h3>"Onze Power BI dashboards kloppen niet — dus iedereen maakt z'n eigen Excel"</h3>
+                <p>Je hebt Power BI, maar niemand vertrouwt de cijfers. Elke maand maakt iemand handmatig een overzichtje in Excel. Het management stuurt op onderbuikgevoel in plaats van data.</p>
+            </div>
+            <div class="pain-card reveal">
+                <div class="pain-icon">&#128268;</div>
+                <h3>"Data uit CRM, ERP en finance komt gewoon niet samen"</h3>
+                <p>Je hebt 3, 4, 5 systemen maar geen totaalbeeld. Wat is de omzet per klant? Dat is een halve dag uitzoeken. En het antwoord verschilt per afdeling.</p>
+            </div>
+            <div class="pain-card reveal">
+                <div class="pain-icon">&#9200;</div>
+                <h3>"We zijn uren kwijt aan handmatig overtikken tussen systemen"</h3>
+                <p>Facturen van JIT naar AFAS. CSV-bestanden importeren. Copy-paste werk dat al jaren zo gaat. Iedereen weet dat het beter kan, maar niemand pakt het op.</p>
+            </div>
+            <div class="pain-card reveal">
+                <div class="pain-icon">&#129302;</div>
+                <h3>"AI klinkt interessant — maar we weten niet waar te beginnen"</h3>
+                <p>Je leest overal over AI en Copilot, maar de vertaalslag naar jouw bedrijf ontbreekt. Geen experimenten, je wilt iets dat je team volgende maand al gebruikt.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── WHAT WE DO ── -->
+<section class="whatwedo-section" id="diensten">
+    <div class="container">
+        <div class="whatwedo-header reveal">
+            <span class="section-label">Wat wij doen</span>
+            <h2 class="section-title">Azure full-stack <em>data solutions</em></h2>
+            <p class="section-sub">Wij lossen dataproblemen op binnen het Microsoft Azure ecosysteem. Van de bron tot het dashboard. Geen losse producten, maar een werkende oplossing die past bij jouw situatie.</p>
+        </div>
+        <div class="whatwedo-grid reveal">
+            <div class="whatwedo-main">
+                <div class="service-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                </div>
+                <h3>Van bron tot dashboard. Alles Azure.</h3>
+                <p>Wij pakken je dataprobleem van begin tot eind op. Bronnen koppelen, data schoonmaken, pipelines bouwen, dashboards opleveren. Alles binnen Azure, zodat het past in je bestaande Microsoft-omgeving.</p>
+                <ul class="whatwedo-list">
+                    <li><span class="check">&#10003;</span> Data pipelines die bronnen koppelen en transformeren</li>
+                    <li><span class="check">&#10003;</span> Power BI dashboards op een betrouwbaar datamodel</li>
+                    <li><span class="check">&#10003;</span> Systeemkoppelingen die handmatig werk elimineren</li>
+                    <li><span class="check">&#10003;</span> AI agents die data bevragen in gewone taal</li>
+                    <li><span class="check">&#10003;</span> Datawarehouses die schaalbaar en onderhoudbaar zijn</li>
+                </ul>
+                <div class="service-tags" style="margin-top:20px;">
+                    <span class="service-tag purple">Azure Data Factory</span>
+                    <span class="service-tag purple">SQL Server</span>
+                    <span class="service-tag amber">Power BI</span>
+                    <span class="service-tag green">Logic Apps</span>
+                    <span class="service-tag purple">AI Foundry</span>
+                    <span class="service-tag green">Fabric</span>
+                </div>
+            </div>
+            <div class="whatwedo-sub">
+                <div class="whatwedo-card">
+                    <h4>Data Engineering &amp; Pipelines</h4>
+                    <p>Bronnen koppelen, data transformeren, medallion-architectuur opzetten. Zodat je data klopt voordat het in een dashboard terechtkomt.</p>
+                </div>
+                <div class="whatwedo-card">
+                    <h4>BI &amp; Rapportages</h4>
+                    <p>Power BI dashboards bouwen op een betrouwbaar datamodel. Geen losse rapportjes, maar cijfers waar je maandelijks op durft te sturen.</p>
+                </div>
+                <div class="whatwedo-card">
+                    <h4>Systeemintegraties</h4>
+                    <p>Logic Apps en Function Apps die je systemen koppelen. Geen copy-paste meer tussen JIT en AFAS, CRM en finance, of ERP en warehouse.</p>
+                </div>
+                <div class="whatwedo-card">
+                    <h4>AI Agents</h4>
+                    <p>AI agents waarmee je team vragen stelt aan data in gewone taal. Gebouwd met Copilot Studio, Azure AI Foundry of custom Python.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOR WHO ── -->
+<section class="forwho-section">
+    <div class="container">
+        <div class="forwho-header reveal">
+            <span class="section-label">Voor wie dit werkt</span>
+            <h2 class="section-title">MKB bedrijven die <em>vastlopen op data</em></h2>
+            <p class="section-sub">Je hoeft geen dataprobleem van een miljoen te hebben. Als je merkt dat rapportages niet kloppen of dat iedereen in Excel werkt, is dat genoeg om te starten.</p>
+        </div>
+        <div class="forwho-grid">
+            <div class="forwho-card reveal">
+                <div class="fw-icon">&#127970;</div>
+                <h3>20 tot 200 medewerkers</h3>
+                <p>Groot genoeg dat data ertoe doet. Klein genoeg dat je geen eigen data-afdeling hebt. Precies de organisaties waar wij het verschil maken.</p>
+            </div>
+            <div class="forwho-card reveal">
+                <div class="fw-icon">&#128187;</div>
+                <h3>Werkt met Power BI, Excel of meerdere systemen</h3>
+                <p>Je hebt al systemen, maar ze praten niet met elkaar. Of je Power BI staat stof te happen omdat niemand de cijfers vertrouwt.</p>
+            </div>
+            <div class="forwho-card reveal">
+                <div class="fw-icon">&#9881;</div>
+                <h3>Logistiek, techniek, groothandel, dienstverlening</h3>
+                <p>Onze klanten zitten in sectoren waar operationele data cruciaal is. Bedrijven die dagelijks met systemen als JIT, AFAS, Exact of Dynamics werken.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why-section" id="waarom">
+    <div class="container">
+        <div class="why-header reveal">
+            <span class="section-label">Waarom Acento</span>
+            <h2 class="section-title">Klein team. <em>Kort lijntje.</em> Snel resultaat.</h2>
+            <p>Wij zijn geen groot bureau. We zijn een klein, gespecialiseerd team dat diep in de Azure stack zit. Dat betekent: geen wisselende bezetting, korte lijnen, en een werkend resultaat binnen weken.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <h4>Wie je spreekt, bouwt ook</h4>
+                <p>Geen overdrachtsmomenten, geen informatieverlies. De persoon in het eerste gesprek is dezelfde die de oplossing bouwt en oplevert.</p>
+            </div>
+            <div class="why-card reveal">
+                <h4>Werkend resultaat in 2-4 weken</h4>
+                <p>We beginnen klein en leveren snel op. Een eerste werkend dashboard of koppeling staat er binnen weken, niet maanden.</p>
+            </div>
+            <div class="why-card reveal">
+                <h4>Geen overhead op de factuur</h4>
+                <p>Geen projectmanagementlagen of interne afstemming die je betaalt. Elke euro gaat naar het werk dat je ook daadwerkelijk terugziet.</p>
+            </div>
+            <div class="why-card reveal">
+                <h4>100% Azure-native</h4>
+                <p>We werken uitsluitend binnen Microsoft Azure. Dat betekent diepgaande kennis van het platform in plaats van oppervlakkige breedte.</p>
+            </div>
+            <div class="why-card reveal">
+                <h4>Eerlijk over wat kan en niet kan</h4>
+                <p>Als iets niet werkt voor jouw situatie, zeggen we dat. We verkopen geen oplossing die je niet nodig hebt.</p>
+            </div>
+            <div class="why-card reveal">
+                <h4>Beperkt aantal klanten tegelijk</h4>
+                <p>We werken bewust aan een klein aantal projecten. Dat betekent snelle reactietijden en echte betrokkenheid.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CASES ── -->
+<section class="cases-section">
+    <div class="container">
+        <div class="cases-header reveal">
+            <div>
+                <span class="section-label">Recent werk</span>
+                <h2 class="section-title">Geen theorie. <em>Dit hebben we gebouwd.</em></h2>
+            </div>
+            <a href="cases.html" class="cases-link">Alle cases bekijken &#8594;</a>
+        </div>
+        <div class="cases-grid">
+            <a href="case-jit-afas.html" class="case-mini reveal">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6e?w=800&q=80" alt="JIT-AFAS koppeling" loading="lazy">
+                <div class="case-mini-body">
+                    <div class="case-mini-branch">Logistiek &middot; 40 medewerkers</div>
+                    <h3>JIT-AFAS koppeling: finance afdeling bespaart uren per week</h3>
+                    <div class="case-mini-meta">Azure Logic Apps &middot; 3 weken &middot; 0% handmatig werk</div>
+                </div>
+            </a>
+            <a href="case-sql-agent.html" class="case-mini reveal">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SQL AI Agent" loading="lazy">
+                <div class="case-mini-body">
+                    <div class="case-mini-branch">Groothandel &middot; 80 medewerkers</div>
+                    <h3>AI Agent: accountmanagers halen zelf data uit het warehouse</h3>
+                    <div class="case-mini-meta">Python + Azure AI Foundry &middot; 4 weken</div>
+                </div>
+            </a>
+            <a href="case-dataverlading.html" class="case-mini reveal">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Dataverlading" loading="lazy">
+                <div class="case-mini-body">
+                    <div class="case-mini-branch">Logistiek &middot; 5 bedrijfsonderdelen</div>
+                    <h3>Gescheiden financieel inzicht per entiteit in Power BI</h3>
+                    <div class="case-mini-meta">Medallion architecture &middot; Azure Data Factory &middot; 4 weken</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process-section" id="aanpak">
+    <div class="container">
+        <div class="process-header reveal">
+            <span class="section-label">Hoe het werkt</span>
+            <h2 class="section-title">Van probleem naar <em>werkende oplossing</em></h2>
+            <p class="section-sub">Geen verrassingen, geen scope creep. Je weet vooraf wat het kost, wat je krijgt, en wanneer het klaar is.</p>
+        </div>
+        <div class="process-steps">
+            <div class="process-step reveal">
+                <div class="step-num c1">01</div>
+                <h3>Gratis data-scan</h3>
+                <p>30 minuten. We brengen je datalandschap in kaart en laten zien waar de grootste winst zit. Geen verplichtingen, geen verkooppraatje.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-num c2">02</div>
+                <h3>Concreet voorstel</h3>
+                <p>Een helder plan met vaste prijs, duidelijke scope en tijdlijn. Je weet exact wat je krijgt voordat we beginnen.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-num c3">03</div>
+                <h3>Bouwen &amp; testen</h3>
+                <p>Wij bouwen, jullie geven feedback. Korte sprints, wekelijkse demo's. Binnen 2-4 weken staat er iets werkends.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="step-num c4">04</div>
+                <h3>Oplevering &amp; overdracht</h3>
+                <p>Documentatie, kennisoverdracht en optioneel doorlopend beheer. Jullie team kan er zelfstandig mee verder.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <div class="cta-content reveal">
+            <span class="section-label">Starten?</span>
+            <h2 class="section-title">Gratis data-scan <em>in 30 minuten</em></h2>
+            <p>We kijken samen naar je datalandschap en laten direct zien waar je tijd verliest. Geen verkooppraatje. Gewoon een eerlijk gesprek over wat er beter kan.</p>
+            <div class="cta-offer">
+                <h3>Dit krijg je na het gesprek:</h3>
+                <ul>
+                    <li><span class="check">&#10003;</span> Overzicht van je huidige data-knelpunten</li>
+                    <li><span class="check">&#10003;</span> Top 3 quick wins die het snelst resultaat opleveren</li>
+                    <li><span class="check">&#10003;</span> Indicatie van kosten en doorlooptijd</li>
+                    <li><span class="check">&#10003;</span> Eerlijk advies — ook als wij niet de juiste partij zijn</li>
+                </ul>
+            </div>
+            <a href="mailto:info@acentosolutions.nl" class="btn-primary">Plan je gratis data-scan &#8594;</a>
+            <div class="cta-contact-info">
+                <a href="mailto:info@acentosolutions.nl" class="cta-contact-item">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    info@acentosolutions.nl
+                </a>
+                <a href="tel:+31600000000" class="cta-contact-item">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    +31 6 00 000 000
+                </a>
+                <span class="cta-contact-item">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    Regio Rotterdam
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Voorwaarden</a></li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ── 3D SPHERE WAVE ──
+    (function() {
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        const hero = document.querySelector('.hero');
+        let w, h, animationId;
+
+        const K2 = 5;
+        let A = 0.3, B = 0, C = 0;
+        let time = 0;
+        const uSteps = 80, vSteps = 40;
+
+        function resize() {
+            const rect = hero.getBoundingClientRect();
+            w = canvas.width = rect.width;
+            h = canvas.height = rect.height;
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+
+            const K1 = Math.min(w, h) * 0.81;
+            const cx = w * 0.68;
+            const cy = h * 0.55;
+
+            const cosA = Math.cos(A), sinA = Math.sin(A);
+            const cosB = Math.cos(B), sinB = Math.sin(B);
+            const cosC = Math.cos(C), sinC = Math.sin(C);
+
+            const points = [];
+
+            for (let ui = 0; ui < uSteps; ui++) {
+                const u = (ui / uSteps) * Math.PI * 2;
+                for (let vi = 0; vi < vSteps; vi++) {
+                    const v = (vi / vSteps) * Math.PI;
+
+                    const baseR = 2.0;
+                    const wave = 0.3 * Math.sin(5 * u + time) * Math.sin(4 * v + time * 0.7);
+                    const r = baseR + wave;
+
+                    const sinV = Math.sin(v), cosV = Math.cos(v);
+                    const px = r * sinV * Math.cos(u);
+                    const py = r * sinV * Math.sin(u);
+                    const pz = r * cosV;
+
+                    const y1 = py * cosA - pz * sinA;
+                    const z1 = py * sinA + pz * cosA;
+                    const x2 = px * cosB + z1 * sinB;
+                    const z2 = -px * sinB + z1 * cosB;
+                    const x3 = x2 * cosC - y1 * sinC;
+                    const y3 = x2 * sinC + y1 * cosC;
+
+                    const z = K2 + z2;
+                    if (z < 0.5) continue;
+                    const ooz = 1 / z;
+
+                    const xp = cx + K1 * ooz * x3;
+                    const yp = cy - K1 * ooz * y3;
+
+                    if (xp < -10 || xp > w + 10 || yp < -10 || yp > h + 10) continue;
+
+                    const len = Math.sqrt(px * px + py * py + pz * pz) || 1;
+                    const nx = px / len, ny = py / len, nz = pz / len;
+                    const ny1 = ny * cosA - nz * sinA;
+                    const nz1 = ny * sinA + nz * cosA;
+                    const nx2 = nx * cosB + nz1 * sinB;
+                    const nz2 = -nx * sinB + nz1 * cosB;
+                    const nx3 = nx2 * cosC - ny1 * sinC;
+                    const ny3 = nx2 * sinC + ny1 * cosC;
+
+                    const L = 0.5 * nx3 + 0.6 * ny3 - 0.6 * nz2;
+
+                    points.push({ x: xp, y: yp, z: z, L: L });
+                }
+            }
+
+            points.sort(function(a, b) { return b.z - a.z; });
+
+            for (let i = 0; i < points.length; i++) {
+                const p = points[i];
+                const lum = Math.max(0, p.L);
+                const opacity = 0.04 + lum * 0.45;
+                const size = 0.6 + lum * 1.4;
+
+                const purple = lum * 0.6;
+                const rv = Math.round(255 - purple * 120);
+                const gv = Math.round(255 - purple * 180);
+                const bv = Math.round(255 - purple * 10);
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${rv}, ${gv}, ${bv}, ${opacity})`;
+                ctx.fill();
+            }
+
+            A += 0.002;
+            B += 0.003;
+            C += 0.001;
+            time += 0.02;
+
+            animationId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        animate();
+
+        let resizeTimeout;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(resize, 200);
+        });
+
+        const heroObserver = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                if (!animationId) animate();
+            } else {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        }, { threshold: 0 });
+        heroObserver.observe(hero);
+    })();
+</script>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 0.06 + 's'; observer.observe(el); });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); document.getElementById('navLinks').classList.remove('active'); }
+        });
+    });
+</script>
+
+</body>
+</html>

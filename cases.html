@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases | Acento</title>
+    <meta name="description" content="Bekijk onze projecten op het gebied van AI agents, data engineering en BI oplossingen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --gray-900: #1a1a1a;
+            --gray-800: #2d2d2d;
+            --gray-700: #404040;
+            --gray-600: #525252;
+            --gray-500: #6b6b6b;
+            --gray-400: #8a8a8a;
+            --gray-300: #b5b5b5;
+            --gray-200: #d4d4d4;
+            --gray-100: #ebebeb;
+            --cream: #F8F7F4;
+            --white: #ffffff;
+            --primary: #6C3CE9;
+            --primary-dark: #5429C7;
+            --primary-light: #A78BFA;
+            --primary-50: #f3effb;
+            --navy: #1a1a2e;
+            --navy-light: #252545;
+            --accent: #10B981;
+            --accent-dark: #059669;
+            --accent-light: #6EE7B7;
+            --accent-50: #ecfdf5;
+            --warm: #F59E0B;
+            --warm-light: #FCD34D;
+            --border: #e5e4e0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body); background: var(--cream);
+            color: var(--gray-600); line-height: 1.7; font-size: 16px;
+            overflow-x: hidden; -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(248,247,244,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            height: 72px; display: flex; align-items: center;
+        }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-mark { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+        .logo-mark svg { width: 100%; height: 100%; }
+        .logo-text { font-family: var(--font-body); font-size: 1.25rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+        .nav-links a { color: var(--gray-600); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--black); }
+        .nav-links a.active { color: var(--primary); }
+        .nav-cta {
+            background: var(--primary)!important; color: var(--white)!important;
+            padding: 10px 24px; border-radius: 6px; font-weight: 600!important; transition: all 0.2s!important;
+        }
+        .nav-cta:hover { background: var(--primary-dark)!important; transform: translateY(-1px); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--black); font-size: 1.5rem; cursor: pointer; }
+
+        .accent-bar { height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent), var(--warm)); }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            padding: 140px 0 60px;
+            background: var(--navy);
+            color: var(--white);
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -30%; right: -15%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(108,60,233,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero .container { position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 0.8rem; }
+        .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--white); }
+        .breadcrumb span { color: rgba(255,255,255,0.25); }
+        .breadcrumb .current { color: var(--primary-light); }
+        .page-hero h1 {
+            font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+        }
+        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+
+        /* ── FILTER TAGS ── */
+        .filter-section { padding: 32px 0; border-bottom: 1px solid var(--border); background: var(--white); }
+        .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .filter-tag {
+            padding: 8px 18px; border-radius: 100px; font-size: 0.78rem; font-weight: 500;
+            border: 1px solid var(--border); background: var(--white); color: var(--gray-600);
+            cursor: pointer; transition: all 0.2s; text-decoration: none;
+        }
+        .filter-tag:hover, .filter-tag.active {
+            background: var(--primary); color: var(--white); border-color: var(--primary);
+        }
+
+        /* ── CASES GRID ── */
+        .cases-section { padding: 60px 0 100px; }
+        .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        .case-card {
+            background: var(--navy); border-radius: 16px; overflow: hidden;
+            transition: all 0.3s; text-decoration: none; display: flex; flex-direction: column;
+        }
+        .case-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+        .case-card-image {
+            width: 100%; height: 220px; object-fit: cover; display: block;
+        }
+        .case-card-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
+        .case-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+        .case-tag {
+            font-size: 0.65rem; padding: 4px 10px; border-radius: 100px; font-weight: 600;
+            letter-spacing: 0.05em; text-transform: uppercase;
+        }
+        .case-tag.purple { background: rgba(108,60,233,0.2); color: var(--primary-light); }
+        .case-tag.green { background: rgba(16,185,129,0.15); color: var(--accent-light); }
+        .case-tag.amber { background: rgba(245,158,11,0.15); color: var(--warm-light); }
+        .case-card h3 {
+            font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
+            color: var(--white); margin-bottom: 12px; line-height: 1.35;
+        }
+        .case-card p { color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.7; flex: 1; margin-bottom: 20px; }
+        .case-card-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: var(--primary-light); font-size: 0.85rem; font-weight: 600;
+            transition: gap 0.2s;
+        }
+        .case-card:hover .case-card-link { gap: 10px; }
+        .case-card-branch {
+            font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: rgba(255,255,255,0.3); margin-bottom: 8px; font-weight: 500;
+        }
+
+        /* ── FOOTER ── */
+        footer { padding: 32px 0; border-top: 1px solid var(--border); background: var(--cream); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-content p { color: var(--gray-400); font-size: 0.75rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--gray-400); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--gray-600); }
+
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .container { padding: 0 24px; }
+            .cases-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.active {
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+            .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="logo">
+            <span class="logo-mark">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4 L22.5 16 L34 11 L25 20 L36 22.5 L25 25 L34 29 L22.5 24 L20 36 L17.5 24 L6 29 L15 25 L4 22.5 L15 20 L6 11 L17.5 16 Z" fill="var(--primary)" />
+                </svg>
+            </span>
+            <span class="logo-text">Acento</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="cases.html" class="active">Cases</a></li>
+            <li><a href="index.html#waarom">Waarom wij</a></li>
+            <li><a href="index.html#aanpak">Aanpak</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
+    </div>
+</nav>
+
+<div class="accent-bar"></div>
+
+<section class="page-hero">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span>&#8594;</span>
+            <span class="current">Cases</span>
+        </div>
+        <h1>Geen theorie. <em>Dit hebben we gebouwd.</em></h1>
+        <p>Kleine, praktische projecten bij MKB bedrijven. Van een systeemkoppeling in 3 weken tot een AI agent in 4 weken. Bekijk wat we concreet opgelost hebben.</p>
+    </div>
+</section>
+
+<section class="filter-section">
+    <div class="container">
+        <div class="filter-tags">
+            <span class="filter-tag active" data-filter="all">Alles</span>
+            <span class="filter-tag" data-filter="ai-agents">AI Agents</span>
+            <span class="filter-tag" data-filter="data-engineering">Data Engineering</span>
+            <span class="filter-tag" data-filter="integratie">Integratie</span>
+        </div>
+    </div>
+</section>
+
+<section class="cases-section">
+    <div class="container">
+        <div class="cases-grid">
+
+            <a href="case-jit-afas.html" class="case-card reveal" data-category="integratie">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6e?w=800&q=80" alt="Finance integratie" loading="lazy">
+                <div class="case-card-body">
+                    <div class="case-card-tags">
+                        <span class="case-tag green">Integratie</span>
+                        <span class="case-tag purple">Azure Logic Apps</span>
+                    </div>
+                    <div class="case-card-branch">Logistiek &middot; ~40 medewerkers &middot; 3 weken</div>
+                    <h3>JIT-AFAS koppeling: finance bespaart uren per week aan handmatig invoerwerk</h3>
+                    <p>Finance typte dagelijks data over van JIT naar AFAS. We bouwden een event-driven koppeling met Logic Apps die dat volledig automatiseerde.</p>
+                    <span class="case-card-link">Bekijk case &#8594;</span>
+                </div>
+            </a>
+
+            <a href="case-hr-agent.html" class="case-card reveal" data-category="ai-agents">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="HR AI Agent" loading="lazy">
+                <div class="case-card-body">
+                    <div class="case-card-tags">
+                        <span class="case-tag purple">AI Agent</span>
+                        <span class="case-tag purple">Microsoft Foundry</span>
+                    </div>
+                    <div class="case-card-branch">Privacy &amp; Compliance &middot; 2 weken</div>
+                    <h3>HR AI Agent maakt dashboarddata begrijpelijk voor management</h3>
+                    <p>HR-data stond in Power BI maar niemand haalde er inzichten uit. We configureerden een Fabric data agent die managers in gewone taal advies geeft.</p>
+                    <span class="case-card-link">Bekijk case &#8594;</span>
+                </div>
+            </a>
+
+            <a href="case-sql-agent.html" class="case-card reveal" data-category="ai-agents">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SQL AI Agent" loading="lazy">
+                <div class="case-card-body">
+                    <div class="case-card-tags">
+                        <span class="case-tag purple">AI Agent</span>
+                        <span class="case-tag amber">Python</span>
+                    </div>
+                    <div class="case-card-branch">Groothandel &middot; ~80 medewerkers &middot; 4 weken</div>
+                    <h3>AI Agent: accountmanagers halen zelf data uit het warehouse</h3>
+                    <p>15-20 ad-hoc datavragen per week via het data-team. We bouwden een Python AI Agent die accountmanagers zelf antwoorden laat vinden in gewone taal.</p>
+                    <span class="case-card-link">Bekijk case &#8594;</span>
+                </div>
+            </a>
+
+            <a href="case-appointment-agent.html" class="case-card reveal" data-category="ai-agents">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="Appointment AI Agent" loading="lazy">
+                <div class="case-card-body">
+                    <div class="case-card-tags">
+                        <span class="case-tag purple">AI Agent</span>
+                        <span class="case-tag purple">Copilot Studio</span>
+                    </div>
+                    <div class="case-card-branch">Vastgoed &amp; Bouw &middot; Intern project &middot; 2 weken</div>
+                    <h3>AI Agent automatiseert afspraken: van agenda tot Teams meeting</h3>
+                    <p>Service managers besteedden ~5 min per afspraak aan planwerk. Een Copilot Studio agent handelt nu het hele proces af in 1 commando.</p>
+                    <span class="case-card-link">Bekijk case &#8594;</span>
+                </div>
+            </a>
+
+            <a href="case-datawarehouse-migratie.html" class="case-card reveal" data-category="data-engineering">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Datawarehouse migratie" loading="lazy">
+                <div class="case-card-body">
+                    <div class="case-card-tags">
+                        <span class="case-tag green">Data Engineering</span>
+                        <span class="case-tag amber">Power BI</span>
+                    </div>
+                    <div class="case-card-branch">Technische Dienstverlening &middot; Lopend project</div>
+                    <h3>Legacy platform vervangen door modern datawarehouse</h3>
+                    <p>Oud dataplatform was te duur en beperkt. Gemigreerd naar SQL Server warehouse, aangesloten op nieuw CRM, met het oude platform als validatiebron.</p>
+                    <span class="case-card-link">Bekijk case &#8594;</span>
+                </div>
+            </a>
+
+            <a href="case-dataverlading.html" class="case-card reveal" data-category="data-engineering">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Data verlading" loading="lazy">
+                <div class="case-card-body">
+                    <div class="case-card-tags">
+                        <span class="case-tag green">Data Engineering</span>
+                        <span class="case-tag amber">Azure Data Factory</span>
+                    </div>
+                    <div class="case-card-branch">Logistiek &middot; 5 entiteiten &middot; 4 weken</div>
+                    <h3>Gescheiden financieel inzicht voor 5 bedrijfsonderdelen in Power BI</h3>
+                    <p>Financiele data van 5 entiteiten liep door elkaar. Medallion-architectuur gebouwd die data per onderdeel scheidt en kloppende rapportages levert.</p>
+                    <span class="case-card-link">Bekijk case &#8594;</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Voorwaarden</a></li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Reveal animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 0.08 + 's'; observer.observe(el); });
+
+    // Filter
+    document.querySelectorAll('.filter-tag').forEach(tag => {
+        tag.addEventListener('click', function() {
+            document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            document.querySelectorAll('.case-card').forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

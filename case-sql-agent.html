@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent vertaalt natuurlijke taal naar SQL | Case | Acento</title>
+    <meta name="description" content="Case study: Custom AI Agent die natuurlijke taal vertaalt naar SQL queries zodat niet-technische accountmanagers direct inzichten uit het datawarehouse halen.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --gray-900: #1a1a1a;
+            --gray-800: #2d2d2d;
+            --gray-700: #404040;
+            --gray-600: #525252;
+            --gray-500: #6b6b6b;
+            --gray-400: #8a8a8a;
+            --gray-300: #b5b5b5;
+            --gray-200: #d4d4d4;
+            --gray-100: #ebebeb;
+            --cream: #F8F7F4;
+            --white: #ffffff;
+            --primary: #6C3CE9;
+            --primary-dark: #5429C7;
+            --primary-light: #A78BFA;
+            --primary-50: #f3effb;
+            --navy: #1a1a2e;
+            --navy-light: #252545;
+            --accent: #10B981;
+            --accent-dark: #059669;
+            --accent-light: #6EE7B7;
+            --accent-50: #ecfdf5;
+            --warm: #F59E0B;
+            --warm-light: #FCD34D;
+            --border: #e5e4e0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body); background: var(--cream);
+            color: var(--gray-600); line-height: 1.7; font-size: 16px;
+            overflow-x: hidden; -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+        .section-label {
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
+        }
+        .section-title em { font-style: italic; font-weight: 400; }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(248,247,244,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            height: 72px; display: flex; align-items: center;
+        }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-mark { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+        .logo-mark svg { width: 100%; height: 100%; }
+        .logo-text { font-family: var(--font-body); font-size: 1.25rem; font-weight: 700; color: var(--black); letter-spacing: -0.02em; }
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+        .nav-links a { color: var(--gray-600); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--black); }
+        .nav-links a.active { color: var(--primary); }
+        .nav-cta {
+            background: var(--primary)!important; color: var(--white)!important;
+            padding: 10px 24px; border-radius: 6px; font-weight: 600!important; transition: all 0.2s!important;
+        }
+        .nav-cta:hover { background: var(--primary-dark)!important; transform: translateY(-1px); }
+        .mobile-toggle { display: none; background: none; border: none; color: var(--black); font-size: 1.5rem; cursor: pointer; }
+
+        .accent-bar { height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent), var(--warm)); }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 140px 0 0;
+            background: var(--navy);
+            color: var(--white);
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; top: -30%; right: -15%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(108,60,233,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: ''; position: absolute; bottom: -20%; left: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero .container { position: relative; z-index: 1; }
+        .breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-size: 0.8rem; }
+        .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--white); }
+        .breadcrumb span { color: rgba(255,255,255,0.25); }
+        .breadcrumb .current { color: var(--primary-light); }
+        .page-hero h1 {
+            font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+        }
+        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+        .hero-text { padding-bottom: 60px; }
+
+        .hero-image {
+            width: 100%; height: 400px; object-fit: cover; display: block;
+            border-radius: 16px 16px 0 0; margin-top: 40px;
+        }
+
+        /* METADATA */
+        .metadata-section { padding: 48px 0; background: var(--white); border-bottom: 1px solid var(--border); }
+        .metadata-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .metadata-card {
+            padding: 28px 24px; background: var(--cream); border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .metadata-label {
+            font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--primary); font-weight: 600; margin-bottom: 10px;
+        }
+        .metadata-value {
+            font-size: 0.92rem; font-weight: 500; color: var(--black); line-height: 1.5;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section { padding: 80px 0; }
+        .content-section.alt { background: var(--white); }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .content-label {
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block;
+        }
+        .content-title {
+            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
+        }
+        .content-title em { font-style: italic; font-weight: 400; color: var(--primary); }
+        .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
+        .content-text p { margin-bottom: 16px; }
+        .content-highlight {
+            background: var(--primary-50); border-left: 3px solid var(--primary);
+            padding: 24px 28px; border-radius: 0 12px 12px 0; margin-top: 24px;
+        }
+        .content-highlight p { color: var(--gray-700); font-size: 0.9rem; line-height: 1.75; margin: 0; font-weight: 500; }
+
+        /* RESULTS */
+        .results-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, #1e1b4b 100%);
+            color: var(--white); position: relative; overflow: hidden;
+        }
+        .results-section::before {
+            content: ''; position: absolute; top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(108,60,233,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .results-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
+        .results-header .section-label { color: var(--primary-light); }
+        .results-header .section-title { color: var(--white); }
+        .results-header .section-title em { color: var(--primary-light); }
+        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
+        .result-card {
+            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px; padding: 40px 32px; text-align: center;
+            transition: all 0.3s;
+        }
+        .result-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+        .result-icon { font-size: 2rem; margin-bottom: 16px; }
+        .result-number {
+            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700; margin-bottom: 12px; line-height: 1.1;
+        }
+        .result-number.purple { color: var(--primary-light); }
+        .result-number.green { color: var(--accent-light); }
+        .result-number.amber { color: var(--warm-light); }
+        .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--white);
+            text-align: center;
+        }
+        .cta-content { max-width: 580px; margin: 0 auto; }
+        .cta-content .section-title em { color: var(--primary); }
+        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
+            background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px;
+            font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: none; cursor: pointer;
+        }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(108,60,233,0.3); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
+            background: transparent; color: var(--gray-600); text-decoration: none; border-radius: 6px;
+            font-weight: 600; font-size: 0.95rem; border: 1px solid var(--border); transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: var(--gray-400); background: var(--cream); }
+        .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        /* FOOTER */
+        footer { padding: 32px 0; border-top: 1px solid var(--border); background: var(--cream); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .footer-content p { color: var(--gray-400); font-size: 0.75rem; }
+        .footer-links { display: flex; gap: 24px; list-style: none; }
+        .footer-links a { color: var(--gray-400); text-decoration: none; font-size: 0.75rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--gray-600); }
+
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 1024px) {
+            .container { padding: 0 24px; }
+            .metadata-grid { grid-template-columns: repeat(2, 1fr); }
+            .content-grid { grid-template-columns: 1fr; gap: 32px; }
+            .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.active {
+                display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+            .metadata-grid { grid-template-columns: 1fr; }
+            .hero-image { height: 240px; }
+            .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="logo">
+            <span class="logo-mark">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4 L22.5 16 L34 11 L25 20 L36 22.5 L25 25 L34 29 L22.5 24 L20 36 L17.5 24 L6 29 L15 25 L4 22.5 L15 20 L6 11 L17.5 16 Z" fill="var(--primary)" />
+                </svg>
+            </span>
+            <span class="logo-text">Acento</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="cases.html" class="active">Cases</a></li>
+            <li><a href="index.html#waarom">Waarom wij</a></li>
+            <li><a href="index.html#aanpak">Aanpak</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+        </ul>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
+    </div>
+</nav>
+
+<div class="accent-bar"></div>
+
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-text">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>&#8594;</span>
+                <a href="cases.html">Cases</a>
+                <span>&#8594;</span>
+                <span class="current">SQL AI Agent</span>
+            </div>
+            <h1>AI Agent: accountmanagers halen zelf <em>data uit het warehouse</em></h1>
+            <p>Groothandel (~80 medewerkers) waar accountmanagers dagen wachtten op data-inzichten. In 4 weken een custom AI Agent gebouwd die natuurlijke taal vertaalt naar SQL queries.</p>
+        </div>
+        <img class="hero-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80" alt="SQL AI Agent data-inzichten" loading="eager">
+    </div>
+</section>
+
+<section class="metadata-section reveal">
+    <div class="container">
+        <div class="metadata-grid">
+            <div class="metadata-card">
+                <div class="metadata-label">Doorlooptijd</div>
+                <div class="metadata-value">4 weken van start tot oplevering</div>
+            </div>
+            <div class="metadata-card">
+                <div class="metadata-label">Technologie</div>
+                <div class="metadata-value">Python, Microsoft Foundry SDK, Azure AI Foundry, SQL Server</div>
+            </div>
+            <div class="metadata-card">
+                <div class="metadata-label">Bedrijf</div>
+                <div class="metadata-value">Groothandel &amp; Distributie, ~80 medewerkers</div>
+            </div>
+            <div class="metadata-card">
+                <div class="metadata-label">Resultaat</div>
+                <div class="metadata-value">Accountmanagers halen zelf data op, data-team ontlast</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section reveal">
+    <div class="container">
+        <div class="content-grid">
+            <div>
+                <span class="content-label">Het probleem</span>
+                <h2 class="content-title">De <em>uitdaging</em></h2>
+            </div>
+            <div class="content-text">
+                <p>Bij een groothandel met ~80 medewerkers hadden accountmanagers dagelijks data nodig uit het warehouse: klantomzet, bestelpatronen, levertijden, marges. Maar die data was alleen bereikbaar via SQL-queries.</p>
+                <p>Elke vraag moest via het data-team. Een simpele vraag als "Wat is de omzet van klant X dit kwartaal?" duurde soms dagen. Het data-team werd een bottleneck en commerciele beslissingen liepen vertraging op.</p>
+                <div class="content-highlight">
+                    <p>Concreet: het data-team kreeg 15-20 ad-hoc datavragen per week. Accountmanagers wilden zelf antwoorden, maar SQL was een te hoge drempel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content-section alt reveal">
+    <div class="container">
+        <div class="content-grid">
+            <div>
+                <span class="content-label">De oplossing</span>
+                <h2 class="content-title">Onze <em>aanpak</em></h2>
+            </div>
+            <div class="content-text">
+                <p>We hebben een custom AI Agent gebouwd met Python en de Microsoft Foundry SDK, gehost in Azure AI Foundry. De agent begrijpt vragen in gewone taal en vertaalt ze naar correcte SQL-queries op het bestaande datawarehouse.</p>
+                <p>De agent valideert queries voor uitvoering, voert ze uit en presenteert resultaten in begrijpelijke taal. Accountmanagers vragen nu dingen als "Top 10 klanten op omzet dit jaar" of "Gemiddelde levertijd per regio" en krijgen direct antwoord.</p>
+                <div class="content-highlight">
+                    <p>Doorlooptijd: 4 weken. Week 1-2: agent ontwikkeling en datamodel mapping. Week 3-4: testen met gebruikers en finetunen van responses.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="results-section reveal">
+    <div class="container">
+        <div class="results-header">
+            <span class="section-label">Impact</span>
+            <h2 class="section-title">Concrete <em>resultaten</em></h2>
+        </div>
+        <div class="results-grid">
+            <div class="result-card reveal">
+                <div class="result-icon">&#9889;</div>
+                <div class="result-number purple">Direct</div>
+                <div class="result-text">Antwoord op datavragen die voorheen dagen kostten via het data-team</div>
+            </div>
+            <div class="result-card reveal">
+                <div class="result-icon">&#128101;</div>
+                <div class="result-number green">Zelfredzaam</div>
+                <div class="result-text">Accountmanagers halen zelfstandig inzichten uit het datawarehouse</div>
+            </div>
+            <div class="result-card reveal">
+                <div class="result-icon">&#128200;</div>
+                <div class="result-number amber">Data-team</div>
+                <div class="result-text">Ontlast van repetitieve ad-hoc queries, meer tijd voor strategische analyses</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section reveal">
+    <div class="container">
+        <div class="cta-content">
+            <span class="section-label">Volgende stap</span>
+            <h2 class="section-title">Ook data <em>toegankelijk maken?</em></h2>
+            <p>Wil je dat je team zelf inzichten uit data kan halen zonder technische kennis? Neem contact op voor een vrijblijvend gesprek.</p>
+            <div class="cta-actions">
+                <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
+                <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <ul class="footer-links">
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Voorwaarden</a></li>
+                <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 0.08 + 's'; observer.observe(el); });
+</script>
+
+</body>
+</html>
