@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automatische systeemkoppeling bespaart finance afdeling uren per week | Acento</title>
-    <meta name="description" content="Case study: Automatische integratie tussen JIT en AFAS via Azure Logic Apps bespaart de finance afdeling uren per week aan handmatig werk.">
+    <meta name="description" content="Case study: Automatische integratie tussen custom systeem en AFAS via Azure Logic Apps bespaart de finance afdeling uren per week aan handmatig werk.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #0a0a0a;
@@ -39,8 +39,8 @@
             --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
             --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
             --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Lora', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -126,20 +126,15 @@
             border-radius: 16px 16px 0 0; margin-top: 40px;
         }
 
-        /* METADATA */
-        .metadata-section { padding: 48px 0; background: var(--white); border-bottom: 1px solid var(--border); }
-        .metadata-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .metadata-card {
-            padding: 28px 24px; background: var(--cream); border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        .metadata-label {
-            font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--primary); font-weight: 600; margin-bottom: 10px;
-        }
-        .metadata-value {
-            font-size: 0.92rem; font-weight: 500; color: var(--black); line-height: 1.5;
-        }
+        /* INTRODUCTIE */
+        .intro-section { padding: 80px 0; background: var(--white); }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .intro-heading { font-family: var(--font-serif, 'Lora', 'Playfair Display', serif); font-size: 3rem; font-weight: 700; color: var(--gray-500, #6b7280); line-height: 1.1; }
+        .intro-table { width: 100%; }
+        .intro-row { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border, #e5e5e5); }
+        .intro-row:last-child { border-bottom: 1px solid var(--border, #e5e5e5); }
+        .intro-label { font-size: 0.95rem; font-weight: 600; color: var(--black); }
+        .intro-value { font-size: 0.95rem; color: var(--black); text-align: right; }
 
         /* CONTENT SECTIONS */
         .content-section { padding: 80px 0; }
@@ -231,7 +226,8 @@
 
         @media (max-width: 1024px) {
             .container { padding: 0 24px; }
-            .metadata-grid { grid-template-columns: repeat(2, 1fr); }
+            .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .intro-heading { font-size: 2.4rem; }
             .content-grid { grid-template-columns: 1fr; gap: 32px; }
             .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
         }
@@ -243,7 +239,8 @@
                 background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
                 box-shadow: var(--shadow-md);
             }
-            .metadata-grid { grid-template-columns: 1fr; }
+            .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+            .intro-heading { font-size: 2rem; }
             .hero-image { height: 240px; }
             .footer-content { flex-direction: column; gap: 12px; text-align: center; }
         }
@@ -282,33 +279,36 @@
                 <span>&#8594;</span>
                 <a href="cases.html">Cases</a>
                 <span>&#8594;</span>
-                <span class="current">JIT-AFAS Koppeling</span>
+                <span class="current">Custom Systeem-AFAS Koppeling</span>
             </div>
-            <h1>JIT-AFAS koppeling bespaart finance <em>uren per week</em></h1>
-            <p>Logistiekbedrijf (~40 medewerkers) waarbij de finance afdeling dagelijks handmatig data overtypte van JIT naar AFAS. In 3 weken een volledige automatisering gebouwd met Azure Logic Apps.</p>
+            <h1>Custom systeem-AFAS koppeling bespaart finance <em>uren per week</em></h1>
+            <p>Logistiekbedrijf (~40 medewerkers) waarbij de finance afdeling dagelijks handmatig data overtypte van het operationele systeem naar AFAS. Een volledige automatisering gebouwd met Azure Logic Apps.</p>
         </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6e?w=1600&q=80" alt="Finance automatisering en systeemintegratie" loading="eager">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80" alt="Systeemintegratie en automatisering" loading="eager">
     </div>
 </section>
 
-<section class="metadata-section reveal">
+<section class="intro-section reveal">
     <div class="container">
-        <div class="metadata-grid">
-            <div class="metadata-card">
-                <div class="metadata-label">Doorlooptijd</div>
-                <div class="metadata-value">3 weken van start tot oplevering</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Technologie</div>
-                <div class="metadata-value">Azure Logic Apps, SQL Server, Stored Procedures</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Bedrijf</div>
-                <div class="metadata-value">Logistiek &amp; Transport, ~40 medewerkers</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Resultaat</div>
-                <div class="metadata-value">0 handmatige overdrachten, 0% invoerfouten</div>
+        <div class="intro-grid">
+            <h2 class="intro-heading">Introductie</h2>
+            <div class="intro-table">
+                <div class="intro-row">
+                    <span class="intro-label">Klant</span>
+                    <span class="intro-value">Logistiek &amp; Transport, ~40 medewerkers</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Tools / Technieken</span>
+                    <span class="intro-value">Azure Logic Apps &ndash; SQL Server &ndash; Stored Procedures</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Services</span>
+                    <span class="intro-value">Systeemintegratie &ndash; Automatisering</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Branche</span>
+                    <span class="intro-value">Logistiek</span>
+                </div>
             </div>
         </div>
     </div>
@@ -322,7 +322,7 @@
                 <h2 class="content-title">De <em>uitdaging</em></h2>
             </div>
             <div class="content-text">
-                <p>Een logistiekbedrijf met ~40 medewerkers werkte dagelijks met twee systemen: JIT (operationeel) en AFAS (financieel). Elke factuur, order en mutatie in JIT moest handmatig worden overgetypt in AFAS. Dat was dubbel werk bij elke wijziging.</p>
+                <p>Een logistiekbedrijf met ~40 medewerkers werkte dagelijks met twee systemen: een custom operationeel systeem en AFAS (financieel). Elke factuur, order en mutatie in het operationele systeem moest handmatig worden overgetypt in AFAS. Dat was dubbel werk bij elke wijziging.</p>
                 <p>Typefouten, vergeten invoer en timing-issues leidden regelmatig tot discrepanties. De finance afdeling besteedde uren per week aan controleren en corrigeren.</p>
                 <div class="content-highlight">
                     <p>Concreet: elke mutatie kostte 3-5 minuten handmatig werk. Bij tientallen mutaties per dag liep dat op tot uren per week.</p>
@@ -340,10 +340,10 @@
                 <h2 class="content-title">Onze <em>aanpak</em></h2>
             </div>
             <div class="content-text">
-                <p>We hebben een event-driven integratie gebouwd met Azure Logic Apps en SQL stored procedures. Wanneer data in JIT wordt ingevoerd of gewijzigd, wordt dit automatisch en real-time aangemaakt of bijgewerkt in AFAS. Geen handmatige tussenkomst meer.</p>
+                <p>We hebben een event-driven integratie gebouwd met Azure Logic Apps en SQL stored procedures. Wanneer data in het operationele systeem wordt ingevoerd of gewijzigd, wordt dit automatisch en real-time aangemaakt of bijgewerkt in AFAS. Geen handmatige tussenkomst meer.</p>
                 <p>De stored procedures in SQL Server zorgen voor datatransformatie en validatie: de gegevens komen in het juiste formaat in AFAS terecht. Logic Apps orkestreert het proces en biedt monitoring en foutafhandeling bij uitzonderingen.</p>
                 <div class="content-highlight">
-                    <p>Doorlooptijd: 3 weken van eerste gesprek tot werkende koppeling in productie.</p>
+                    <p>Van eerste gesprek tot werkende koppeling in productie.</p>
                 </div>
             </div>
         </div>
@@ -354,23 +354,20 @@
     <div class="container">
         <div class="results-header">
             <span class="section-label">Impact</span>
-            <h2 class="section-title">Meetbare <em>impact</em> vanaf dag een</h2>
+            <h2 class="section-title">Het resultaat</h2>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-icon">&#9201;</div>
-                <div class="result-number purple">Uren</div>
-                <div class="result-text">Bespaard per week op handmatig invoerwerk en foutcorrectie</div>
+                <div class="result-number purple">Uren per week</div>
+                <div class="result-text">Finance besteedt geen tijd meer aan overtikken en controleren tussen systemen</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-icon">&#9889;</div>
-                <div class="result-number green">0</div>
-                <div class="result-text">Handmatige overdrachten meer nodig tussen de twee systemen</div>
+                <div class="result-number green">100%</div>
+                <div class="result-text">Van alle mutaties wordt automatisch en real-time verwerkt in AFAS</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-icon">&#9989;</div>
-                <div class="result-number amber">~0%</div>
-                <div class="result-text">Foutpercentage door volledige automatisering van het proces</div>
+                <div class="result-number amber">Direct live</div>
+                <div class="result-text">Na oplevering meteen operationeel, geen lange uitrol of training nodig</div>
             </div>
         </div>
     </div>

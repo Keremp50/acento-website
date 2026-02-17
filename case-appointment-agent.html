@@ -7,7 +7,7 @@
     <meta name="description" content="Case study: AI Agent die afspraken regelt van agenda-check tot Teams meeting voor de vastgoed & bouw sector.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #0a0a0a;
@@ -39,8 +39,8 @@
             --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
             --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
             --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Lora', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -126,20 +126,15 @@
             border-radius: 16px 16px 0 0; margin-top: 40px;
         }
 
-        /* ── METADATA ── */
-        .metadata-section { padding: 48px 0; background: var(--white); border-bottom: 1px solid var(--border); }
-        .metadata-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .metadata-card {
-            padding: 28px 24px; background: var(--cream); border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        .metadata-label {
-            font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--primary); font-weight: 600; margin-bottom: 10px;
-        }
-        .metadata-value {
-            font-size: 0.92rem; font-weight: 500; color: var(--black); line-height: 1.5;
-        }
+        /* INTRODUCTIE */
+        .intro-section { padding: 80px 0; background: var(--white); }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .intro-heading { font-family: var(--font-serif, 'Lora', 'Playfair Display', serif); font-size: 3rem; font-weight: 700; color: var(--gray-500, #6b7280); line-height: 1.1; }
+        .intro-table { width: 100%; }
+        .intro-row { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border, #e5e5e5); }
+        .intro-row:last-child { border-bottom: 1px solid var(--border, #e5e5e5); }
+        .intro-label { font-size: 0.95rem; font-weight: 600; color: var(--black); }
+        .intro-value { font-size: 0.95rem; color: var(--black); text-align: right; }
 
         /* ── CONTENT SECTIONS ── */
         .content-section { padding: 80px 0; }
@@ -231,7 +226,8 @@
 
         @media (max-width: 1024px) {
             .container { padding: 0 24px; }
-            .metadata-grid { grid-template-columns: repeat(2, 1fr); }
+            .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .intro-heading { font-size: 2.4rem; }
             .content-grid { grid-template-columns: 1fr; gap: 32px; }
             .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
         }
@@ -243,7 +239,8 @@
                 background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
                 box-shadow: var(--shadow-md);
             }
-            .metadata-grid { grid-template-columns: 1fr; }
+            .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+            .intro-heading { font-size: 2rem; }
             .hero-image { height: 240px; }
             .footer-content { flex-direction: column; gap: 12px; text-align: center; }
         }
@@ -287,28 +284,31 @@
             <h1>AI Agent automatiseert afspraken: van agenda tot <em>Teams meeting</em></h1>
             <p>Intern project: service managers besteedden ~5 minuten per afspraak aan handmatig planwerk. Een Copilot Studio agent gebouwd die het hele proces afhandelt in 1 commando.</p>
         </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=80" alt="AI Agent afspraken automatisering" loading="eager">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1600&q=80" alt="Microsoft Teams vergadering en agenda planning" loading="eager">
     </div>
 </section>
 
-<section class="metadata-section reveal">
+<section class="intro-section reveal">
     <div class="container">
-        <div class="metadata-grid">
-            <div class="metadata-card">
-                <div class="metadata-label">Doorlooptijd</div>
-                <div class="metadata-value">2 weken configuratie en testen</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Technologie</div>
-                <div class="metadata-value">Copilot Studio, Microsoft 365, Outlook, Teams</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Type</div>
-                <div class="metadata-value">Intern project (Vastgoed &amp; Bouw)</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Resultaat</div>
-                <div class="metadata-value">Van 5 min per afspraak naar 1 commando</div>
+        <div class="intro-grid">
+            <h2 class="intro-heading">Introductie</h2>
+            <div class="intro-table">
+                <div class="intro-row">
+                    <span class="intro-label">Klant</span>
+                    <span class="intro-value">Vastgoed &amp; Bouw (intern project)</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Tools / Technieken</span>
+                    <span class="intro-value">Copilot Studio &ndash; Microsoft 365 &ndash; Outlook &ndash; Teams</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Services</span>
+                    <span class="intro-value">AI Agents &ndash; Procesautomatisering</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Branche</span>
+                    <span class="intro-value">Vastgoed &amp; Bouw</span>
+                </div>
             </div>
         </div>
     </div>
@@ -357,17 +357,14 @@
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-icon">&#9201;</div>
                 <div class="result-number purple">Uren/week</div>
                 <div class="result-text">Service managers besparen uren per week die voorheen opgingen aan handmatig planwerk</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-icon">&#9889;</div>
                 <div class="result-number green">100%</div>
                 <div class="result-text">Volledig geautomatiseerd afsprakenproces van begin tot eind</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-icon">&#128640;</div>
                 <div class="result-number amber">5 min &rarr; 1 cmd</div>
                 <div class="result-text">Van 5 minuten per afspraak naar 1 commando aan de AI Agent</div>
             </div>

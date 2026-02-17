@@ -7,7 +7,7 @@
     <meta name="description" content="Bekijk onze projecten op het gebied van AI agents, data engineering en BI oplossingen.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #0a0a0a;
@@ -39,8 +39,8 @@
             --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
             --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
             --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Lora', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -103,18 +103,6 @@
         .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
         .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
 
-        /* ── FILTER TAGS ── */
-        .filter-section { padding: 32px 0; border-bottom: 1px solid var(--border); background: var(--white); }
-        .filter-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-        .filter-tag {
-            padding: 8px 18px; border-radius: 100px; font-size: 0.78rem; font-weight: 500;
-            border: 1px solid var(--border); background: var(--white); color: var(--gray-600);
-            cursor: pointer; transition: all 0.2s; text-decoration: none;
-        }
-        .filter-tag:hover, .filter-tag.active {
-            background: var(--primary); color: var(--white); border-color: var(--primary);
-        }
-
         /* ── CASES GRID ── */
         .cases-section { padding: 60px 0 100px; }
         .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
@@ -127,14 +115,6 @@
             width: 100%; height: 220px; object-fit: cover; display: block;
         }
         .case-card-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
-        .case-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-        .case-tag {
-            font-size: 0.65rem; padding: 4px 10px; border-radius: 100px; font-weight: 600;
-            letter-spacing: 0.05em; text-transform: uppercase;
-        }
-        .case-tag.purple { background: rgba(108,60,233,0.2); color: var(--primary-light); }
-        .case-tag.green { background: rgba(16,185,129,0.15); color: var(--accent-light); }
-        .case-tag.amber { background: rgba(245,158,11,0.15); color: var(--warm-light); }
         .case-card h3 {
             font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
             color: var(--white); margin-bottom: 12px; line-height: 1.35;
@@ -210,48 +190,30 @@
             <span>&#8594;</span>
             <span class="current">Cases</span>
         </div>
-        <h1>Geen theorie. <em>Dit hebben we gebouwd.</em></h1>
-        <p>Kleine, praktische projecten bij MKB bedrijven. Van een systeemkoppeling in 3 weken tot een AI agent in 4 weken. Bekijk wat we concreet opgelost hebben.</p>
+        <h1>Geen theorie. Dit hebben we gebouwd.</h1>
+        <p>Data-oplossingen die we hebben neergezet bij MKB-bedrijven. Van systeemkoppelingen en pipelines tot AI agents en dashboards.</p>
     </div>
 </section>
 
-<section class="filter-section">
-    <div class="container">
-        <div class="filter-tags">
-            <span class="filter-tag active" data-filter="all">Alles</span>
-            <span class="filter-tag" data-filter="ai-agents">AI Agents</span>
-            <span class="filter-tag" data-filter="data-engineering">Data Engineering</span>
-            <span class="filter-tag" data-filter="integratie">Integratie</span>
-        </div>
-    </div>
-</section>
 
 <section class="cases-section">
     <div class="container">
         <div class="cases-grid">
 
             <a href="case-jit-afas.html" class="case-card reveal" data-category="integratie">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6e?w=800&q=80" alt="Finance integratie" loading="lazy">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Systeemintegratie" loading="lazy">
                 <div class="case-card-body">
-                    <div class="case-card-tags">
-                        <span class="case-tag green">Integratie</span>
-                        <span class="case-tag purple">Azure Logic Apps</span>
-                    </div>
-                    <div class="case-card-branch">Logistiek &middot; ~40 medewerkers &middot; 3 weken</div>
-                    <h3>JIT-AFAS koppeling: finance bespaart uren per week aan handmatig invoerwerk</h3>
-                    <p>Finance typte dagelijks data over van JIT naar AFAS. We bouwden een event-driven koppeling met Logic Apps die dat volledig automatiseerde.</p>
+                    <div class="case-card-branch">Logistiek &middot; ~40 medewerkers</div>
+                    <h3>Custom systeem-AFAS koppeling: finance bespaart uren per week aan handmatig invoerwerk</h3>
+                    <p>Finance typte dagelijks data over van het operationele systeem naar AFAS. We bouwden een event-driven koppeling met Logic Apps die dat volledig automatiseerde.</p>
                     <span class="case-card-link">Bekijk case &#8594;</span>
                 </div>
             </a>
 
             <a href="case-hr-agent.html" class="case-card reveal" data-category="ai-agents">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="HR AI Agent" loading="lazy">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Power BI dashboard met HR-gegevens" loading="lazy">
                 <div class="case-card-body">
-                    <div class="case-card-tags">
-                        <span class="case-tag purple">AI Agent</span>
-                        <span class="case-tag purple">Microsoft Foundry</span>
-                    </div>
-                    <div class="case-card-branch">Privacy &amp; Compliance &middot; 2 weken</div>
+                    <div class="case-card-branch">Privacy &amp; Compliance</div>
                     <h3>HR AI Agent maakt dashboarddata begrijpelijk voor management</h3>
                     <p>HR-data stond in Power BI maar niemand haalde er inzichten uit. We configureerden een Fabric data agent die managers in gewone taal advies geeft.</p>
                     <span class="case-card-link">Bekijk case &#8594;</span>
@@ -261,11 +223,7 @@
             <a href="case-sql-agent.html" class="case-card reveal" data-category="ai-agents">
                 <img class="case-card-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SQL AI Agent" loading="lazy">
                 <div class="case-card-body">
-                    <div class="case-card-tags">
-                        <span class="case-tag purple">AI Agent</span>
-                        <span class="case-tag amber">Python</span>
-                    </div>
-                    <div class="case-card-branch">Groothandel &middot; ~80 medewerkers &middot; 4 weken</div>
+                    <div class="case-card-branch">Groothandel &middot; ~80 medewerkers</div>
                     <h3>AI Agent: accountmanagers halen zelf data uit het warehouse</h3>
                     <p>15-20 ad-hoc datavragen per week via het data-team. We bouwden een Python AI Agent die accountmanagers zelf antwoorden laat vinden in gewone taal.</p>
                     <span class="case-card-link">Bekijk case &#8594;</span>
@@ -273,13 +231,9 @@
             </a>
 
             <a href="case-appointment-agent.html" class="case-card reveal" data-category="ai-agents">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80" alt="Appointment AI Agent" loading="lazy">
+                <img class="case-card-image" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Microsoft Teams vergadering en agenda planning" loading="lazy">
                 <div class="case-card-body">
-                    <div class="case-card-tags">
-                        <span class="case-tag purple">AI Agent</span>
-                        <span class="case-tag purple">Copilot Studio</span>
-                    </div>
-                    <div class="case-card-branch">Vastgoed &amp; Bouw &middot; Intern project &middot; 2 weken</div>
+                    <div class="case-card-branch">Vastgoed &amp; Bouw &middot; Intern project</div>
                     <h3>AI Agent automatiseert afspraken: van agenda tot Teams meeting</h3>
                     <p>Service managers besteedden ~5 min per afspraak aan planwerk. Een Copilot Studio agent handelt nu het hele proces af in 1 commando.</p>
                     <span class="case-card-link">Bekijk case &#8594;</span>
@@ -289,10 +243,6 @@
             <a href="case-datawarehouse-migratie.html" class="case-card reveal" data-category="data-engineering">
                 <img class="case-card-image" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Datawarehouse migratie" loading="lazy">
                 <div class="case-card-body">
-                    <div class="case-card-tags">
-                        <span class="case-tag green">Data Engineering</span>
-                        <span class="case-tag amber">Power BI</span>
-                    </div>
                     <div class="case-card-branch">Technische Dienstverlening &middot; Lopend project</div>
                     <h3>Legacy platform vervangen door modern datawarehouse</h3>
                     <p>Oud dataplatform was te duur en beperkt. Gemigreerd naar SQL Server warehouse, aangesloten op nieuw CRM, met het oude platform als validatiebron.</p>
@@ -303,11 +253,7 @@
             <a href="case-dataverlading.html" class="case-card reveal" data-category="data-engineering">
                 <img class="case-card-image" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Data verlading" loading="lazy">
                 <div class="case-card-body">
-                    <div class="case-card-tags">
-                        <span class="case-tag green">Data Engineering</span>
-                        <span class="case-tag amber">Azure Data Factory</span>
-                    </div>
-                    <div class="case-card-branch">Logistiek &middot; 5 entiteiten &middot; 4 weken</div>
+                    <div class="case-card-branch">Logistiek &middot; 5 entiteiten</div>
                     <h3>Gescheiden financieel inzicht voor 5 bedrijfsonderdelen in Power BI</h3>
                     <p>Financiele data van 5 entiteiten liep door elkaar. Medallion-architectuur gebouwd die data per onderdeel scheidt en kloppende rapportages levert.</p>
                     <span class="case-card-link">Bekijk case &#8594;</span>
@@ -340,21 +286,6 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 0.08 + 's'; observer.observe(el); });
 
-    // Filter
-    document.querySelectorAll('.filter-tag').forEach(tag => {
-        tag.addEventListener('click', function() {
-            document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-            const filter = this.dataset.filter;
-            document.querySelectorAll('.case-card').forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
 </script>
 
 </body>

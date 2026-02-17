@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acento | Azure Data Solutions voor het MKB</title>
-    <meta name="description" content="Je rapportages kloppen niet en je data staat overal. Wij bouwen de Azure-oplossing die dat fixt. Pipelines, dashboards, koppelingen en AI — binnen weken. Regio Rotterdam.">
+    <meta name="description" content="Acento bouwt data- en AI-oplossingen op Microsoft Azure voor het MKB. Pipelines, dashboards, koppelingen en AI agents. Regio Rotterdam.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #0a0a0a;
@@ -39,8 +39,8 @@
             --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
             --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
             --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Lora', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,7 +61,6 @@
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
         }
-        .section-title em { font-style: italic; font-weight: 400; }
         .section-sub { color: var(--gray-500); font-size: 1.05rem; max-width: 560px; line-height: 1.8; }
 
         /* ── NAVBAR ── */
@@ -126,7 +125,6 @@
             line-height: 1.1; font-weight: 700; margin-bottom: 24px;
             letter-spacing: -0.02em; color: var(--white);
         }
-        .hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
         .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.85; }
         .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
         .btn-primary {
@@ -295,7 +293,6 @@
         .cta-content { position: relative; z-index: 1; max-width: 580px; }
         .cta-content .section-label { color: var(--primary-light); }
         .cta-content .section-title { color: var(--white); margin-bottom: 14px; }
-        .cta-content .section-title em { color: var(--primary-light); }
         .cta-content p { color: rgba(255,255,255,0.55); margin-bottom: 32px; font-size: 1.05rem; line-height: 1.8; }
         .cta-content .btn-primary { background: var(--accent); color: var(--white); }
         .cta-content .btn-primary:hover { background: var(--accent-dark); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
@@ -365,7 +362,7 @@
             <li><a href="cases.html">Cases</a></li>
             <li><a href="#waarom">Waarom wij</a></li>
             <li><a href="#aanpak">Aanpak</a></li>
-            <li><a href="#contact" class="nav-cta">Gratis data-scan</a></li>
+            <li><a href="#contact" class="nav-cta">Vrijblijvend gesprek</a></li>
         </ul>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
     </div>
@@ -380,13 +377,13 @@
         <div class="hero-grid">
             <div class="hero-content">
                 <div class="hero-label">
-                    <span>&#9679;</span> Azure Full-Stack Data Solutions
+                    Jouw data &amp; AI partner op Microsoft Azure
                 </div>
-                <h1>Je rapportages kloppen niet.<br><em>Wij fixen dat.</em></h1>
-                <p class="hero-sub">Iedereen werkt in Excel want niemand vertrouwt de dashboards. Data staat in 4 systemen maar nergens samen. Klinkt bekend? Wij bouwen de Azure-oplossing die dat fixt. Binnen weken, niet maanden.</p>
+                <h1>Wij zijn <span style="color: var(--primary-light)">Acento</span>.<br>Jouw partner voor data &amp; AI.</h1>
+                <p class="hero-sub">Acento lost data- en AI-vraagstukken op voor het MKB. Van pipelines en dashboards tot systeemkoppelingen en AI agents. Volledig op Microsoft Azure, met een vast aanspreekpunt dat jouw bedrijf kent.</p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn-primary">Gratis data-scan in 30 min &#8594;</a>
-                    <a href="#herkenbaar" class="btn-secondary">Herken jij dit?</a>
+                    <a href="#contact" class="btn-primary">Neem contact op &#8594;</a>
+                    <a href="#diensten" class="btn-secondary">Bekijk onze diensten</a>
                 </div>
             </div>
         </div>
@@ -395,22 +392,22 @@
 
 <div class="ticker">
     <div class="ticker-content">
-        <div class="ticker-item"><span>&#9670;</span> Azure Data Factory</div>
-        <div class="ticker-item"><span>&#9670;</span> Power BI</div>
-        <div class="ticker-item"><span>&#9670;</span> SQL Server</div>
-        <div class="ticker-item"><span>&#9670;</span> Azure Logic Apps</div>
-        <div class="ticker-item"><span>&#9670;</span> Azure AI Foundry</div>
-        <div class="ticker-item"><span>&#9670;</span> Copilot Studio</div>
-        <div class="ticker-item"><span>&#9670;</span> Microsoft Fabric</div>
-        <div class="ticker-item"><span>&#9670;</span> DAX &amp; Datamodellering</div>
-        <div class="ticker-item"><span>&#9670;</span> Azure Data Factory</div>
-        <div class="ticker-item"><span>&#9670;</span> Power BI</div>
-        <div class="ticker-item"><span>&#9670;</span> SQL Server</div>
-        <div class="ticker-item"><span>&#9670;</span> Azure Logic Apps</div>
-        <div class="ticker-item"><span>&#9670;</span> Azure AI Foundry</div>
-        <div class="ticker-item"><span>&#9670;</span> Copilot Studio</div>
-        <div class="ticker-item"><span>&#9670;</span> Microsoft Fabric</div>
-        <div class="ticker-item"><span>&#9670;</span> DAX &amp; Datamodellering</div>
+        <div class="ticker-item"><span>&middot;</span> Azure Data Factory</div>
+        <div class="ticker-item"><span>&middot;</span> Power BI</div>
+        <div class="ticker-item"><span>&middot;</span> SQL Server</div>
+        <div class="ticker-item"><span>&middot;</span> Azure Logic Apps</div>
+        <div class="ticker-item"><span>&middot;</span> Azure AI Foundry</div>
+        <div class="ticker-item"><span>&middot;</span> Copilot Studio</div>
+        <div class="ticker-item"><span>&middot;</span> Microsoft Fabric</div>
+        <div class="ticker-item"><span>&middot;</span> DAX &amp; Datamodellering</div>
+        <div class="ticker-item"><span>&middot;</span> Azure Data Factory</div>
+        <div class="ticker-item"><span>&middot;</span> Power BI</div>
+        <div class="ticker-item"><span>&middot;</span> SQL Server</div>
+        <div class="ticker-item"><span>&middot;</span> Azure Logic Apps</div>
+        <div class="ticker-item"><span>&middot;</span> Azure AI Foundry</div>
+        <div class="ticker-item"><span>&middot;</span> Copilot Studio</div>
+        <div class="ticker-item"><span>&middot;</span> Microsoft Fabric</div>
+        <div class="ticker-item"><span>&middot;</span> DAX &amp; Datamodellering</div>
     </div>
 </div>
 
@@ -419,27 +416,23 @@
     <div class="container">
         <div class="pain-header reveal">
             <span class="section-label">Herkenbaar?</span>
-            <h2 class="section-title">Dit horen we <em>elke week</em></h2>
+            <h2 class="section-title">Dit horen we elke week</h2>
             <p class="section-sub">Als je je hierin herkent, ben je niet de enige. Dit zijn precies de situaties waar onze klanten mee bij ons aanklopten.</p>
         </div>
         <div class="pain-grid">
             <div class="pain-card reveal">
-                <div class="pain-icon">&#128202;</div>
                 <h3>"Onze Power BI dashboards kloppen niet — dus iedereen maakt z'n eigen Excel"</h3>
                 <p>Je hebt Power BI, maar niemand vertrouwt de cijfers. Elke maand maakt iemand handmatig een overzichtje in Excel. Het management stuurt op onderbuikgevoel in plaats van data.</p>
             </div>
             <div class="pain-card reveal">
-                <div class="pain-icon">&#128268;</div>
                 <h3>"Data uit CRM, ERP en finance komt gewoon niet samen"</h3>
                 <p>Je hebt 3, 4, 5 systemen maar geen totaalbeeld. Wat is de omzet per klant? Dat is een halve dag uitzoeken. En het antwoord verschilt per afdeling.</p>
             </div>
             <div class="pain-card reveal">
-                <div class="pain-icon">&#9200;</div>
                 <h3>"We zijn uren kwijt aan handmatig overtikken tussen systemen"</h3>
-                <p>Facturen van JIT naar AFAS. CSV-bestanden importeren. Copy-paste werk dat al jaren zo gaat. Iedereen weet dat het beter kan, maar niemand pakt het op.</p>
+                <p>Facturen overtikken van het ene systeem naar het andere. CSV-bestanden importeren. Copy-paste werk dat al jaren zo gaat. Iedereen weet dat het beter kan, maar niemand pakt het op.</p>
             </div>
             <div class="pain-card reveal">
-                <div class="pain-icon">&#129302;</div>
                 <h3>"AI klinkt interessant — maar we weten niet waar te beginnen"</h3>
                 <p>Je leest overal over AI en Copilot, maar de vertaalslag naar jouw bedrijf ontbreekt. Geen experimenten, je wilt iets dat je team volgende maand al gebruikt.</p>
             </div>
@@ -452,7 +445,7 @@
     <div class="container">
         <div class="whatwedo-header reveal">
             <span class="section-label">Wat wij doen</span>
-            <h2 class="section-title">Azure full-stack <em>data solutions</em></h2>
+            <h2 class="section-title">Azure full-stack data solutions</h2>
             <p class="section-sub">Wij lossen dataproblemen op binnen het Microsoft Azure ecosysteem. Van de bron tot het dashboard. Geen losse producten, maar een werkende oplossing die past bij jouw situatie.</p>
         </div>
         <div class="whatwedo-grid reveal">
@@ -463,11 +456,11 @@
                 <h3>Van bron tot dashboard. Alles Azure.</h3>
                 <p>Wij pakken je dataprobleem van begin tot eind op. Bronnen koppelen, data schoonmaken, pipelines bouwen, dashboards opleveren. Alles binnen Azure, zodat het past in je bestaande Microsoft-omgeving.</p>
                 <ul class="whatwedo-list">
-                    <li><span class="check">&#10003;</span> Data pipelines die bronnen koppelen en transformeren</li>
-                    <li><span class="check">&#10003;</span> Power BI dashboards op een betrouwbaar datamodel</li>
-                    <li><span class="check">&#10003;</span> Systeemkoppelingen die handmatig werk elimineren</li>
-                    <li><span class="check">&#10003;</span> AI agents die data bevragen in gewone taal</li>
-                    <li><span class="check">&#10003;</span> Datawarehouses die schaalbaar en onderhoudbaar zijn</li>
+                    <li>Data pipelines die bronnen koppelen en transformeren</li>
+                    <li>Power BI dashboards op een betrouwbaar datamodel</li>
+                    <li>Systeemkoppelingen die handmatig werk elimineren</li>
+                    <li>AI agents die data bevragen in gewone taal</li>
+                    <li>Datawarehouses die schaalbaar en onderhoudbaar zijn</li>
                 </ul>
                 <div class="service-tags" style="margin-top:20px;">
                     <span class="service-tag purple">Azure Data Factory</span>
@@ -489,7 +482,7 @@
                 </div>
                 <div class="whatwedo-card">
                     <h4>Systeemintegraties</h4>
-                    <p>Logic Apps en Function Apps die je systemen koppelen. Geen copy-paste meer tussen JIT en AFAS, CRM en finance, of ERP en warehouse.</p>
+                    <p>Logic Apps en Function Apps die je systemen koppelen. Geen copy-paste meer tussen operationele systemen en AFAS, CRM en finance, of ERP en warehouse.</p>
                 </div>
                 <div class="whatwedo-card">
                     <h4>AI Agents</h4>
@@ -505,24 +498,21 @@
     <div class="container">
         <div class="forwho-header reveal">
             <span class="section-label">Voor wie dit werkt</span>
-            <h2 class="section-title">MKB bedrijven die <em>vastlopen op data</em></h2>
+            <h2 class="section-title">MKB bedrijven die vastlopen op data</h2>
             <p class="section-sub">Je hoeft geen dataprobleem van een miljoen te hebben. Als je merkt dat rapportages niet kloppen of dat iedereen in Excel werkt, is dat genoeg om te starten.</p>
         </div>
         <div class="forwho-grid">
             <div class="forwho-card reveal">
-                <div class="fw-icon">&#127970;</div>
                 <h3>20 tot 200 medewerkers</h3>
                 <p>Groot genoeg dat data ertoe doet. Klein genoeg dat je geen eigen data-afdeling hebt. Precies de organisaties waar wij het verschil maken.</p>
             </div>
             <div class="forwho-card reveal">
-                <div class="fw-icon">&#128187;</div>
                 <h3>Werkt met Power BI, Excel of meerdere systemen</h3>
                 <p>Je hebt al systemen, maar ze praten niet met elkaar. Of je Power BI staat stof te happen omdat niemand de cijfers vertrouwt.</p>
             </div>
             <div class="forwho-card reveal">
-                <div class="fw-icon">&#9881;</div>
                 <h3>Logistiek, techniek, groothandel, dienstverlening</h3>
-                <p>Onze klanten zitten in sectoren waar operationele data cruciaal is. Bedrijven die dagelijks met systemen als JIT, AFAS, Exact of Dynamics werken.</p>
+                <p>Onze klanten zitten in sectoren waar operationele data cruciaal is. Bedrijven die dagelijks met systemen als AFAS, Exact of Dynamics werken.</p>
             </div>
         </div>
     </div>
@@ -533,8 +523,8 @@
     <div class="container">
         <div class="why-header reveal">
             <span class="section-label">Waarom Acento</span>
-            <h2 class="section-title">Klein team. <em>Kort lijntje.</em> Snel resultaat.</h2>
-            <p>Wij zijn geen groot bureau. We zijn een klein, gespecialiseerd team dat diep in de Azure stack zit. Dat betekent: geen wisselende bezetting, korte lijnen, en een werkend resultaat binnen weken.</p>
+            <h2 class="section-title">Klein team. Kort lijntje. Snel resultaat.</h2>
+            <p>Wij zijn geen groot bureau. We zijn een klein, gespecialiseerd team dat diep in de Azure stack zit. Dat betekent: geen wisselende bezetting, korte lijnen, en snel een werkend resultaat.</p>
         </div>
         <div class="why-grid">
             <div class="why-card reveal">
@@ -542,8 +532,8 @@
                 <p>Geen overdrachtsmomenten, geen informatieverlies. De persoon in het eerste gesprek is dezelfde die de oplossing bouwt en oplevert.</p>
             </div>
             <div class="why-card reveal">
-                <h4>Werkend resultaat in 2-4 weken</h4>
-                <p>We beginnen klein en leveren snel op. Een eerste werkend dashboard of koppeling staat er binnen weken, niet maanden.</p>
+                <h4>Snel werkend resultaat</h4>
+                <p>We beginnen klein en leveren snel op. Een eerste werkend dashboard of koppeling staat er snel, zonder maandenlange trajecten.</p>
             </div>
             <div class="why-card reveal">
                 <h4>Geen overhead op de factuur</h4>
@@ -554,12 +544,12 @@
                 <p>We werken uitsluitend binnen Microsoft Azure. Dat betekent diepgaande kennis van het platform in plaats van oppervlakkige breedte.</p>
             </div>
             <div class="why-card reveal">
-                <h4>Eerlijk over wat kan en niet kan</h4>
-                <p>Als iets niet werkt voor jouw situatie, zeggen we dat. We verkopen geen oplossing die je niet nodig hebt.</p>
+                <h4>Altijd bereikbaar, korte lijntjes</h4>
+                <p>Geen ticketsystemen of wachttijden. Je hebt rechtstreeks contact met je vaste aanspreekpunt. Een vraag? Binnen een dag een antwoord.</p>
             </div>
             <div class="why-card reveal">
-                <h4>Beperkt aantal klanten tegelijk</h4>
-                <p>We werken bewust aan een klein aantal projecten. Dat betekent snelle reactietijden en echte betrokkenheid.</p>
+                <h4>Betrokken van begin tot eind</h4>
+                <p>We werken bewust aan een klein aantal projecten tegelijk. Dat betekent echte betrokkenheid bij jouw resultaat, niet een nummer in de rij.</p>
             </div>
         </div>
     </div>
@@ -571,17 +561,17 @@
         <div class="cases-header reveal">
             <div>
                 <span class="section-label">Recent werk</span>
-                <h2 class="section-title">Geen theorie. <em>Dit hebben we gebouwd.</em></h2>
+                <h2 class="section-title">Geen theorie. Dit hebben we gebouwd.</h2>
             </div>
             <a href="cases.html" class="cases-link">Alle cases bekijken &#8594;</a>
         </div>
         <div class="cases-grid">
             <a href="case-jit-afas.html" class="case-mini reveal">
-                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6e?w=800&q=80" alt="JIT-AFAS koppeling" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Custom systeem-AFAS koppeling" loading="lazy">
                 <div class="case-mini-body">
                     <div class="case-mini-branch">Logistiek &middot; 40 medewerkers</div>
-                    <h3>JIT-AFAS koppeling: finance afdeling bespaart uren per week</h3>
-                    <div class="case-mini-meta">Azure Logic Apps &middot; 3 weken &middot; 0% handmatig werk</div>
+                    <h3>Custom systeem-AFAS koppeling: finance afdeling bespaart uren per week</h3>
+                    <div class="case-mini-meta">Azure Logic Apps &middot; 0% handmatig werk</div>
                 </div>
             </a>
             <a href="case-sql-agent.html" class="case-mini reveal">
@@ -589,7 +579,7 @@
                 <div class="case-mini-body">
                     <div class="case-mini-branch">Groothandel &middot; 80 medewerkers</div>
                     <h3>AI Agent: accountmanagers halen zelf data uit het warehouse</h3>
-                    <div class="case-mini-meta">Python + Azure AI Foundry &middot; 4 weken</div>
+                    <div class="case-mini-meta">Python + Azure AI Foundry</div>
                 </div>
             </a>
             <a href="case-dataverlading.html" class="case-mini reveal">
@@ -597,7 +587,7 @@
                 <div class="case-mini-body">
                     <div class="case-mini-branch">Logistiek &middot; 5 bedrijfsonderdelen</div>
                     <h3>Gescheiden financieel inzicht per entiteit in Power BI</h3>
-                    <div class="case-mini-meta">Medallion architecture &middot; Azure Data Factory &middot; 4 weken</div>
+                    <div class="case-mini-meta">Medallion architecture &middot; Azure Data Factory</div>
                 </div>
             </a>
         </div>
@@ -609,24 +599,24 @@
     <div class="container">
         <div class="process-header reveal">
             <span class="section-label">Hoe het werkt</span>
-            <h2 class="section-title">Van probleem naar <em>werkende oplossing</em></h2>
-            <p class="section-sub">Geen verrassingen, geen scope creep. Je weet vooraf wat het kost, wat je krijgt, en wanneer het klaar is.</p>
+            <h2 class="section-title">Van probleem naar werkende oplossing</h2>
+            <p class="section-sub">Een duidelijk proces zodat je altijd weet waar je aan toe bent.</p>
         </div>
         <div class="process-steps">
             <div class="process-step reveal">
                 <div class="step-num c1">01</div>
-                <h3>Gratis data-scan</h3>
-                <p>30 minuten. We brengen je datalandschap in kaart en laten zien waar de grootste winst zit. Geen verplichtingen, geen verkooppraatje.</p>
+                <h3>Vrijblijvend kennismakingsgesprek</h3>
+                <p>We leren je situatie kennen en denken vrijblijvend mee over je data-uitdagingen. Geen verplichtingen.</p>
             </div>
             <div class="process-step reveal">
                 <div class="step-num c2">02</div>
                 <h3>Concreet voorstel</h3>
-                <p>Een helder plan met vaste prijs, duidelijke scope en tijdlijn. Je weet exact wat je krijgt voordat we beginnen.</p>
+                <p>Een helder plan met duidelijke scope. Je weet wat je krijgt voordat we beginnen.</p>
             </div>
             <div class="process-step reveal">
                 <div class="step-num c3">03</div>
                 <h3>Bouwen &amp; testen</h3>
-                <p>Wij bouwen, jullie geven feedback. Korte sprints, wekelijkse demo's. Binnen 2-4 weken staat er iets werkends.</p>
+                <p>Wij bouwen, jullie geven feedback. Korte sprints en wekelijkse demo's totdat het resultaat staat.</p>
             </div>
             <div class="process-step reveal">
                 <div class="step-num c4">04</div>
@@ -642,18 +632,17 @@
     <div class="container">
         <div class="cta-content reveal">
             <span class="section-label">Starten?</span>
-            <h2 class="section-title">Gratis data-scan <em>in 30 minuten</em></h2>
-            <p>We kijken samen naar je datalandschap en laten direct zien waar je tijd verliest. Geen verkooppraatje. Gewoon een eerlijk gesprek over wat er beter kan.</p>
+            <h2 class="section-title">Plan een vrijblijvend gesprek</h2>
+            <p>Benieuwd wat data voor jouw bedrijf kan betekenen? We denken graag met je mee. Geen verplichtingen, gewoon een goed gesprek.</p>
             <div class="cta-offer">
-                <h3>Dit krijg je na het gesprek:</h3>
+                <h3>Wat je kunt verwachten:</h3>
                 <ul>
-                    <li><span class="check">&#10003;</span> Overzicht van je huidige data-knelpunten</li>
-                    <li><span class="check">&#10003;</span> Top 3 quick wins die het snelst resultaat opleveren</li>
-                    <li><span class="check">&#10003;</span> Indicatie van kosten en doorlooptijd</li>
-                    <li><span class="check">&#10003;</span> Eerlijk advies — ook als wij niet de juiste partij zijn</li>
+                    <li>Een kennismaking en korte inventarisatie van je situatie</li>
+                    <li>Eerste inzichten in mogelijke verbeteringen</li>
+                    <li>Een eerlijk gesprek over of en hoe we kunnen helpen</li>
                 </ul>
             </div>
-            <a href="mailto:info@acentosolutions.nl" class="btn-primary">Plan je gratis data-scan &#8594;</a>
+            <a href="mailto:info@acentosolutions.nl" class="btn-primary">Plan een vrijblijvend gesprek &#8594;</a>
             <div class="cta-contact-info">
                 <a href="mailto:info@acentosolutions.nl" class="cta-contact-item">
                     <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -781,10 +770,10 @@
                 ctx.fill();
             }
 
-            A += 0.002;
-            B += 0.003;
-            C += 0.001;
-            time += 0.02;
+            A += 0.0014;
+            B += 0.0021;
+            C += 0.0007;
+            time += 0.014;
 
             animationId = requestAnimationFrame(animate);
         }

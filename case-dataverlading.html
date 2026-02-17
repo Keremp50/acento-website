@@ -7,7 +7,7 @@
     <meta name="description" content="Case study: Medallion-architectuur uitgebreid met meerdere entiteiten voor helder gescheiden financieel inzicht per bedrijfsonderdeel.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
     <style>
         :root {
             --black: #0a0a0a;
@@ -39,8 +39,8 @@
             --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
             --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
             --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Lora', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
         }
 
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -126,20 +126,15 @@
             border-radius: 16px 16px 0 0; margin-top: 40px;
         }
 
-        /* METADATA */
-        .metadata-section { padding: 48px 0; background: var(--white); border-bottom: 1px solid var(--border); }
-        .metadata-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-        .metadata-card {
-            padding: 28px 24px; background: var(--cream); border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-        .metadata-label {
-            font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-            color: var(--primary); font-weight: 600; margin-bottom: 10px;
-        }
-        .metadata-value {
-            font-size: 0.92rem; font-weight: 500; color: var(--black); line-height: 1.5;
-        }
+        /* INTRODUCTIE */
+        .intro-section { padding: 80px 0; background: var(--white); }
+        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+        .intro-heading { font-family: var(--font-serif, 'Lora', 'Playfair Display', serif); font-size: 3rem; font-weight: 700; color: var(--gray-500, #6b7280); line-height: 1.1; }
+        .intro-table { width: 100%; }
+        .intro-row { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border, #e5e5e5); }
+        .intro-row:last-child { border-bottom: 1px solid var(--border, #e5e5e5); }
+        .intro-label { font-size: 0.95rem; font-weight: 600; color: var(--black); }
+        .intro-value { font-size: 0.95rem; color: var(--black); text-align: right; }
 
         /* CONTENT SECTIONS */
         .content-section { padding: 80px 0; }
@@ -231,7 +226,8 @@
 
         @media (max-width: 1024px) {
             .container { padding: 0 24px; }
-            .metadata-grid { grid-template-columns: repeat(2, 1fr); }
+            .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .intro-heading { font-size: 2.4rem; }
             .content-grid { grid-template-columns: 1fr; gap: 32px; }
             .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
         }
@@ -243,7 +239,8 @@
                 background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
                 box-shadow: var(--shadow-md);
             }
-            .metadata-grid { grid-template-columns: 1fr; }
+            .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+            .intro-heading { font-size: 2rem; }
             .hero-image { height: 240px; }
             .footer-content { flex-direction: column; gap: 12px; text-align: center; }
         }
@@ -285,30 +282,33 @@
                 <span class="current">Dataverlading</span>
             </div>
             <h1>Gescheiden financieel inzicht voor <em>5 bedrijfsonderdelen</em></h1>
-            <p>Logistiekbedrijf met 5 entiteiten waar financiele data door elkaar liep. In 4 weken een medallion-architectuur gebouwd die data per onderdeel scheidt en kloppende Power BI rapportages levert.</p>
+            <p>Logistiekbedrijf met 5 entiteiten waar financiele data door elkaar liep. Een medallion-architectuur gebouwd die data per onderdeel scheidt en kloppende Power BI rapportages levert.</p>
         </div>
         <img class="hero-image" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=80" alt="Data pipeline en financieel inzicht" loading="eager">
     </div>
 </section>
 
-<section class="metadata-section reveal">
+<section class="intro-section reveal">
     <div class="container">
-        <div class="metadata-grid">
-            <div class="metadata-card">
-                <div class="metadata-label">Doorlooptijd</div>
-                <div class="metadata-value">4 weken van start tot oplevering</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Technologie</div>
-                <div class="metadata-value">Azure Data Factory, SQL Server, Power BI, Medallion Architecture</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Bedrijf</div>
-                <div class="metadata-value">Logistiek &amp; Transport, 5 bedrijfsonderdelen</div>
-            </div>
-            <div class="metadata-card">
-                <div class="metadata-label">Resultaat</div>
-                <div class="metadata-value">5x gescheiden financieel inzicht in Power BI</div>
+        <div class="intro-grid">
+            <h2 class="intro-heading">Introductie</h2>
+            <div class="intro-table">
+                <div class="intro-row">
+                    <span class="intro-label">Klant</span>
+                    <span class="intro-value">Logistiek &amp; Transport, 5 bedrijfsonderdelen</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Tools / Technieken</span>
+                    <span class="intro-value">Azure Data Factory &ndash; SQL Server &ndash; Power BI &ndash; Medallion Architecture</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Services</span>
+                    <span class="intro-value">Data Engineering &ndash; BI &amp; Rapportages</span>
+                </div>
+                <div class="intro-row">
+                    <span class="intro-label">Branche</span>
+                    <span class="intro-value">Logistiek</span>
+                </div>
             </div>
         </div>
     </div>
@@ -343,7 +343,7 @@
                 <p>We hebben de bestaande medallion-architectuur uitgebreid zodat data per entiteit gescheiden wordt verwerkt. Via Azure Data Factory worden de datastromen uit het bronsysteem opgesplitst en per bedrijfsonderdeel door de bronze, silver en gold lagen geleid.</p>
                 <p>In de gold laag komt de data samen in een datamodel dat direct gekoppeld is aan Power BI. Het management kan nu per entiteit inzoomen op omzet, kosten, marges en andere KPI's.</p>
                 <div class="content-highlight">
-                    <p>Doorlooptijd: 4 weken. Week 1: analyse en datamodel. Week 2-3: pipelines en transformaties bouwen. Week 4: Power BI dashboards en validatie.</p>
+                    <p>Week 1: analyse en datamodel. Week 2-3: pipelines en transformaties bouwen. Week 4: Power BI dashboards en validatie.</p>
                 </div>
             </div>
         </div>
@@ -358,17 +358,14 @@
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-icon">&#128202;</div>
                 <div class="result-number purple">5</div>
                 <div class="result-text">Bedrijfsonderdelen met eigen gescheiden financieel inzicht in Power BI</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-icon">&#9989;</div>
                 <div class="result-number green">100%</div>
                 <div class="result-text">Correcte datascheiding per entiteit door de volledige medallion-architectuur</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-icon">&#128640;</div>
                 <div class="result-number amber">Schaalbaar</div>
                 <div class="result-text">Architectuur eenvoudig uitbreidbaar voor toekomstige bedrijfsonderdelen</div>
             </div>
