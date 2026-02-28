@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent vertaalt HR dashboarddata naar strategisch advies | Acento</title>
-    <meta name="description" content="Case study: AI Agent configuratie met Fabric data agent en Azure Microsoft Foundry die Power BI HR data omzet naar strategische HR-inzichten.">
+    <title>HR AI Agent in Power BI | Case | Acento</title>
+    <meta name="description" content="Case study: AI Agent geïntegreerd in Power BI-rapportage die HR-data interpreteert, verbanden legt tussen tabellen en het bestuur ondersteunt met direct toepasbare HR-inzichten.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
         }
-        .section-title em { font-style: italic; font-weight: 400; }
+        .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
         /* NAVBAR */
         .navbar {
@@ -117,7 +117,7 @@
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
         }
-        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
         .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
         .hero-text { padding-bottom: 60px; }
 
@@ -148,7 +148,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
         }
-        .content-title em { font-style: italic; font-weight: 400; color: var(--primary); }
+        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
         .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
         .content-text p { margin-bottom: 16px; }
         .content-highlight {
@@ -172,7 +172,7 @@
         .results-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
         .results-header .section-label { color: var(--primary-light); }
         .results-header .section-title { color: var(--white); }
-        .results-header .section-title em { color: var(--primary-light); }
+        .results-header .section-title em { color: inherit; }
         .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
         .result-card {
             background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
@@ -185,7 +185,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
         }
-        .result-number.purple { color: var(--primary-light); }
+        .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
         .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
@@ -197,7 +197,7 @@
             text-align: center;
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
-        .cta-content .section-title em { color: var(--primary); }
+        .cta-content .section-title em { color: inherit; }
         .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
@@ -257,7 +257,7 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
             <li><a href="index.html#waarom">Waarom wij</a></li>
             <li><a href="index.html#aanpak">Aanpak</a></li>
@@ -277,10 +277,10 @@
                 <span>&#8594;</span>
                 <a href="cases.html">Cases</a>
                 <span>&#8594;</span>
-                <span class="current">HR AI Agent</span>
+                <span class="current">HR Data Agent</span>
             </div>
-            <h1>HR AI Agent maakt dashboarddata <em>begrijpelijk voor management</em></h1>
-            <p>Organisatie waar het bestuur wordt ondersteund op HR vlak door een AI advies gebaseerd op hun eigen HR Power BI dashboard. De AI Agent ondersteunt de managers in gewone taal en geeft advies op basis van actuele HR-cijfers.</p>
+            <h1>AI Agent geïntegreerd in Power BI voor HR-besluitvorming</h1>
+            <p>De agent leest data uit de HR-rapportage, interpreteert die in context en helpt bestuur en management om sneller te handelen op basis van betrouwbare HR-inzichten.</p>
         </div>
         <img class="hero-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80" alt="Power BI dashboard met HR-gegevens" loading="eager">
     </div>
@@ -292,20 +292,16 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Klant</span>
-                    <span class="intro-value">Privacy &amp; Compliance sector</span>
-                </div>
-                <div class="intro-row">
                     <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Microsoft Fabric Data Agent &ndash; Azure AI Foundry &ndash; Power BI</span>
+                    <span class="intro-value">Power BI &ndash; Fabric Data Agent &ndash; Azure AI Foundry &ndash; SQL-model &ndash; Datamodellering</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Services</span>
-                    <span class="intro-value">AI Agents &ndash; Data Analytics</span>
+                    <span class="intro-value">AI Agents &ndash; HR Analytics &ndash; Besluitondersteuning</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
-                    <span class="intro-value">Privacy &amp; Compliance</span>
+                    <span class="intro-value">HR</span>
                 </div>
             </div>
         </div>
@@ -317,13 +313,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De <em>uitdaging</em></h2>
+                <h2 class="content-title">De uitdaging</h2>
             </div>
             <div class="content-text">
-                <p>De organisatie beschikte over uitgebreide HR-data in Power BI dashboards. Personeelscijfers, verloopratio's, ziekteverzuim en andere KPI's waren beschikbaar, maar het management had moeite om hier zelf strategische inzichten uit te halen.</p>
-                <p>De vertaalslag van ruwe data naar concreet HR-advies ontbrak volledig. Managers moesten ofwel zelf de dashboards interpreteren - wat leidde tot onvolledige of onjuiste conclusies - ofwel wachten op analyses van de HR-afdeling.</p>
+                <p>Het bestuur beschikte over HR-data in Power BI, maar miste een snelle manier om die data te interpreteren en om te zetten naar concrete acties. De cijfers waren aanwezig, maar de context en verbanden ontbraken vaak.</p>
+                <p>Met name analyses over meerdere tabellen tegelijk kostten veel tijd. Daardoor werd reactief gestuurd in plaats van proactief op trends, oorzaken en risico's binnen HR.</p>
                 <div class="content-highlight">
-                    <p>Dit vertraagde de besluitvorming en betekende dat waardevolle data onbenut bleef terwijl de informatie er gewoon was.</p>
+                    <p>De behoefte was duidelijk: een geïntegreerde HR-specialist die data kan uitleggen en duiden op directieniveau.</p>
                 </div>
             </div>
         </div>
@@ -335,13 +331,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze <em>aanpak</em></h2>
+                <h2 class="content-title">Onze aanpak</h2>
             </div>
             <div class="content-text">
-                <p>We hebben een AI Agent geconfigureerd met behulp van een Fabric data agent en Azure AI Foundry. De agent is direct gekoppeld aan het bestaande Power BI HR dashboard en leest de actuele data real-time uit.</p>
-                <p>Het management kan nu in natuurlijke taal vragen stellen over hun personeelsdata. Vragen als "Wat zijn de trends in ons ziekteverzuim?" of "Welke afdelingen hebben het hoogste verloop?" worden direct beantwoord met contextueel advies en aanbevelingen.</p>
+                <p>We hebben een AI Agent geïntegreerd in de bestaande Power BI HR-rapportage. De agent heeft toegang tot de onderliggende data en kan die interpreteren in plaats van alleen cijfers tonen.</p>
+                <p>De agent legt verbanden tussen meerdere tabellen, herkent HR-patronen en geeft antwoorden in begrijpelijke taal. Zo krijgt het bestuur direct inzicht in wat er gebeurt, waarom het gebeurt en waar bijsturing nodig is.</p>
                 <div class="content-highlight">
-                    <p>De agent fungeert als een intelligente vertaallaag tussen ruwe dashboarddata en strategische HR-beslissingen, zonder dat technische kennis nodig is.</p>
+                    <p>Het resultaat is een eigen geïntegreerde HR-specialist in het bedrijf, beschikbaar op het moment dat besluitvorming daarom vraagt.</p>
                 </div>
             </div>
         </div>
@@ -352,20 +348,20 @@
     <div class="container">
         <div class="results-header">
             <span class="section-label">Impact</span>
-            <h2 class="section-title">Van dashboards naar <em>strategische beslissingen</em></h2>
+            <h2 class="section-title">Van dashboards naar strategische beslissingen</h2>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">Direct</div>
-                <div class="result-text">Strategisch HR-advies op basis van actuele data uit Power BI</div>
+                <div class="result-number purple">Direct inzicht</div>
+                <div class="result-text">Bestuur kan HR-data direct interpreteren zonder aparte vertaalslag</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">100%</div>
-                <div class="result-text">Van dashboarddata naar actionable inzichten en aanbevelingen</div>
+                <div class="result-number green">Tabel-overstijgend</div>
+                <div class="result-text">Verbanden tussen meerdere tabellen worden automatisch meegenomen in analyses</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">Laagdrempelig</div>
-                <div class="result-text">Toegankelijk voor niet-technisch management via natuurlijke taal</div>
+                <div class="result-number amber">Beter handelen</div>
+                <div class="result-text">Management krijgt concrete HR-duiding om sneller en gerichter te sturen</div>
             </div>
         </div>
     </div>
@@ -375,8 +371,8 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook meer uit uw <em>data halen?</em></h2>
-            <p>We helpen u graag om met AI Agents de brug te slaan tussen uw data en strategische beslissingen.</p>
+            <h2 class="section-title">Ook een geïntegreerde HR AI Agent in Power BI?</h2>
+            <p>Wij bouwen agents die HR-data interpreteren, verbanden leggen en uw bestuur ondersteunen met direct toepasbare inzichten.</p>
             <div class="cta-actions">
                 <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
@@ -388,7 +384,7 @@
 <footer>
     <div class="container">
         <div class="footer-content">
-            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <p>&copy; 2026 Acento. Alle rechten voorbehouden.</p>
             <ul class="footer-links">
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Voorwaarden</a></li>

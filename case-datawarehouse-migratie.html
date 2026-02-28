@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datawarehouse migratie | Case | Acento</title>
-    <meta name="description" content="Case study: Van legacy platform naar toekomstbestendig datawarehouse met CRM-integratie voor de technische dienstverlening.">
+    <title>Power BI op het nieuwe dataplatform | Case | Acento</title>
+    <meta name="description" content="Case study: Power BI opnieuw opgebouwd op het nieuwe dataplatform met Azure Data Factory, SQL stored procedures en Medallion architectuur, inclusief circa €4.000 maandelijkse besparing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
         }
-        .section-title em { font-style: italic; font-weight: 400; }
+        .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
         /* ── NAVBAR ── */
         .navbar {
@@ -117,12 +117,13 @@
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
         }
-        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
         .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
         .hero-text { padding-bottom: 60px; }
 
         .hero-image {
             width: 100%; height: 400px; object-fit: cover; display: block;
+            object-position: center;
             border-radius: 16px 16px 0 0; margin-top: 40px;
         }
 
@@ -148,7 +149,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
         }
-        .content-title em { font-style: italic; font-weight: 400; color: var(--primary); }
+        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
         .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
         .content-text p { margin-bottom: 16px; }
         .content-highlight {
@@ -172,7 +173,7 @@
         .results-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
         .results-header .section-label { color: var(--primary-light); }
         .results-header .section-title { color: var(--white); }
-        .results-header .section-title em { color: var(--primary-light); }
+        .results-header .section-title em { color: inherit; }
         .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
         .result-card {
             background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
@@ -185,7 +186,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
         }
-        .result-number.purple { color: var(--primary-light); }
+        .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
         .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
@@ -197,7 +198,7 @@
             text-align: center;
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
-        .cta-content .section-title em { color: var(--primary); }
+        .cta-content .section-title em { color: inherit; }
         .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
@@ -257,7 +258,7 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
             <li><a href="index.html#waarom">Waarom wij</a></li>
             <li><a href="index.html#aanpak">Aanpak</a></li>
@@ -277,12 +278,12 @@
                 <span>&#8594;</span>
                 <a href="cases.html">Cases</a>
                 <span>&#8594;</span>
-                <span class="current">Datawarehouse Migratie</span>
+                <span class="current">Power BI op het nieuwe dataplatform</span>
             </div>
-            <h1>Legacy platform vervangen door modern <em>datawarehouse</em></h1>
-            <p>Technisch dienstverlener waar het oude dataplatform te duur was en niet meer meekon. Gemigreerd naar een modern warehouse op SQL Server, aangesloten op nieuw CRM, met het oude platform als validatiebron.</p>
+            <h1>Power BI opnieuw opgebouwd op het nieuwe dataplatform</h1>
+            <p>Van ADF data flows naar pipeline-gestuurde dataverlading met SQL-logica. Samen met sales managers vertaalden we requirements naar stored procedures en nieuwe Power BI-rapporten.</p>
         </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80" alt="Datawarehouse migratie" loading="eager">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80" alt="Business team bespreekt dashboard en rapportages" loading="eager">
     </div>
 </section>
 
@@ -292,20 +293,16 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Klant</span>
-                    <span class="intro-value">Technische Dienstverlening</span>
-                </div>
-                <div class="intro-row">
                     <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">SQL Server &ndash; Power BI &ndash; Stored Procedures &ndash; CRM-integratie</span>
+                    <span class="intro-value">Azure Data Factory &ndash; SQL Stored Procedures &ndash; Power BI &ndash; Medallion architectuur</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Services</span>
-                    <span class="intro-value">Data Engineering &ndash; BI &amp; Rapportages &ndash; Systeemintegratie</span>
+                    <span class="intro-value">Data Engineering &ndash; Power BI &ndash; Requirement vertaling</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
-                    <span class="intro-value">Technische Dienstverlening</span>
+                    <span class="intro-value">Drukkerij</span>
                 </div>
             </div>
         </div>
@@ -317,13 +314,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De <em>uitdaging</em></h2>
+                <h2 class="content-title">De uitdaging</h2>
             </div>
             <div class="content-text">
-                <p>De organisatie werkte met een verouderd dataplatform dat kostbaar was in onderhoud en beperkt in mogelijkheden. Een migratie naar een modern datawarehouse was noodzakelijk, waarbij het oude platform als ground truth moest dienen.</p>
-                <p>Alle Power BI rapporten en de zilver- en goudlagen moesten exact overeenkomen met de oorspronkelijke data.</p>
+                <p>Het bestaande dataplatform gebruikte Azure Data Factory data flows in een opzet die duurder was en minder beheersbaar werd naarmate rapportagebehoeften groeiden.</p>
+                <p>Tegelijkertijd moesten Power BI-rapporten opnieuw worden opgebouwd op basis van actuele sales requirements, zonder losse definities tussen data-engineering en rapportage.</p>
                 <div class="content-highlight">
-                    <p>Het legacy platform was niet alleen duur in onderhoud, maar beperkte de organisatie ook in haar groeimogelijkheden en datamaturiteit.</p>
+                    <p>De vraag was helder: een robuust en gestructureerd platform met één logische lijn van dataverlading tot Power BI-inzichten.</p>
                 </div>
             </div>
         </div>
@@ -335,13 +332,14 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze <em>aanpak</em></h2>
+                <h2 class="content-title">Onze aanpak</h2>
             </div>
             <div class="content-text">
-                <p>We hebben Power BI rapporten gebouwd en SQL stored procedures aangepast en geschreven die de data vanuit het oude platform correct overbrengen naar het nieuwe datawarehouse.</p>
-                <p>Het nieuwe platform is aangesloten op het nieuwe CRM-systeem van de organisatie. Elke stap is gevalideerd tegen het originele dataplatform om datakwaliteit te garanderen.</p>
+                <p>In het nieuwe dataplatform hebben we de dataverlading in Azure Data Factory opnieuw ingericht via pipelines. De businesslogica is verplaatst naar SQL stored procedures die centraal worden beheerd.</p>
+                <p>De pipelines roepen deze procedures aan volgens een robuuste Medallion architectuur, waardoor transformaties controleerbaar, herhaalbaar en beter onderhoudbaar zijn.</p>
+                <p>Parallel hebben we met sales managers requirements opgehaald en vertaald naar zowel de SQL-logica als de nieuwe Power BI-rapporten, zodat data en rapportage inhoudelijk op elkaar aansluiten.</p>
                 <div class="content-highlight">
-                    <p>Door het oude platform als ground truth te gebruiken, konden we garanderen dat geen enkel datapunt verloren ging tijdens de migratie.</p>
+                    <p>Resultaat: één consistente definitie van KPI's in het platform en direct bruikbare stuurinformatie in Power BI.</p>
                 </div>
             </div>
         </div>
@@ -352,20 +350,20 @@
     <div class="container">
         <div class="results-header">
             <span class="section-label">Impact</span>
-            <h2 class="section-title">Concrete <em>resultaten</em></h2>
+            <h2 class="section-title">Concrete resultaten</h2>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">Enorm</div>
-                <div class="result-text">Kostenbesparing vergeleken met het legacy platform door lagere onderhouds- en licentiekosten</div>
+                <div class="result-number purple">&euro;4.000</div>
+                <div class="result-text">Lagere maandelijkse platformkosten ten opzichte van de vorige inrichting</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">Naadloos</div>
-                <div class="result-text">Naadloze aansluiting op het nieuwe CRM-systeem van de organisatie</div>
+                <div class="result-number green">Robuust</div>
+                <div class="result-text">Dataverlading via een gestructureerd medallion framework met ADF pipelines en SQL stored procedures</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">100%</div>
-                <div class="result-text">Datakwaliteit gevalideerd tegen het originele platform, geen enkel datapunt verloren</div>
+                <div class="result-number amber">2 uur sneller</div>
+                <div class="result-text">Dagelijks laadproces versneld met circa 2 uur door pipeline-gestuurde verwerking en SQL-logica</div>
             </div>
         </div>
     </div>
@@ -375,8 +373,8 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook toe aan een <em>moderne datastack?</em></h2>
-            <p>Wil je af van je legacy platform en toe naar een toekomstbestendig datawarehouse? Neem contact op voor een vrijblijvend gesprek.</p>
+            <h2 class="section-title">Ook uw Power BI-platform opnieuw inrichten?</h2>
+            <p>Wij vertalen business requirements naar een robuust dataplatform met medallion-opzet, SQL-logica en rapportages die direct inzetbaar zijn in de operatie.</p>
             <div class="cta-actions">
                 <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
@@ -388,7 +386,7 @@
 <footer>
     <div class="container">
         <div class="footer-content">
-            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <p>&copy; 2026 Acento. Alle rechten voorbehouden.</p>
             <ul class="footer-links">
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Voorwaarden</a></li>

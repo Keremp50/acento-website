@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent regelt afspraken | Case | Acento</title>
-    <meta name="description" content="Case study: AI Agent die afspraken regelt van agenda-check tot Teams meeting voor de vastgoed & bouw sector.">
+    <title>AI Agent voor sales opvolging | Case | Acento</title>
+    <meta name="description" content="Case study: AI Agent die na klantgesprekken automatisch opvolgmails verstuurt met Outlook-beschikbaarheid en op basis van klantvoorkeur direct een Teams meeting plant.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
         }
-        .section-title em { font-style: italic; font-weight: 400; }
+        .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
         /* ── NAVBAR ── */
         .navbar {
@@ -117,7 +117,7 @@
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
         }
-        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
         .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
         .hero-text { padding-bottom: 60px; }
 
@@ -148,7 +148,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
         }
-        .content-title em { font-style: italic; font-weight: 400; color: var(--primary); }
+        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
         .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
         .content-text p { margin-bottom: 16px; }
         .content-highlight {
@@ -172,7 +172,7 @@
         .results-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
         .results-header .section-label { color: var(--primary-light); }
         .results-header .section-title { color: var(--white); }
-        .results-header .section-title em { color: var(--primary-light); }
+        .results-header .section-title em { color: inherit; }
         .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
         .result-card {
             background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
@@ -185,7 +185,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
         }
-        .result-number.purple { color: var(--primary-light); }
+        .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
         .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
@@ -197,7 +197,7 @@
             text-align: center;
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
-        .cta-content .section-title em { color: var(--primary); }
+        .cta-content .section-title em { color: inherit; }
         .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
@@ -257,7 +257,7 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
             <li><a href="index.html#waarom">Waarom wij</a></li>
             <li><a href="index.html#aanpak">Aanpak</a></li>
@@ -277,12 +277,12 @@
                 <span>&#8594;</span>
                 <a href="cases.html">Cases</a>
                 <span>&#8594;</span>
-                <span class="current">AI Appointment Agent</span>
+                <span class="current">Sales Follow-up Agent</span>
             </div>
-            <h1>AI Agent automatiseert afspraken: van agenda tot <em>Teams meeting</em></h1>
-            <p>Intern project: service managers besteedden ~5 minuten per afspraak aan handmatig planwerk. Een Copilot Studio agent gebouwd die het hele proces afhandelt in 1 commando.</p>
+            <h1>AI Agent automatiseert opvolging na klantgesprekken</h1>
+            <p>Sales geeft alleen de gewenste week of periode door. De agent haalt beschikbaarheid uit Outlook, verstuurt automatische opties naar de klant en plant na voorkeur direct een Teams meeting.</p>
         </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1600&q=80" alt="Microsoft Teams vergadering en agenda planning" loading="eager">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80" alt="Salesgesprek in vergaderruimte" loading="eager">
     </div>
 </section>
 
@@ -292,20 +292,16 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Klant</span>
-                    <span class="intro-value">Vastgoed &amp; Bouw (intern project)</span>
-                </div>
-                <div class="intro-row">
                     <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Copilot Studio &ndash; Microsoft 365 &ndash; Outlook &ndash; Teams</span>
+                    <span class="intro-value">Copilot Studio &ndash; Outlook agenda &ndash; Microsoft Graph &ndash; Teams</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Services</span>
-                    <span class="intro-value">AI Agents &ndash; Procesautomatisering</span>
+                    <span class="intro-value">AI Agents &ndash; Sales automatisering &ndash; Workflow integratie</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
-                    <span class="intro-value">Vastgoed &amp; Bouw</span>
+                    <span class="intro-value">Commercie</span>
                 </div>
             </div>
         </div>
@@ -317,12 +313,12 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De <em>uitdaging</em></h2>
+                <h2 class="content-title">De uitdaging</h2>
             </div>
             <div class="content-text">
-                <p>Service managers besteedden veel tijd aan het handmatig plannen van afspraken. Het proces van agenda checken, beschikbaarheid mailen naar klanten, wachten op antwoord en vervolgens een Teams meeting aanmaken was tijdrovend en repetitief.</p>
+                <p>Na elk klantgesprek moest sales handmatig opvolgen: agenda controleren, tijdsvoorstellen mailen, op reactie wachten en daarna alsnog een meeting aanmaken. Dat zorgde voor veel kleine, repetitieve taken.</p>
                 <div class="content-highlight">
-                    <p>Elke afspraak kostte gemiddeld 5 minuten aan handmatig werk verspreid over meerdere applicaties en momenten op de dag.</p>
+                    <p>Vooral de stap tussen gesprek en opvolgmail kostte tijd, terwijl snelheid juist belangrijk is om momentum in het salesproces te houden.</p>
                 </div>
             </div>
         </div>
@@ -334,13 +330,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze <em>aanpak</em></h2>
+                <h2 class="content-title">Onze aanpak</h2>
             </div>
             <div class="content-text">
-                <p>We hebben een AI Agent geconfigureerd binnen Copilot Studio die op verzoek de beschikbaarheid van de gebruiker uit zijn agenda ophaalt. Dit wordt per mail gedeeld met de klant inclusief meeting-suggesties.</p>
-                <p>Zodra het antwoord van de klant binnenkomt, maakt de agent automatisch een Teams meeting aan met de juiste deelnemers, tijd en agenda. Het volledige proces is intern ingezet om service managers te ontlasten.</p>
+                <p>De sales manager geeft aan in welke week of periode de afspraak gepland moet worden. De AI Agent haalt vervolgens automatisch de beschikbare momenten uit Outlook en verstuurt direct een opvolgmail met concrete opties naar de klant.</p>
+                <p>Wanneer de klant met een voorkeur reageert, maakt de agent automatisch de Teams meeting aan met de juiste tijd en deelnemers. Zo wordt de volledige opvolgflow na het klantgesprek geautomatiseerd.</p>
                 <div class="content-highlight">
-                    <p>Van agenda-check tot bevestigde Teams meeting in één geautomatiseerde flow, zonder handmatige tussenkomst.</p>
+                    <p>Van klantgesprek naar ingeplande Teams meeting zonder handmatige schakels in mail, agenda en planning.</p>
                 </div>
             </div>
         </div>
@@ -351,20 +347,20 @@
     <div class="container">
         <div class="results-header">
             <span class="section-label">Impact</span>
-            <h2 class="section-title">Concrete <em>resultaten</em></h2>
+            <h2 class="section-title">Concrete resultaten</h2>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">Uren/week</div>
-                <div class="result-text">Service managers besparen uren per week die voorheen opgingen aan handmatig planwerk</div>
+                <div class="result-number purple">Tijdswinst</div>
+                <div class="result-text">Sales bespaart wekelijks tijd doordat opvolging en planning niet meer handmatig hoeft</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">100%</div>
-                <div class="result-text">Volledig geautomatiseerd afsprakenproces van begin tot eind</div>
+                <div class="result-number green">Sneller opvolgen</div>
+                <div class="result-text">Automatische opvolgmail met agenda-opties direct na het klantgesprek</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">5 min &rarr; 1 cmd</div>
-                <div class="result-text">Van 5 minuten per afspraak naar 1 commando aan de AI Agent</div>
+                <div class="result-number amber">Automatisch gepland</div>
+                <div class="result-text">Bij klantvoorkeur maakt de agent direct een Teams meeting aan</div>
             </div>
         </div>
     </div>
@@ -374,8 +370,8 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook processen <em>automatiseren?</em></h2>
-            <p>Benieuwd wat een AI Agent voor jouw team kan betekenen? Neem contact op voor een vrijblijvend gesprek over de mogelijkheden.</p>
+            <h2 class="section-title">Ook sales opvolging automatisch laten verlopen?</h2>
+            <p>Wij bouwen AI Agents die uw commerciële team ontlasten met geautomatiseerde opvolging, planning en meeting-setup.</p>
             <div class="cta-actions">
                 <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
@@ -387,7 +383,7 @@
 <footer>
     <div class="container">
         <div class="footer-content">
-            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <p>&copy; 2026 Acento. Alle rechten voorbehouden.</p>
             <ul class="footer-links">
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Voorwaarden</a></li>

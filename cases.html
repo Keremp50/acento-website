@@ -100,11 +100,19 @@
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
         }
-        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
         .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
 
         /* ── CASES GRID ── */
         .cases-section { padding: 60px 0 100px; }
+        .cases-group-label {
+            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+            color: var(--primary); font-weight: 600; margin-bottom: 12px; display: block;
+        }
+        .cases-group-title {
+            font-family: var(--font-display); font-size: 1.6rem; font-weight: 700;
+            color: var(--black); margin-bottom: 28px;
+        }
+        .cases-group + .cases-group { margin-top: 60px; padding-top: 60px; border-top: 1px solid var(--border); }
         .cases-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
         .case-card {
             background: var(--navy); border-radius: 16px; overflow: hidden;
@@ -169,7 +177,7 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
             <li><a href="index.html#waarom">Waarom wij</a></li>
             <li><a href="index.html#aanpak">Aanpak</a></li>
@@ -188,84 +196,88 @@
             <span>&#8594;</span>
             <span class="current">Cases</span>
         </div>
-        <h1>Geen theorie. Dit hebben we gebouwd.</h1>
-        <p>Data-oplossingen die we hebben neergezet bij MKB-bedrijven. Van systeemkoppelingen en pipelines tot AI agents en dashboards.</p>
+        <h1>AI Agents live in productie bij voorgangers</h1>
+        <p>Volledig geïntegreerd in de Microsoft Azure-omgeving van onze klanten, van datafundament tot operationele uitvoering.</p>
     </div>
 </section>
 
 
 <section class="cases-section">
     <div class="container">
-        <div class="cases-grid">
 
-            <a href="case-jit-afas.html" class="case-card reveal" data-category="integratie">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Systeemintegratie" loading="lazy">
-                <div class="case-card-body">
-                    <div class="case-card-branch">Logistiek &middot; ~40 medewerkers</div>
-                    <h3>Custom systeem-AFAS koppeling: finance bespaart uren per week aan handmatig invoerwerk</h3>
-                    <p>Finance typte dagelijks data over van het operationele systeem naar AFAS. We bouwden een event-driven koppeling met Logic Apps die dat volledig automatiseerde.</p>
-                    <span class="case-card-link">Bekijk case &#8594;</span>
-                </div>
-            </a>
+        <div class="cases-group">
+            <span class="cases-group-label">AI Agent Cases</span>
+            <h2 class="cases-group-title">Agents die we hebben gebouwd</h2>
+            <div class="cases-grid">
 
-            <a href="case-hr-agent.html" class="case-card reveal" data-category="ai-agents">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Power BI dashboard met HR-gegevens" loading="lazy">
-                <div class="case-card-body">
-                    <div class="case-card-branch">Privacy &amp; Compliance</div>
-                    <h3>HR AI Agent maakt dashboarddata begrijpelijk voor management</h3>
-                    <p>HR-data stond in Power BI maar niemand haalde er inzichten uit. We configureerden een Fabric data agent die managers in gewone taal advies geeft.</p>
-                    <span class="case-card-link">Bekijk case &#8594;</span>
-                </div>
-            </a>
+                <a href="case-sql-agent.html" class="case-card reveal" data-category="ai-agents">
+                    <img class="case-card-image" src="https://images.unsplash.com/photo-1552581234-26160f608093?w=800&q=80" alt="Klant- en salesgesprek in vergaderruimte" loading="lazy">
+                    <div class="case-card-body">
+                        <div class="case-card-branch">Groothandel</div>
+                        <h3>AI Agent voor voorbereiding van klantgesprekken</h3>
+                        <p>Accountmanagers bevragen omzettrends, productdrivers en klantbenchmarks in gewone taal, zodat ze met concrete saleskansen het gesprek ingaan.</p>
+                        <span class="case-card-link">Bekijk case &#8594;</span>
+                    </div>
+                </a>
 
-            <a href="case-sql-agent.html" class="case-card reveal" data-category="ai-agents">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SQL AI Agent" loading="lazy">
-                <div class="case-card-body">
-                    <div class="case-card-branch">Groothandel &middot; ~80 medewerkers</div>
-                    <h3>AI Agent: accountmanagers halen zelf data uit het warehouse</h3>
-                    <p>15-20 ad-hoc datavragen per week via het data-team. We bouwden een Python AI Agent die accountmanagers zelf antwoorden laat vinden in gewone taal.</p>
-                    <span class="case-card-link">Bekijk case &#8594;</span>
-                </div>
-            </a>
+                <a href="case-hr-agent.html" class="case-card reveal" data-category="ai-agents">
+                    <img class="case-card-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Power BI dashboard met HR-gegevens" loading="lazy">
+                    <div class="case-card-body">
+                        <div class="case-card-branch">HR</div>
+                        <h3>AI Agent geïntegreerd in Power BI voor HR</h3>
+                        <p>De agent interpreteert HR-data, legt verbanden tussen tabellen en helpt bestuur en management om sneller te handelen op basis van inzichten.</p>
+                        <span class="case-card-link">Bekijk case &#8594;</span>
+                    </div>
+                </a>
 
-            <a href="case-appointment-agent.html" class="case-card reveal" data-category="ai-agents">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Microsoft Teams vergadering en agenda planning" loading="lazy">
-                <div class="case-card-body">
-                    <div class="case-card-branch">Vastgoed &amp; Bouw &middot; Intern project</div>
-                    <h3>AI Agent automatiseert afspraken: van agenda tot Teams meeting</h3>
-                    <p>Service managers besteedden ~5 min per afspraak aan planwerk. Een Copilot Studio agent handelt nu het hele proces af in 1 commando.</p>
-                    <span class="case-card-link">Bekijk case &#8594;</span>
-                </div>
-            </a>
+                <a href="case-appointment-agent.html" class="case-card reveal" data-category="ai-agents">
+                    <img class="case-card-image" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80" alt="Salesgesprek in vergaderruimte" loading="lazy">
+                    <div class="case-card-body">
+                        <div class="case-card-branch">Commercie</div>
+                        <h3>AI Agent automatiseert sales opvolging en planning</h3>
+                        <p>De agent verstuurt na het klantgesprek automatisch tijdsopties op basis van Outlook-beschikbaarheid en plant na klantvoorkeur direct een Teams meeting.</p>
+                        <span class="case-card-link">Bekijk case &#8594;</span>
+                    </div>
+                </a>
 
-            <a href="case-datawarehouse-migratie.html" class="case-card reveal" data-category="data-engineering">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80" alt="Datawarehouse migratie" loading="lazy">
-                <div class="case-card-body">
-                    <div class="case-card-branch">Technische Dienstverlening &middot; Lopend project</div>
-                    <h3>Legacy platform vervangen door modern datawarehouse</h3>
-                    <p>Oud dataplatform was te duur en beperkt. Gemigreerd naar SQL Server warehouse, aangesloten op nieuw CRM, met het oude platform als validatiebron.</p>
-                    <span class="case-card-link">Bekijk case &#8594;</span>
-                </div>
-            </a>
-
-            <a href="case-dataverlading.html" class="case-card reveal" data-category="data-engineering">
-                <img class="case-card-image" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Data verlading" loading="lazy">
-                <div class="case-card-body">
-                    <div class="case-card-branch">Logistiek &middot; 5 entiteiten</div>
-                    <h3>Gescheiden financieel inzicht voor 5 bedrijfsonderdelen in Power BI</h3>
-                    <p>Financiele data van 5 entiteiten liep door elkaar. Medallion-architectuur gebouwd die data per onderdeel scheidt en kloppende rapportages levert.</p>
-                    <span class="case-card-link">Bekijk case &#8594;</span>
-                </div>
-            </a>
-
+            </div>
         </div>
+
+        <div class="cases-group">
+            <span class="cases-group-label">Data &amp; Integratie</span>
+            <h2 class="cases-group-title">Het datafundament eronder</h2>
+            <div class="cases-grid">
+
+                <a href="case-datawarehouse-migratie.html" class="case-card reveal" data-category="data-engineering">
+                    <img class="case-card-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Business team bespreekt dashboard en rapportages" loading="lazy">
+                    <div class="case-card-body">
+                        <div class="case-card-branch">Drukkerij</div>
+                        <h3>Power BI opnieuw opgebouwd op het nieuwe dataplatform</h3>
+                        <p>Azure Data Factory met pipeline-orchestratie en SQL stored procedures in Medallion architectuur. Rapporten herbouwd op sales requirements, circa &euro;4.000 lagere maandkosten en dagelijks laadproces circa 2 uur sneller.</p>
+                        <span class="case-card-link">Bekijk case &#8594;</span>
+                    </div>
+                </a>
+
+                <a href="case-dataverlading.html" class="case-card reveal" data-category="data-engineering">
+                    <img class="case-card-image" src="https://images.pexels.com/photos/163726/belgium-antwerp-shipping-container-163726.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Containerschip in de haven" loading="lazy">
+                    <div class="case-card-body">
+                        <div class="case-card-branch">Logistiek &middot; 5 entiteiten</div>
+                        <h3>Inzicht per entiteit in omzet en shipments</h3>
+                        <p>Data van 5 entiteiten stond als één geheel. SQL-logica in het datawarehouse aangepast zodat managers direct zien uit welke entiteit cijfers afkomstig zijn.</p>
+                        <span class="case-card-link">Bekijk case &#8594;</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
     </div>
 </section>
 
 <footer>
     <div class="container">
         <div class="footer-content">
-            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <p>&copy; 2026 Acento. Alle rechten voorbehouden.</p>
             <ul class="footer-links">
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Voorwaarden</a></li>

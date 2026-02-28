@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dataverlading per entiteit voor financieel inzicht | Case | Acento</title>
-    <meta name="description" content="Case study: Medallion-architectuur uitgebreid met meerdere entiteiten voor helder gescheiden financieel inzicht per bedrijfsonderdeel.">
+    <title>Inzicht per entiteit in omzet en shipments | Case | Acento</title>
+    <meta name="description" content="Case study: SQL-logica in het datawarehouse aangepast zodat data van 5 entiteiten gescheiden zichtbaar is in rapportages, met helder inzicht in omzet en shipments per entiteit.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
         }
-        .section-title em { font-style: italic; font-weight: 400; }
+        .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
         /* NAVBAR */
         .navbar {
@@ -117,7 +117,7 @@
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
         }
-        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
         .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
         .hero-text { padding-bottom: 60px; }
 
@@ -148,7 +148,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
         }
-        .content-title em { font-style: italic; font-weight: 400; color: var(--primary); }
+        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
         .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
         .content-text p { margin-bottom: 16px; }
         .content-highlight {
@@ -172,7 +172,7 @@
         .results-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
         .results-header .section-label { color: var(--primary-light); }
         .results-header .section-title { color: var(--white); }
-        .results-header .section-title em { color: var(--primary-light); }
+        .results-header .section-title em { color: inherit; }
         .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
         .result-card {
             background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
@@ -185,7 +185,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
         }
-        .result-number.purple { color: var(--primary-light); }
+        .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
         .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
@@ -197,7 +197,7 @@
             text-align: center;
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
-        .cta-content .section-title em { color: var(--primary); }
+        .cta-content .section-title em { color: inherit; }
         .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
@@ -257,7 +257,7 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
             <li><a href="index.html#waarom">Waarom wij</a></li>
             <li><a href="index.html#aanpak">Aanpak</a></li>
@@ -277,12 +277,12 @@
                 <span>&#8594;</span>
                 <a href="cases.html">Cases</a>
                 <span>&#8594;</span>
-                <span class="current">Dataverlading</span>
+                <span class="current">Entiteitsspecifiek inzicht</span>
             </div>
-            <h1>Gescheiden financieel inzicht voor <em>5 bedrijfsonderdelen</em></h1>
-            <p>Logistiekbedrijf met 5 entiteiten waar financiele data door elkaar liep. Een medallion-architectuur gebouwd die data per onderdeel scheidt en kloppende Power BI rapportages levert.</p>
+            <h1>Inzicht per entiteit in omzet en shipments</h1>
+            <p>Een hoofdorganisatie met 5 entiteiten had alle data in één geheel. Door de SQL-logica in het datawarehouse aan te passen, tonen rapportages nu exact uit welke entiteit cijfers afkomstig zijn.</p>
         </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=80" alt="Data pipeline en financieel inzicht" loading="eager">
+        <img class="hero-image" src="https://images.pexels.com/photos/163726/belgium-antwerp-shipping-container-163726.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Containerschip in de haven" loading="eager">
     </div>
 </section>
 
@@ -292,16 +292,12 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Klant</span>
-                    <span class="intro-value">Logistiek &amp; Transport, 5 bedrijfsonderdelen</span>
-                </div>
-                <div class="intro-row">
                     <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Azure Data Factory &ndash; SQL Server &ndash; Power BI &ndash; Medallion Architecture</span>
+                    <span class="intro-value">SQL Server &ndash; Datawarehouse &ndash; Power BI</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Services</span>
-                    <span class="intro-value">Data Engineering &ndash; BI &amp; Rapportages</span>
+                    <span class="intro-value">Data Engineering &ndash; SQL-logica &ndash; BI &amp; Rapportages</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
@@ -317,13 +313,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De <em>uitdaging</em></h2>
+                <h2 class="content-title">De uitdaging</h2>
             </div>
             <div class="content-text">
-                <p>Een logistiekbedrijf met vijf bedrijfsonderdelen had al hun financiele data in hetzelfde systeem staan. Omzet, kosten en marges van de entiteiten liepen door elkaar. Er was geen manier om te zien welk onderdeel goed presteerde en welk niet.</p>
-                <p>De bestaande Power BI rapporten toonden alleen geaggregeerde totalen. Het management vroeg om gescheiden inzicht per entiteit, maar de datastructuur maakte dat onmogelijk.</p>
+                <p>De organisatie bestaat uit vijf entiteiten, maar in de bestaande rapportages werd alle data als één totaal weergegeven. Daardoor was niet zichtbaar welke omzet, shipments en overige KPI's bij welke entiteit hoorden.</p>
+                <p>Voor managementbesluiten gaf dat te weinig houvast: prestaties per entiteit waren niet betrouwbaar te herleiden vanuit het datawarehouse.</p>
                 <div class="content-highlight">
-                    <p>Concreet: het management kon niet beoordelen of bedrijfsonderdeel A verlieslatend was of B de groei trok. Elke maand werd handmatig een Excel overzicht gemaakt.</p>
+                    <p>De kern van het probleem: data was beschikbaar, maar de herkomst per entiteit ontbrak in het rapportageproces.</p>
                 </div>
             </div>
         </div>
@@ -335,13 +331,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze <em>aanpak</em></h2>
+                <h2 class="content-title">Onze aanpak</h2>
             </div>
             <div class="content-text">
-                <p>We hebben de bestaande medallion-architectuur uitgebreid zodat data per entiteit gescheiden wordt verwerkt. Via Azure Data Factory worden de datastromen uit het bronsysteem opgesplitst en per bedrijfsonderdeel door de bronze, silver en gold lagen geleid.</p>
-                <p>In de gold laag komt de data samen in een datamodel dat direct gekoppeld is aan Power BI. Het management kan nu per entiteit inzoomen op omzet, kosten, marges en andere KPI's.</p>
+                <p>We hebben de SQL-logica in het datawarehouse aangepast zodat elke datastroom correct aan de juiste entiteit wordt gekoppeld. Denk aan aanpassingen in transformaties, mappings en logica achter de rapportage-output.</p>
+                <p>Daarna zijn de rapportages opnieuw aangesloten op deze verbeterde logica, waardoor managers nu direct kunnen zien waar omzet, shipments en andere cijfers vandaan komen.</p>
                 <div class="content-highlight">
-                    <p>Week 1: analyse en datamodel. Week 2-3: pipelines en transformaties bouwen. Week 4: Power BI dashboards en validatie.</p>
+                    <p>Resultaat: één centrale waarheid in het datawarehouse met transparantie per entiteit in de rapportages.</p>
                 </div>
             </div>
         </div>
@@ -352,20 +348,20 @@
     <div class="container">
         <div class="results-header">
             <span class="section-label">Impact</span>
-            <h2 class="section-title">Concrete <em>resultaten</em></h2>
+            <h2 class="section-title">Concrete resultaten</h2>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
                 <div class="result-number purple">5</div>
-                <div class="result-text">Bedrijfsonderdelen met eigen gescheiden financieel inzicht in Power BI</div>
+                <div class="result-text">Entiteiten waarvan cijfers nu afzonderlijk zichtbaar en vergelijkbaar zijn</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">100%</div>
-                <div class="result-text">Correcte datascheiding per entiteit door de volledige medallion-architectuur</div>
+                <div class="result-number green">Herleidbaar</div>
+                <div class="result-text">Omzet, shipments en KPI's zijn terug te voeren naar de juiste entiteit</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">Schaalbaar</div>
-                <div class="result-text">Architectuur eenvoudig uitbreidbaar voor toekomstige bedrijfsonderdelen</div>
+                <div class="result-number amber">Beter sturen</div>
+                <div class="result-text">Managers nemen beslissingen op basis van entiteitsspecifieke inzichten in plaats van totaalcijfers</div>
             </div>
         </div>
     </div>
@@ -375,8 +371,8 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook behoefte aan <em>helder data-inzicht?</em></h2>
-            <p>Wil je financieel inzicht per bedrijfsonderdeel of entiteit? Neem contact op voor een vrijblijvend gesprek over de mogelijkheden.</p>
+            <h2 class="section-title">Ook inzicht per entiteit in uw rapportages?</h2>
+            <p>Wij helpen organisaties om datawarehouse-logica en rapportages zo in te richten dat herkomst, verantwoordelijkheid en performance per entiteit direct zichtbaar zijn.</p>
             <div class="cta-actions">
                 <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
@@ -388,7 +384,7 @@
 <footer>
     <div class="container">
         <div class="footer-content">
-            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <p>&copy; 2026 Acento. Alle rechten voorbehouden.</p>
             <ul class="footer-links">
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Voorwaarden</a></li>

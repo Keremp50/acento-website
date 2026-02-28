@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent vertaalt natuurlijke taal naar SQL | Case | Acento</title>
-    <meta name="description" content="Case study: Custom AI Agent die natuurlijke taal vertaalt naar SQL queries zodat niet-technische accountmanagers direct inzichten uit het datawarehouse halen.">
+    <title>AI Agent voor accountmanagers | Case | Acento</title>
+    <meta name="description" content="Case study: AI Agent die accountmanagers voorbereidt op klantgesprekken met inzicht in omzetontwikkeling, productdrivers en benchmark-kansen per klantcategorie.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
         }
-        .section-title em { font-style: italic; font-weight: 400; }
+        .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
         /* NAVBAR */
         .navbar {
@@ -117,7 +117,7 @@
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
         }
-        .page-hero h1 em { font-style: italic; font-weight: 400; color: var(--primary-light); }
+        .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
         .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
         .hero-text { padding-bottom: 60px; }
 
@@ -148,7 +148,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
         }
-        .content-title em { font-style: italic; font-weight: 400; color: var(--primary); }
+        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
         .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
         .content-text p { margin-bottom: 16px; }
         .content-highlight {
@@ -172,7 +172,7 @@
         .results-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
         .results-header .section-label { color: var(--primary-light); }
         .results-header .section-title { color: var(--white); }
-        .results-header .section-title em { color: var(--primary-light); }
+        .results-header .section-title em { color: inherit; }
         .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
         .result-card {
             background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
@@ -185,7 +185,7 @@
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
         }
-        .result-number.purple { color: var(--primary-light); }
+        .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
         .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
@@ -197,7 +197,7 @@
             text-align: center;
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
-        .cta-content .section-title em { color: var(--primary); }
+        .cta-content .section-title em { color: inherit; }
         .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
@@ -257,7 +257,7 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#diensten">Diensten</a></li>
+            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
             <li><a href="index.html#waarom">Waarom wij</a></li>
             <li><a href="index.html#aanpak">Aanpak</a></li>
@@ -277,12 +277,12 @@
                 <span>&#8594;</span>
                 <a href="cases.html">Cases</a>
                 <span>&#8594;</span>
-                <span class="current">SQL AI Agent</span>
+                <span class="current">Accountmanager AI Agent</span>
             </div>
-            <h1>AI Agent: accountmanagers halen zelf <em>data uit het warehouse</em></h1>
-            <p>Groothandel (~80 medewerkers) waar accountmanagers dagen wachtten op data-inzichten. Een custom AI Agent gebouwd die natuurlijke taal vertaalt naar SQL queries.</p>
+            <h1>AI Agent bereidt accountmanagers voor op klantgesprekken</h1>
+            <p>Voor ieder klantgesprek direct inzicht in omzetontwikkeling, oorzaken achter stijging of daling, productverschuivingen en concrete commerciële kansen per klant.</p>
         </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80" alt="SQL AI Agent data-inzichten" loading="eager">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1552581234-26160f608093?w=1600&q=80" alt="Klant- en salesgesprek in vergaderruimte" loading="eager">
     </div>
 </section>
 
@@ -292,16 +292,12 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Klant</span>
-                    <span class="intro-value">Groothandel &amp; Distributie, ~80 medewerkers</span>
-                </div>
-                <div class="intro-row">
                     <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Python &ndash; Microsoft Foundry SDK &ndash; Azure AI Foundry &ndash; SQL Server</span>
+                    <span class="intro-value">Azure AI Foundry &ndash; SQL Server &ndash; Python &ndash; Power BI</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Services</span>
-                    <span class="intro-value">AI Agents &ndash; Data Engineering</span>
+                    <span class="intro-value">AI Agents &ndash; Data analyse &ndash; Sales enablement</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
@@ -317,13 +313,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De <em>uitdaging</em></h2>
+                <h2 class="content-title">De uitdaging</h2>
             </div>
             <div class="content-text">
-                <p>Bij een groothandel met ~80 medewerkers hadden accountmanagers dagelijks data nodig uit het warehouse: klantomzet, bestelpatronen, levertijden, marges. Maar die data was alleen bereikbaar via SQL-queries.</p>
-                <p>Elke vraag moest via het data-team. Een simpele vraag als "Wat is de omzet van klant X dit kwartaal?" duurde soms dagen. Het data-team werd een bottleneck en commerciele beslissingen liepen vertraging op.</p>
+                <p>Accountmanagers wilden beter voorbereid klantgesprekken in, maar hadden geen snelle toegang tot de juiste inzichten. Vragen over omzetontwikkeling, afwijkingen en productverschuivingen kostten veel uitzoekwerk.</p>
+                <p>Daardoor bleven commerciële kansen liggen, zoals klanten die opvallend minder van een relevant product afnemen dan vergelijkbare klanten in dezelfde categorie.</p>
                 <div class="content-highlight">
-                    <p>Concreet: het data-team kreeg 15-20 ad-hoc datavragen per week. Accountmanagers wilden zelf antwoorden, maar SQL was een te hoge drempel.</p>
+                    <p>Voorbeeld: categorie Y koopt gemiddeld 100 stuks van product Z, terwijl klant X er slechts 5 afneemt. Zonder snelle signalering mis je een concrete saleskans.</p>
                 </div>
             </div>
         </div>
@@ -335,13 +331,13 @@
         <div class="content-grid">
             <div>
                 <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze <em>aanpak</em></h2>
+                <h2 class="content-title">Onze aanpak</h2>
             </div>
             <div class="content-text">
-                <p>We hebben een custom AI Agent gebouwd met Python en de Microsoft Foundry SDK, gehost in Azure AI Foundry. De agent begrijpt vragen in gewone taal en vertaalt ze naar correcte SQL-queries op het bestaande datawarehouse.</p>
-                <p>De agent valideert queries voor uitvoering, voert ze uit en presenteert resultaten in begrijpelijke taal. Accountmanagers vragen nu dingen als "Top 10 klanten op omzet dit jaar" of "Gemiddelde levertijd per regio" en krijgen direct antwoord.</p>
+                <p>We bouwden een AI Agent die vragen van accountmanagers in gewone taal omzet naar analyses op het datawarehouse. De agent geeft direct antwoord op vragen over omzet over meerdere jaren, verklaart afwijkingen en toont welke producten de verandering veroorzaken.</p>
+                <p>Daarnaast vergelijkt de agent klanten binnen dezelfde categorie, zodat accountmanagers afwijkend koopgedrag herkennen en gericht nieuwe verkoopkansen kunnen bespreken in hun meetings.</p>
                 <div class="content-highlight">
-                    <p>Fase 1: agent ontwikkeling en datamodel mapping. Fase 2: testen met gebruikers en finetunen van responses.</p>
+                    <p>Resultaat: accountmanagers starten gesprekken met onderbouwde inzichten in trends, oorzaken en concrete next best actions per klant.</p>
                 </div>
             </div>
         </div>
@@ -352,20 +348,20 @@
     <div class="container">
         <div class="results-header">
             <span class="section-label">Impact</span>
-            <h2 class="section-title">Concrete <em>resultaten</em></h2>
+            <h2 class="section-title">Concrete resultaten</h2>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">Direct</div>
-                <div class="result-text">Antwoord op datavragen die voorheen dagen kostten via het data-team</div>
+                <div class="result-number purple">Sneller voorbereid</div>
+                <div class="result-text">Inzichten over omzetontwikkeling en productmix direct beschikbaar voor klantgesprekken</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">Zelfredzaam</div>
-                <div class="result-text">Accountmanagers halen zelfstandig inzichten uit het datawarehouse</div>
+                <div class="result-number green">Meer kansen</div>
+                <div class="result-text">Benchmarking per klantcategorie maakt upsell- en cross-sell kansen zichtbaar</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">Data-team</div>
-                <div class="result-text">Ontlast van repetitieve ad-hoc queries, meer tijd voor strategische analyses</div>
+                <div class="result-number amber">Betere gesprekken</div>
+                <div class="result-text">Accountmanagers gaan datagedreven het overleg in en sturen gerichter op commerciële groei</div>
             </div>
         </div>
     </div>
@@ -375,8 +371,8 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook data <em>toegankelijk maken?</em></h2>
-            <p>Wil je dat je team zelf inzichten uit data kan halen zonder technische kennis? Neem contact op voor een vrijblijvend gesprek.</p>
+            <h2 class="section-title">Ook accountmanagers datagedreven laten verkopen?</h2>
+            <p>Wij bouwen AI Agents die commerciële teams voorbereiden op klantgesprekken met direct bruikbare inzichten uit uw data.</p>
             <div class="cta-actions">
                 <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
@@ -388,7 +384,7 @@
 <footer>
     <div class="container">
         <div class="footer-content">
-            <p>&copy; 2025 Acento. Alle rechten voorbehouden.</p>
+            <p>&copy; 2026 Acento. Alle rechten voorbehouden.</p>
             <ul class="footer-links">
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Voorwaarden</a></li>
