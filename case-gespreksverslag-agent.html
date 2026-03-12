@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power BI op het nieuwe dataplatform | Case | Acento</title>
-    <meta name="description" content="Case study: Power BI opnieuw opgebouwd op het nieuwe dataplatform met Azure Data Factory, SQL stored procedures en Medallion architectuur, inclusief circa €4.000 maandelijkse besparing.">
+    <title>AI Agent voor gespreksverslagen | Case | Acento</title>
+    <meta name="description" content="Case study: AI Agent waarmee accountmanagers direct na een klantgesprek een audio-opname inspreken, waarna automatisch een gespreksverslag wordt opgeslagen en ontwikkelingen over meerdere meetings worden geanalyseerd.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
@@ -64,7 +64,6 @@
         }
         .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
-        /* ── NAVBAR ── */
         .navbar {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             background: rgba(248,247,244,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -89,7 +88,6 @@
 
         .accent-bar { height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent), var(--warm)); }
 
-        /* ── PAGE HERO ── */
         .page-hero {
             padding: 140px 0 0;
             background: var(--navy);
@@ -120,47 +118,124 @@
             text-wrap: balance;
         }
         .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
-        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; text-wrap: pretty; }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 680px; text-wrap: pretty; }
         .hero-text { padding-bottom: 60px; }
-
         .hero-image {
             width: 100%; height: 400px; object-fit: cover; display: block;
-            object-position: center;
             border-radius: 16px 16px 0 0; margin-top: 40px;
         }
 
-        /* INTRODUCTIE */
         .intro-section { padding: 80px 0; background: var(--white); }
         .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .intro-heading { font-family: var(--font-serif, 'Lora', 'Playfair Display', serif); font-size: 3rem; font-weight: 700; color: var(--gray-500, #6b7280); line-height: 1.1; }
+        .intro-heading { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--gray-500); line-height: 1.1; }
         .intro-table { width: 100%; }
-        .intro-row { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border, #e5e5e5); }
-        .intro-row:last-child { border-bottom: 1px solid var(--border, #e5e5e5); }
+        .intro-row { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border); }
+        .intro-row:last-child { border-bottom: 1px solid var(--border); }
         .intro-label { font-size: 0.95rem; font-weight: 600; color: var(--black); }
         .intro-value { font-size: 0.95rem; color: var(--black); text-align: right; }
 
-        /* ── CONTENT SECTIONS ── */
-        .content-section { padding: 80px 0; }
-        .content-section.alt { background: var(--white); }
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-        .content-label {
-            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block;
+        .story-section {
+            padding: 0 0 80px;
+            background: var(--white);
         }
-        .content-title {
-            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
+        .story-header {
+            text-align: center;
+            margin-bottom: 28px;
         }
-        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
-        .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
-        .content-text p { margin-bottom: 16px; }
-        .content-highlight {
-            background: var(--primary-50); border-left: 3px solid var(--primary);
-            padding: 24px 28px; border-radius: 0 12px 12px 0; margin-top: 24px;
+        .story-header .section-title {
+            margin-bottom: 0;
+            max-width: 840px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .content-highlight p { color: var(--gray-700); font-size: 0.9rem; line-height: 1.75; margin: 0; font-weight: 500; }
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+        .story-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: var(--shadow-md);
+        }
+        .story-card.solution-card {
+            background: linear-gradient(180deg, var(--primary-50) 0%, var(--white) 100%);
+        }
+        .story-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .story-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            box-shadow: 0 0 0 5px rgba(108,60,233,0.08);
+        }
+        .story-card h3 {
+            color: var(--black);
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            text-wrap: balance;
+        }
+        .story-card p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.78;
+            margin-bottom: 16px;
+            text-wrap: pretty;
+        }
+        .story-card p:last-child { margin-bottom: 0; }
+        .story-highlight {
+            margin-top: 24px;
+            padding: 22px 24px;
+            border-radius: 16px;
+            background: var(--cream);
+            border: 1px solid rgba(108,60,233,0.1);
+        }
+        .story-highlight p {
+            margin: 0;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.7;
+            text-wrap: pretty;
+        }
+        .story-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+        .story-list li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--gray-600);
+            font-size: 0.92rem;
+            line-height: 1.72;
+        }
+        .story-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
 
-        /* ── RESULTS ── */
         .results-section {
             padding: 100px 0;
             background: linear-gradient(135deg, var(--navy) 0%, #1e1b4b 100%);
@@ -183,7 +258,6 @@
             transition: all 0.3s;
         }
         .result-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
-        .result-icon { font-size: 2rem; margin-bottom: 16px; }
         .result-number {
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
@@ -194,13 +268,12 @@
         .result-number.amber { color: var(--warm-light); }
         .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; text-wrap: pretty; }
 
-        /* ── CTA ── */
         .cta-section {
             padding: 100px 0;
             background: var(--white);
             text-align: center;
         }
-        .cta-content { max-width: 580px; margin: 0 auto; }
+        .cta-content { max-width: 620px; margin: 0 auto; }
         .cta-content .section-title em { color: inherit; }
         .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; text-wrap: pretty; }
         .btn-primary {
@@ -217,7 +290,6 @@
         .btn-secondary:hover { border-color: var(--gray-400); background: var(--cream); }
         .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
-        /* ── FOOTER ── */
         footer { padding: 32px 0; border-top: 1px solid var(--border); background: var(--cream); }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
         .footer-content p { color: var(--gray-400); font-size: 0.75rem; }
@@ -232,7 +304,7 @@
             .container { padding: 0 24px; }
             .intro-grid { grid-template-columns: 1fr; gap: 40px; }
             .intro-heading { font-size: 2.4rem; }
-            .content-grid { grid-template-columns: 1fr; gap: 32px; }
+            .story-grid { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
         }
         @media (max-width: 768px) {
@@ -243,8 +315,15 @@
                 background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
                 box-shadow: var(--shadow-md);
             }
-            .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+            .intro-grid { gap: 32px; }
             .intro-heading { font-size: 2rem; }
+            .intro-row {
+                flex-direction: column;
+                align-items: start;
+                gap: 6px;
+            }
+            .intro-value { text-align: left; }
+            .story-card { padding: 28px 24px; }
             .hero-image { height: 240px; }
             .footer-content { flex-direction: column; gap: 12px; text-align: center; }
         }
@@ -281,12 +360,12 @@
                 <span>&#8594;</span>
                 <a href="cases.html">Cases</a>
                 <span>&#8594;</span>
-                <span class="current">Power BI op het nieuwe dataplatform</span>
+                <span class="current">Gespreksverslag Agent</span>
             </div>
-            <h1>Power BI opnieuw opgebouwd op het nieuwe dataplatform</h1>
-            <p>Van ADF data flows naar pipeline-gestuurde dataverlading met SQL-logica. Samen met sales managers vertaalden we requirements naar stored procedures en nieuwe Power BI-rapporten.</p>
+            <h1>Klantgesprekken direct vastgelegd door AI oplossing</h1>
+            <p>Accountmanagers leggen na elk gesprek direct alle details vast. Geen verslagen meer die blijven liggen, geen context die verloren gaat tussen afspraken door.</p>
         </div>
-        <img class="hero-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80" alt="Business team bespreekt dashboard en rapportages" loading="eager">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80" alt="Team bespreekt klantgesprekken en actiepunten" loading="eager">
     </div>
 </section>
 
@@ -296,55 +375,44 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Azure Data Factory &ndash; SQL Stored Procedures &ndash; Power BI &ndash; Medallion architectuur</span>
+                    <span class="intro-label">Team</span>
+                    <span class="intro-value">Accountmanagement en sales</span>
                 </div>
                 <div class="intro-row">
-                    <span class="intro-label">Services</span>
-                    <span class="intro-value">Data Engineering &ndash; Power BI &ndash; Requirement vertaling</span>
+                    <span class="intro-label">Oplossing</span>
+                    <span class="intro-value">AI-gestuurde gespreksverslaglegging en dossiervorming</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
-                    <span class="intro-value">Drukkerij</span>
+                    <span class="intro-value">B2B Sales</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="content-section reveal">
+<section class="story-section reveal">
     <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De uitdaging</h2>
-            </div>
-            <div class="content-text">
-                <p>Het bestaande dataplatform gebruikte Azure Data Factory data flows in een opzet die duurder was en minder beheersbaar werd naarmate rapportagebehoeften groeiden.</p>
-                <p>Tegelijkertijd moesten Power BI-rapporten opnieuw worden opgebouwd op basis van actuele sales requirements, zonder losse definities tussen data-engineering en rapportage.</p>
-                <div class="content-highlight">
-                    <p>De vraag was helder: een robuust en gestructureerd platform met één logische lijn van dataverlading tot Power BI-inzichten.</p>
-                </div>
-            </div>
+        <div class="story-header reveal">
+            <span class="section-label">De uitdaging</span>
         </div>
-    </div>
-</section>
-
-<section class="content-section alt reveal">
-    <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze aanpak</h2>
-            </div>
-            <div class="content-text">
-                <p>In het nieuwe dataplatform hebben we de dataverlading in Azure Data Factory opnieuw ingericht via pipelines. De businesslogica is verplaatst naar SQL stored procedures die centraal worden beheerd.</p>
-                <p>De pipelines roepen deze procedures aan volgens een robuuste Medallion architectuur, waardoor transformaties controleerbaar, herhaalbaar en beter onderhoudbaar zijn.</p>
-                <p>Parallel hebben we met sales managers requirements opgehaald en vertaald naar zowel de SQL-logica als de nieuwe Power BI-rapporten, zodat data en rapportage inhoudelijk op elkaar aansluiten.</p>
-                <div class="content-highlight">
-                    <p>Resultaat: één consistente definitie van KPI's in het platform en direct bruikbare stuurinformatie in Power BI.</p>
+        <div class="story-grid">
+            <article class="story-card reveal">
+                <span class="story-label">Probleem</span>
+                <h3>Waardevolle klantcontext ging structureel verloren</h3>
+                <p>Na drukke gespreksdagen bleven gespreksverslagen liggen of werden ze onvolledig uitgewerkt. Details vervaagden, actiepunten raakten versnipperd en bij langlopende trajecten ontbrak het overzicht over wat er eerder was besproken. Nieuwe collega's die een klant overnamen moesten weken inwerken zonder compleet dossier.</p>
+                <div class="story-highlight">
+                    <p>Bij langlopende deals maakt goede dossiervorming het verschil tussen consistente opvolging en gemiste commerciële kansen.</p>
                 </div>
-            </div>
+            </article>
+            <article class="story-card solution-card reveal">
+                <span class="story-label">Oplossing</span>
+                <h3>AI die elk gesprek direct omzet in bruikbare dossierkennis</h3>
+                <p>We ontwikkelden een op maat gemaakte AI-oplossing die volledig is geïntegreerd in de bestaande bedrijfsomgeving. Direct na een klantgesprek legt de accountmanager kort vast wat er besproken is. De oplossing structureert dit automatisch tot een compleet gespreksverslag en analyseert over meerdere meetings welke ontwikkelingen, bezwaren en kansen terugkomen.</p>
+                <div class="story-highlight">
+                    <p>Van korte input na het gesprek naar een direct opgeslagen klantdossier met inzicht in ontwikkelingen over meerdere contactmomenten.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -352,21 +420,25 @@
 <section class="results-section reveal">
     <div class="container">
         <div class="results-header">
-            <span class="section-label">Impact</span>
-            <h2 class="section-title">Concrete resultaten</h2>
+            <span class="section-label">Concrete impact</span>
+            <h2 class="section-title">Wat verloren klantcontext uw organisatie werkelijk kost</h2>
+            <p style="color: rgba(255,255,255,0.45); font-size: 1rem; max-width: 520px; margin: 12px auto 0; line-height: 1.75; text-wrap: pretty;">Slechte dossiervorming is geen ongemak — het is een directe kostenpost. Dit zijn de getallen.</p>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">&euro;4.000</div>
-                <div class="result-text">Lagere maandelijkse platformkosten ten opzichte van de vorige inrichting</div>
+                <div class="result-icon">⏱️</div>
+                <div class="result-number purple">€10.000–€15.000 per accountmanager per jaar in bespaarde schrijftijd</div>
+                <div class="result-text">Een klantgesprek kost 20–30 minuten aan verslaglegging achteraf. Bij 5 gesprekken per dag is dat tot 2,5 uur puur administratief schrijfwerk. De agent doet dit in seconden. Per medewerker scheelt dat een kwart van de werkweek — teruggewonnen voor klantcontact.</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">Robuust</div>
-                <div class="result-text">Dataverlading via een gestructureerd medallion framework met ADF pipelines en SQL stored procedures</div>
+                <div class="result-icon">🎯</div>
+                <div class="result-number green">Geen deals verloren door context die verdwijnt</div>
+                <div class="result-text">Bij langlopende B2B-trajecten is klantkennis direct geld waard. Een account dat overloopt naar een concurrent omdat opvolging hapert, kost gemiddeld 5–10x de jaarcontractwaarde aan vervangingskosten. De agent sluit die lekken — structureel.</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">2 uur sneller</div>
-                <div class="result-text">Dagelijks laadproces versneld met circa 2 uur door pipeline-gestuurde verwerking en SQL-logica</div>
+                <div class="result-icon">🚀</div>
+                <div class="result-number amber">Van 3–6 weken inwerken naar 1 dag</div>
+                <div class="result-text">Zonder gedocumenteerde gesprekshistorie duurt het weken voordat een opvolger productief is. Met een compleet klantdossier op dag één is de inwerkperiode teruggebracht naar dagen. Per overdracht scheelt dat €5.000–€8.000 in productiviteitsverlies.</div>
             </div>
         </div>
     </div>
@@ -376,8 +448,8 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook uw Power BI-platform opnieuw inrichten?</h2>
-            <p>Wij vertalen business requirements naar een robuust dataplatform met medallion-opzet, SQL-logica en rapportages die direct inzetbaar zijn in de operatie.</p>
+            <h2 class="section-title">Wat kost het uw organisatie als klantcontext verdwijnt?</h2>
+            <p>De meeste teams weten niet precies hoeveel schrijftijd, gemiste opvolging en trage onboarding hen per jaar kosten. Wij laten het u zien — en laten zien hoe snel dit terug te verdienen is.</p>
             <div class="cta-actions">
                 <a href="index.html#contact" class="btn-primary">Vraag een korte intake aan &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>

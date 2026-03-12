@@ -60,6 +60,7 @@
             font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
+            text-wrap: balance;
         }
         .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
@@ -116,79 +117,220 @@
         .page-hero h1 {
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+            text-wrap: balance;
         }
         .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
-        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; text-wrap: pretty; }
         .hero-text { padding-bottom: 60px; }
-
         .hero-image {
             width: 100%; height: 400px; object-fit: cover; display: block;
             border-radius: 16px 16px 0 0; margin-top: 40px;
         }
 
-        /* INTRODUCTIE */
-        .intro-section { padding: 80px 0; background: var(--white); }
-        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .intro-heading { font-family: var(--font-serif, 'Lora', 'Playfair Display', serif); font-size: 3rem; font-weight: 700; color: var(--gray-500, #6b7280); line-height: 1.1; }
+        /* INTRO */
+        .intro-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .intro-heading {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            line-height: 1.1;
+        }
         .intro-table { width: 100%; }
-        .intro-row { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border, #e5e5e5); }
-        .intro-row:last-child { border-bottom: 1px solid var(--border, #e5e5e5); }
-        .intro-label { font-size: 0.95rem; font-weight: 600; color: var(--black); }
-        .intro-value { font-size: 0.95rem; color: var(--black); text-align: right; }
+        .intro-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            padding: 18px 0;
+            border-top: 1px solid var(--border);
+        }
+        .intro-row:last-child { border-bottom: 1px solid var(--border); }
+        .intro-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .intro-value {
+            font-size: 0.95rem;
+            color: var(--black);
+            text-align: right;
+        }
 
-        /* CONTENT SECTIONS */
-        .content-section { padding: 80px 0; }
-        .content-section.alt { background: var(--white); }
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-        .content-label {
-            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block;
+        /* PROBLEM + SOLUTION */
+        .story-section {
+            padding: 0 0 80px;
+            background: var(--white);
         }
-        .content-title {
-            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
+        .story-header {
+            text-align: center;
+            margin-bottom: 28px;
         }
-        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
-        .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
-        .content-text p { margin-bottom: 16px; }
-        .content-highlight {
-            background: var(--primary-50); border-left: 3px solid var(--primary);
-            padding: 24px 28px; border-radius: 0 12px 12px 0; margin-top: 24px;
+        .story-header .section-title {
+            margin-bottom: 0;
+            max-width: 840px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .content-highlight p { color: var(--gray-700); font-size: 0.9rem; line-height: 1.75; margin: 0; font-weight: 500; }
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+        .story-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: var(--shadow-md);
+        }
+        .story-card.solution-card {
+            background: linear-gradient(180deg, var(--primary-50) 0%, var(--white) 100%);
+        }
+        .story-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .story-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            box-shadow: 0 0 0 5px rgba(108,60,233,0.08);
+        }
+        .story-card h3 {
+            color: var(--black);
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            text-wrap: balance;
+        }
+        .story-card p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.78;
+            margin-bottom: 16px;
+            text-wrap: pretty;
+        }
+        .story-card p:last-child { margin-bottom: 0; }
+        .story-highlight {
+            margin-top: 24px;
+            padding: 22px 24px;
+            border-radius: 16px;
+            background: var(--cream);
+            border: 1px solid rgba(108,60,233,0.1);
+        }
+        .story-highlight p {
+            margin: 0;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.7;
+            text-wrap: pretty;
+        }
+        .story-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+        .story-list li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--gray-600);
+            font-size: 0.92rem;
+            line-height: 1.72;
+        }
+        .story-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
 
         /* RESULTS */
         .results-section {
             padding: 100px 0;
             background: linear-gradient(135deg, var(--navy) 0%, #1e1b4b 100%);
-            color: var(--white); position: relative; overflow: hidden;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
         .results-section::before {
-            content: ''; position: absolute; top: -200px; right: -200px;
-            width: 600px; height: 600px;
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
             background: radial-gradient(circle, rgba(108,60,233,0.15) 0%, transparent 70%);
             pointer-events: none;
         }
-        .results-header { text-align: center; margin-bottom: 56px; position: relative; z-index: 1; }
+        .results-header {
+            text-align: center;
+            margin-bottom: 56px;
+            position: relative;
+            z-index: 1;
+        }
         .results-header .section-label { color: var(--primary-light); }
         .results-header .section-title { color: var(--white); }
-        .results-header .section-title em { color: inherit; }
-        .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; z-index: 1; }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            position: relative;
+            z-index: 1;
+        }
         .result-card {
-            background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px; padding: 40px 32px; text-align: center;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
             transition: all 0.3s;
         }
-        .result-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
-
+        .result-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-4px);
+        }
         .result-number {
-            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 700; margin-bottom: 12px; line-height: 1.1;
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            text-wrap: balance;
         }
         .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
-        .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
+        .result-text {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-wrap: pretty;
+        }
 
         /* CTA */
         .cta-section {
@@ -198,7 +340,7 @@
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
         .cta-content .section-title em { color: inherit; }
-        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
+        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; text-wrap: pretty; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
             background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px;
@@ -228,7 +370,7 @@
             .container { padding: 0 24px; }
             .intro-grid { grid-template-columns: 1fr; gap: 40px; }
             .intro-heading { font-size: 2.4rem; }
-            .content-grid { grid-template-columns: 1fr; gap: 32px; }
+            .story-grid { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
         }
         @media (max-width: 768px) {
@@ -239,8 +381,15 @@
                 background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
                 box-shadow: var(--shadow-md);
             }
-            .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+            .intro-grid { gap: 32px; }
             .intro-heading { font-size: 2rem; }
+            .intro-row {
+                flex-direction: column;
+                align-items: start;
+                gap: 6px;
+            }
+            .intro-value { text-align: left; }
+            .story-card { padding: 28px 24px; }
             .hero-image { height: 240px; }
             .footer-content { flex-direction: column; gap: 12px; text-align: center; }
         }
@@ -257,11 +406,11 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
-            <li><a href="index.html#waarom">Waarom wij</a></li>
-            <li><a href="index.html#aanpak">Aanpak</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            <li><a href="index.html#voor-wie">Voor wie</a></li>
+            <li><a href="index.html#werkwijze">Aanpak</a></li>
+            <li><a href="index.html#waarom">Waarom Acento</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Plan een gesprek</a></li>
         </ul>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
     </div>
@@ -279,7 +428,7 @@
                 <span>&#8594;</span>
                 <span class="current">Accountmanager AI Agent</span>
             </div>
-            <h1>AI Agent bereidt accountmanagers voor op klantgesprekken</h1>
+            <h1>Sales team ontlast door AI oplossing</h1>
             <p>Voor ieder klantgesprek direct inzicht in omzetontwikkeling, oorzaken achter stijging of daling, productverschuivingen en concrete commerciële kansen per klant.</p>
         </div>
         <img class="hero-image" src="https://images.unsplash.com/photo-1552581234-26160f608093?w=1600&q=80" alt="Klant- en salesgesprek in vergaderruimte" loading="eager">
@@ -292,12 +441,12 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Azure AI Foundry &ndash; SQL Server &ndash; Python &ndash; Power BI</span>
+                    <span class="intro-label">Team</span>
+                    <span class="intro-value">Commercieel team in groothandel</span>
                 </div>
                 <div class="intro-row">
-                    <span class="intro-label">Services</span>
-                    <span class="intro-value">AI Agents &ndash; Data analyse &ndash; Sales enablement</span>
+                    <span class="intro-label">Oplossing</span>
+                    <span class="intro-value">AI-gestuurde gespreksvoorbereiding</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
@@ -308,38 +457,28 @@
     </div>
 </section>
 
-<section class="content-section reveal">
+<section class="story-section reveal">
     <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De uitdaging</h2>
-            </div>
-            <div class="content-text">
-                <p>Accountmanagers wilden beter voorbereid klantgesprekken in, maar hadden geen snelle toegang tot de juiste inzichten. Vragen over omzetontwikkeling, afwijkingen en productverschuivingen kostten veel uitzoekwerk.</p>
-                <p>Daardoor bleven commerciële kansen liggen, zoals klanten die opvallend minder van een relevant product afnemen dan vergelijkbare klanten in dezelfde categorie.</p>
-                <div class="content-highlight">
-                    <p>Voorbeeld: categorie Y koopt gemiddeld 100 stuks van product Z, terwijl klant X er slechts 5 afneemt. Zonder snelle signalering mis je een concrete saleskans.</p>
-                </div>
-            </div>
+        <div class="story-header reveal">
+            <span class="section-label">De uitdaging</span>
         </div>
-    </div>
-</section>
-
-<section class="content-section alt reveal">
-    <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze aanpak</h2>
-            </div>
-            <div class="content-text">
-                <p>We bouwden een AI Agent die vragen van accountmanagers in gewone taal omzet naar analyses op het datawarehouse. De agent geeft direct antwoord op vragen over omzet over meerdere jaren, verklaart afwijkingen en toont welke producten de verandering veroorzaken.</p>
-                <p>Daarnaast vergelijkt de agent klanten binnen dezelfde categorie, zodat accountmanagers afwijkend koopgedrag herkennen en gericht nieuwe verkoopkansen kunnen bespreken in hun meetings.</p>
-                <div class="content-highlight">
-                    <p>Resultaat: accountmanagers starten gesprekken met onderbouwde inzichten in trends, oorzaken en concrete next best actions per klant.</p>
+        <div class="story-grid">
+            <article class="story-card reveal">
+                <span class="story-label">Probleem</span>
+                <h3>Accountmanagers gingen klantgesprekken in zonder scherpe voorbereiding</h3>
+                <p>Elke meeting vergde uitgebreid handmatig uitzoekwerk: omzetcijfers opzoeken, afwijkingen interpreteren en verkoopkansen identificeren. Dit kostte gemiddeld 60 minuten per gesprek en leidde ertoe dat commerciële kansen structureel bleven liggen.</p>
+                <div class="story-highlight">
+                    <p>Vergelijkbare klanten kochten structureel meer, maar zonder directe signalering bleef die omzet op tafel liggen.</p>
                 </div>
-            </div>
+            </article>
+            <article class="story-card solution-card reveal">
+                <span class="story-label">Oplossing</span>
+                <h3>AI die accountmanagers direct voorbereidt op elk gesprek</h3>
+                <p>We ontwikkelden een op maat gemaakte AI-oplossing die volledig is geïntegreerd in de bestaande bedrijfsomgeving. Accountmanagers stellen in gewone taal een vraag en krijgen binnen seconden een compleet klantbeeld: omzettrends, afwijkingen, oorzaken en concrete verkoopkansen.</p>
+                <div class="story-highlight">
+                    <p>Vlak voor een afspraak stelt een accountmanager één vraag en loopt direct met een onderbouwd verkoopvoorstel de meeting in.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -352,16 +491,28 @@
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">Sneller voorbereid</div>
-                <div class="result-text">Inzichten over omzetontwikkeling en productmix direct beschikbaar voor klantgesprekken</div>
+                <div class="result-number purple">Van 60 min naar 10 minuten</div>
+                <div class="result-text">Voorbereiding per klantgesprek daalde van gemiddeld 60 minuten handmatig uitzoeken naar een vraag in de chat</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">Meer kansen</div>
-                <div class="result-text">Benchmarking per klantcategorie maakt upsell- en cross-sell kansen zichtbaar</div>
+                <div class="result-number green">3x meer upsell signalen</div>
+                <div class="result-text">Klanten die significant minder afnemen dan vergelijkbare klanten in dezelfde categorie worden nu structureel herkend</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">Betere gesprekken</div>
-                <div class="result-text">Accountmanagers gaan datagedreven het overleg in en sturen gerichter op commerciële groei</div>
+                <div class="result-number amber">Elke meeting met een concrete actie</div>
+                <div class="result-text">Accountmanagers starten gesprekken met een onderbouwd voorstel op basis van omzettrends, afwijkingen en next best actions</div>
+            </div>
+            <div class="result-card reveal">
+                <div class="result-number purple">0 IT-tickets voor data</div>
+                <div class="result-text">Vragen die voorheen 3-5 dagen op een rapport wachtten worden nu real-time beantwoord, zonder ontwikkelaar</div>
+            </div>
+            <div class="result-card reveal">
+                <div class="result-number green">Direct inzicht in oorzaak</div>
+                <div class="result-text">De agent verklaart niet alleen wat de omzetdaling is, maar welk product of welke klant de afwijking veroorzaakt</div>
+            </div>
+            <div class="result-card reveal">
+                <div class="result-number amber">Breed inzetbaar zonder training</div>
+                <div class="result-text">Elk teamlid stelt vragen in gewone taal: geen SQL-kennis, dashboardtraining of IT-hulp vereist</div>
             </div>
         </div>
     </div>
@@ -374,7 +525,7 @@
             <h2 class="section-title">Ook accountmanagers datagedreven laten verkopen?</h2>
             <p>Wij bouwen AI Agents die commerciële teams voorbereiden op klantgesprekken met direct bruikbare inzichten uit uw data.</p>
             <div class="cta-actions">
-                <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
+                <a href="index.html#contact" class="btn-primary">Vraag een korte intake aan &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
             </div>
         </div>

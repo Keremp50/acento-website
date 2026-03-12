@@ -60,6 +60,7 @@
             font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
+            text-wrap: balance;
         }
         .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
@@ -116,9 +117,10 @@
         .page-hero h1 {
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+            text-wrap: balance;
         }
         .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
-        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; text-wrap: pretty; }
         .hero-text { padding-bottom: 60px; }
 
         .hero-image {
@@ -184,11 +186,12 @@
         .result-number {
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
+            text-wrap: balance;
         }
         .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
-        .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
+        .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; text-wrap: pretty; }
 
         /* CTA */
         .cta-section {
@@ -198,7 +201,7 @@
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
         .cta-content .section-title em { color: inherit; }
-        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
+        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; text-wrap: pretty; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
             background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px;
@@ -257,11 +260,11 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
-            <li><a href="index.html#waarom">Waarom wij</a></li>
-            <li><a href="index.html#aanpak">Aanpak</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            <li><a href="index.html#voor-wie">Voor wie</a></li>
+            <li><a href="index.html#werkwijze">Aanpak</a></li>
+            <li><a href="index.html#waarom">Waarom Acento</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Plan een gesprek</a></li>
         </ul>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
     </div>
@@ -374,7 +377,7 @@
             <h2 class="section-title">Ook inzicht per entiteit in uw rapportages?</h2>
             <p>Wij helpen organisaties om datawarehouse-logica en rapportages zo in te richten dat herkomst, verantwoordelijkheid en performance per entiteit direct zichtbaar zijn.</p>
             <div class="cta-actions">
-                <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
+                <a href="index.html#contact" class="btn-primary">Vraag een korte intake aan &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
             </div>
         </div>

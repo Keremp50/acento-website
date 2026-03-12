@@ -60,8 +60,9 @@
             font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
+            text-wrap: balance;
         }
-        .section-sub { color: var(--gray-500); font-size: 1.05rem; max-width: 560px; line-height: 1.8; }
+        .section-sub { color: var(--gray-500); font-size: 1.05rem; max-width: 560px; line-height: 1.8; text-wrap: pretty; }
 
         /* ── NAVBAR ── */
         .navbar {
@@ -95,36 +96,36 @@
             position: relative; overflow: hidden;
         }
         .hero::before {
-            content: ''; position: absolute; top: -30%; right: -15%;
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(108,60,233,0.15) 0%, transparent 70%);
+            content: ''; position: absolute; top: -20%; right: -5%;
+            width: 900px; height: 900px;
+            background: radial-gradient(circle, rgba(108,60,233,0.14) 0%, transparent 65%);
             pointer-events: none;
         }
         .hero::after {
-            content: ''; position: absolute; bottom: -20%; left: -10%;
+            content: ''; position: absolute; bottom: -30%; right: 15%;
             width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%);
             pointer-events: none;
         }
         #networkCanvas {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 0;
-            opacity: 0.92;
-            filter: saturate(108%) contrast(103%);
-            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.88) 58%, rgba(0,0,0,1) 100%);
-            mask-image: linear-gradient(to right, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.5) 32%, rgba(0,0,0,0.88) 58%, rgba(0,0,0,1) 100%);
+            opacity: 1;
         }
-        .hero-grid { position: relative; z-index: 1; }
-        .hero-content { max-width: 900px; }
+        .hero-grid { position: relative; z-index: 1; display: flex; justify-content: flex-start; }
+        .hero-content { max-width: 620px; text-align: left; }
         .hero h1 {
             font-family: var(--font-display);
-            font-size: clamp(2.6rem, 5vw, 3.6rem);
-            line-height: 1.1; font-weight: 700; margin-bottom: 24px;
+            font-size: clamp(2.56rem, 4.8vw, 3.6rem);
+            line-height: 1.05; font-weight: 700; margin: 0 0 24px; max-width: 14em;
             letter-spacing: -0.02em; color: var(--white);
+            text-wrap: balance;
         }
-        .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.85; }
-        .hero-statement { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.85; }
-        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+        .hero-sub { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 20px; line-height: 1.85; max-width: 540px; text-wrap: balance; }
+        .hero-statement { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 40px; line-height: 1.85; max-width: 540px; text-wrap: balance; }
+        .hero-sub strong,
+        .hero-statement strong { color: var(--white); font-weight: 700; }
+        .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; justify-content: flex-start; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
             background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px;
@@ -156,6 +157,189 @@
         @keyframes ticker {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        /* ── FIT SECTION ── */
+        .fit-section {
+            padding: 88px 0;
+            background:
+                radial-gradient(circle at top left, rgba(108,60,233,0.08), transparent 30%),
+                linear-gradient(180deg, #f8f5fd 0%, var(--white) 100%);
+            border-bottom: 1px solid var(--border);
+        }
+        .fit-header {
+            max-width: 100%;
+            margin-bottom: 28px;
+            text-align: center;
+        }
+        .fit-intro { max-width: 100%; }
+        .fit-intro .section-title {
+            max-width: 760px;
+            margin-bottom: 18px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .fit-intro .section-sub { max-width: 760px; margin-left: auto; margin-right: auto; }
+        .fit-problems-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.72fr);
+            gap: 32px;
+            align-items: stretch;
+        }
+        .fit-problems-main {
+            min-width: 0;
+        }
+        .fit-problems-head {
+            max-width: 760px;
+            margin: 0 0 22px;
+            text-align: left;
+        }
+        .fit-problems-label {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .fit-problems-head h3 {
+            color: var(--black);
+            font-family: var(--font-display);
+            font-size: clamp(1.45rem, 2.8vw, 1.9rem);
+            line-height: 1.25;
+            text-wrap: balance;
+        }
+        .fit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            max-width: none;
+            margin: 0;
+        }
+        .fit-card {
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(108,60,233,0.12);
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(26,26,46,0.05);
+            padding: 28px 30px 26px;
+            min-height: 0;
+            position: relative;
+        }
+        .fit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 22px;
+            width: 56px;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        .fit-card h3 {
+            color: var(--black);
+            font-family: var(--font-display);
+            font-size: 1.16rem;
+            line-height: 1.35;
+            margin-bottom: 10px;
+            padding-top: 8px;
+            text-wrap: balance;
+        }
+        .fit-card p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            line-height: 1.68;
+            margin: 0;
+            text-wrap: pretty;
+        }
+        .fit-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .fit-link:hover { gap: 12px; }
+        .fit-link-wrap {
+            margin-top: 18px;
+        }
+        .fit-side {
+            display: flex;
+        }
+        .fit-cta {
+            background: linear-gradient(180deg, rgba(255,255,255,0.96) 0%, rgba(243,239,251,0.96) 100%);
+            border: 1px solid rgba(108,60,233,0.12);
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(26,26,46,0.05);
+            padding: 26px 24px;
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .fit-cta-label {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: var(--primary);
+            font-size: 0.72rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .fit-cta h4 {
+            color: var(--black);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            text-wrap: balance;
+        }
+        .fit-cta p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            text-wrap: pretty;
+        }
+        .fit-cta-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+            margin: 2px 0 0;
+            padding: 0;
+        }
+        .fit-cta-list li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            line-height: 1.55;
+            text-wrap: pretty;
+        }
+        .fit-cta-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        .fit-cta-note {
+            color: var(--gray-400);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        .fit-cta .fit-link-wrap {
+            margin-top: auto;
+            padding-top: 20px;
+        }
+        .fit-cta-button {
+            align-self: flex-start;
         }
 
         /* ── FACTS ── */
@@ -209,12 +393,12 @@
             text-transform: uppercase;
             color: var(--black);
         }
-        .fact p { color: var(--gray-600); font-size: 0.88rem; line-height: 1.65; margin-bottom: 6px; }
+        .fact p { color: var(--gray-600); font-size: 0.88rem; line-height: 1.65; margin-bottom: 6px; text-wrap: pretty; }
         .fact p strong { color: var(--black); font-weight: 700; }
         .fact-source { color: var(--gray-400); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; }
         .nudge-line {
             font-size: 1rem; line-height: 1.85; color: var(--gray-600);
-            max-width: 980px;
+            max-width: 980px; text-wrap: pretty;
         }
 
         /* ── APPROACH ── */
@@ -225,7 +409,7 @@
             list-style: none; margin: 22px 0 20px; display: grid; gap: 10px;
             color: var(--gray-600); font-size: 0.95rem;
         }
-        .approach-list li { position: relative; padding-left: 18px; line-height: 1.75; }
+        .approach-list li { position: relative; padding-left: 18px; line-height: 1.75; text-wrap: pretty; }
         .approach-list li::before {
             content: ''; position: absolute; left: 0; top: 11px;
             width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
@@ -252,12 +436,14 @@
             line-height: 1.35;
             margin-bottom: 6px;
             font-weight: 600;
+            text-wrap: balance;
         }
         .approach-value p {
             color: var(--gray-500);
             font-size: 0.8rem;
             line-height: 1.6;
             margin: 0;
+            text-wrap: pretty;
         }
 
         /* ── WHY ACENTO ── */
@@ -287,16 +473,17 @@
             font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 6px;
+            text-wrap: balance;
         }
-        .why-item p { color: var(--gray-500); font-size: 0.85rem; line-height: 1.7; }
+        .why-item p { color: var(--gray-500); font-size: 0.85rem; line-height: 1.7; text-wrap: pretty; }
 
         /* ── CASES PREVIEW ── */
         .cases-section { padding: 100px 0; background: var(--white); }
         .cases-header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
-        .cases-header .section-sub { max-width: 480px; }
+        .cases-header .section-sub { max-width: 640px; }
         .cases-link { color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
         .cases-link:hover { gap: 10px; }
-        .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .cases-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
         .case-mini {
             background: var(--navy); border-radius: 12px; overflow: hidden;
             transition: all 0.3s; text-decoration: none;
@@ -308,7 +495,7 @@
             font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
             color: rgba(255,255,255,0.35); margin-bottom: 8px; font-weight: 500;
         }
-        .case-mini h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.35; }
+        .case-mini h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.35; text-wrap: balance; }
         .case-mini-meta { font-size: 0.78rem; color: var(--primary-light); font-weight: 500; }
 
         /* ── CTA ── */
@@ -329,18 +516,144 @@
             background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
             pointer-events: none;
         }
-        .cta-content { position: relative; z-index: 1; max-width: 580px; }
+        .cta-layout {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+            gap: 42px;
+            align-items: start;
+        }
+        .cta-content { max-width: 580px; }
         .cta-content .section-label { color: var(--primary-light); }
         .cta-content .section-title { color: var(--white); margin-bottom: 14px; }
-        .cta-content p { color: rgba(255,255,255,0.55); margin-bottom: 32px; font-size: 1.05rem; line-height: 1.8; }
+        .cta-content p { color: rgba(255,255,255,0.55); margin-bottom: 32px; font-size: 1.05rem; line-height: 1.8; text-wrap: pretty; }
         .cta-content .btn-primary { background: var(--accent); color: var(--white); }
         .cta-content .btn-primary:hover { background: var(--accent-dark); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
         .cta-quick {
             font-size: 0.9rem; color: rgba(255,255,255,0.62);
             margin-top: -16px; margin-bottom: 30px;
         }
-        .cta-contact-info { display: flex; gap: 36px; margin-top: 28px; flex-wrap: wrap; }
-        .cta-contact-item { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+        .cta-points {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            margin: 0 0 28px;
+        }
+        .cta-points li {
+            color: rgba(255,255,255,0.72);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            text-wrap: pretty;
+        }
+        .cta-points li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            margin-top: 9px;
+            border-radius: 999px;
+            background: var(--accent-light);
+            box-shadow: 0 0 0 5px rgba(110,231,183,0.08);
+            flex: 0 0 auto;
+        }
+        .intake-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: var(--shadow-xl);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+        .intake-card h3 {
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            line-height: 1.25;
+            margin-bottom: 10px;
+            text-wrap: balance;
+        }
+        .intake-card p {
+            margin: 0 0 20px;
+            color: rgba(255,255,255,0.58);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-wrap: pretty;
+        }
+        .intake-form { display: grid; gap: 14px; }
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+        .form-field {
+            display: grid;
+            gap: 8px;
+        }
+        .form-field label {
+            color: rgba(255,255,255,0.62);
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(12,16,45,0.72);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 14px 15px;
+            font: inherit;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .form-field input::placeholder,
+        .form-field textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .form-field input:focus,
+        .form-field select:focus,
+        .form-field textarea:focus {
+            outline: none;
+            border-color: rgba(110,231,183,0.55);
+            background: rgba(12,16,45,0.92);
+        }
+        .form-field textarea {
+            min-height: 118px;
+            resize: vertical;
+        }
+        .form-field.full { grid-column: 1 / -1; }
+        .form-submit {
+            width: 100%;
+            justify-content: center;
+            margin-top: 4px;
+        }
+        .form-note {
+            margin: 0;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.78rem;
+            line-height: 1.6;
+        }
+        .cta-contact-info {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        .cta-contact-item {
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            font-size: 0.82rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s;
+        }
         .cta-contact-item:hover { color: var(--white); }
 
         /* ── FOOTER ── */
@@ -359,12 +672,16 @@
             .hero { padding: 130px 0 80px; }
             .hero-grid { grid-template-columns: 1fr; }
             .facts-row { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+            .fit-problems-layout { grid-template-columns: 1fr; gap: 24px; }
+            .fit-grid { grid-template-columns: 1fr; }
+            .fit-side { display: block; }
             .approach-grid { grid-template-columns: 1fr; gap: 28px; }
             .approach-value-grid { grid-template-columns: 1fr; }
             .why-layout { grid-template-columns: 1fr; gap: 36px; }
             .why-header { position: static; }
             .why-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-            .cases-grid { grid-template-columns: 1fr; }
+            .cases-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .cta-layout { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -375,8 +692,14 @@
                 box-shadow: var(--shadow-md);
             }
             .facts-row { grid-template-columns: 1fr; }
+            .fit-grid { grid-template-columns: 1fr; }
+            .fit-card { padding: 22px; }
+            .fit-cta { padding: 22px; }
             .why-grid { grid-template-columns: 1fr; }
+            .cases-grid { grid-template-columns: 1fr; }
             .cta-contact-info { flex-direction: column; gap: 12px; }
+            .form-grid { grid-template-columns: 1fr; }
+            .intake-card { padding: 22px; }
             .footer-content { flex-direction: column; gap: 12px; text-align: center; }
             .ticker { display: none; }
             .cases-header { flex-direction: column; align-items: flex-start; }
@@ -387,7 +710,7 @@
 
 <nav class="navbar">
     <div class="container">
-        <a href="#" class="logo">
+        <a href="index.html" class="logo">
             <span class="logo-mark">
                 <img src="logo.svg" alt="Acento logo" width="36" height="36">
             </span>
@@ -395,11 +718,10 @@
         </a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#cases">Cases</a></li>
-            <li><a href="#facts">Feiten</a></li>
+            <li><a href="#voor-wie">Voor wie</a></li>
             <li><a href="#werkwijze">Aanpak</a></li>
             <li><a href="#waarom">Waarom Acento</a></li>
-            <li><a href="#tech">Technologie</a></li>
-            <li><a href="#contact" class="nav-cta">Kennismaking plannen</a></li>
+            <li><a href="#contact" class="nav-cta">Plan een gesprek</a></li>
         </ul>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
     </div>
@@ -413,12 +735,12 @@
     <div class="container">
         <div class="hero-grid">
             <div class="hero-content">
-                <h1>Specialist in AI agent integratie binnen Microsoft Azure</h1>
-                <p class="hero-sub">Ontwikkeling en integratie van op maat gebouwde AI agents die werken met uw bedrijfsdata, processen versnellen en echte waarde creëert.</p>
-                <p class="hero-statement">AI verschuift van experiment naar bedrijfsfundament. Organisaties die nu structureel integreren, creëren blijvende voorsprong op hun concurrent.</p>
+                <h1>Verhoog bedrijfsresultaten met AI op Microsoft Azure</h1>
+                <p class="hero-sub">Ontwikkeling en integratie van op maat gebouwde AI agents die werken met uw bedrijfsdata, processen versnellen en echte waarde cre&euml;ren.</p>
+                <p class="hero-statement">AI verschuift van experiment naar bedrijfsfundament. Organisaties die nu structureel integreren, cre&euml;ren een blijvende voorsprong op hun concurrenten.</p>
                 <div class="hero-actions">
                     <a href="#cases" class="btn-primary">Bekijk cases &#8594;</a>
-                    <a href="#contact" class="btn-secondary">Plan een strategisch overleg</a>
+                    <a href="#contact" class="btn-secondary">Vraag een korte intake aan</a>
                 </div>
             </div>
         </div>
@@ -427,32 +749,77 @@
 
 <div class="ticker">
     <div class="ticker-content">
-        <div class="ticker-item"><span>&middot;</span> Azure AI Foundry</div>
-        <div class="ticker-item"><span>&middot;</span> Azure OpenAI</div>
-        <div class="ticker-item"><span>&middot;</span> Copilot Studio</div>
-        <div class="ticker-item"><span>&middot;</span> Semantic Kernel</div>
-        <div class="ticker-item"><span>&middot;</span> Prompt Flow</div>
-        <div class="ticker-item"><span>&middot;</span> Azure AI Search</div>
-        <div class="ticker-item"><span>&middot;</span> Vector Databases</div>
-        <div class="ticker-item"><span>&middot;</span> Model Context Protocol</div>
-        <div class="ticker-item"><span>&middot;</span> Function Calling</div>
-        <div class="ticker-item"><span>&middot;</span> Agent Orchestration</div>
-        <div class="ticker-item"><span>&middot;</span> Guardrails &amp; Evals</div>
-        <div class="ticker-item"><span>&middot;</span> RAG Architectuur</div>
-        <div class="ticker-item"><span>&middot;</span> Azure AI Foundry</div>
-        <div class="ticker-item"><span>&middot;</span> Azure OpenAI</div>
-        <div class="ticker-item"><span>&middot;</span> Copilot Studio</div>
-        <div class="ticker-item"><span>&middot;</span> Semantic Kernel</div>
-        <div class="ticker-item"><span>&middot;</span> Prompt Flow</div>
-        <div class="ticker-item"><span>&middot;</span> Azure AI Search</div>
-        <div class="ticker-item"><span>&middot;</span> Vector Databases</div>
-        <div class="ticker-item"><span>&middot;</span> Model Context Protocol</div>
-        <div class="ticker-item"><span>&middot;</span> Function Calling</div>
-        <div class="ticker-item"><span>&middot;</span> Agent Orchestration</div>
-        <div class="ticker-item"><span>&middot;</span> Guardrails &amp; Evals</div>
-        <div class="ticker-item"><span>&middot;</span> RAG Architectuur</div>
+        <div class="ticker-item"><span>&middot;</span> Sneller voorbereid klantgesprek</div>
+        <div class="ticker-item"><span>&middot;</span> Meer omzetkansen per account</div>
+        <div class="ticker-item"><span>&middot;</span> Minder handmatig opvolgwerk</div>
+        <div class="ticker-item"><span>&middot;</span> Betere stuurinformatie voor management</div>
+        <div class="ticker-item"><span>&middot;</span> Snellere besluitvorming</div>
+        <div class="ticker-item"><span>&middot;</span> Van pilot naar productie</div>
+        <div class="ticker-item"><span>&middot;</span> Meetbare businessimpact</div>
+        <div class="ticker-item"><span>&middot;</span> Hogere adoptie in teams</div>
+        <div class="ticker-item"><span>&middot;</span> Duidelijke eigenaarschap en governance</div>
+        <div class="ticker-item"><span>&middot;</span> Continue optimalisatie na livegang</div>
+        <div class="ticker-item"><span>&middot;</span> Sneller voorbereid klantgesprek</div>
+        <div class="ticker-item"><span>&middot;</span> Meer omzetkansen per account</div>
+        <div class="ticker-item"><span>&middot;</span> Minder handmatig opvolgwerk</div>
+        <div class="ticker-item"><span>&middot;</span> Betere stuurinformatie voor management</div>
+        <div class="ticker-item"><span>&middot;</span> Snellere besluitvorming</div>
+        <div class="ticker-item"><span>&middot;</span> Van pilot naar productie</div>
+        <div class="ticker-item"><span>&middot;</span> Meetbare businessimpact</div>
+        <div class="ticker-item"><span>&middot;</span> Hogere adoptie in teams</div>
+        <div class="ticker-item"><span>&middot;</span> Duidelijke eigenaarschap en governance</div>
+        <div class="ticker-item"><span>&middot;</span> Continue optimalisatie na livegang</div>
     </div>
 </div>
+
+<!-- ── FIT ── -->
+<section class="fit-section" id="voor-wie">
+    <div class="container">
+        <div class="fit-header">
+            <div class="fit-intro reveal">
+                <span class="section-label">Voor Wie Dit Werkt</span>
+                <h2 class="section-title">Voor bedrijven waar data meer moet opleveren.</h2>
+                <p class="section-sub">We werken voor MKB-bedrijven waar data al in Azure leeft en waar teams sneller waarde uit die data willen halen. De bestaande infrastructuur moet commercieel en operationeel meer opleveren. Door AI agents direct op de data aan te sluiten wordt de investering omgezet in meetbare ROI.</p>
+            </div>
+        </div>
+        <div class="fit-problems-head reveal">
+            <h3>Veel voorkomende groeipijnen bij organisaties.</h3>
+        </div>
+        <div class="fit-problems-layout">
+            <div class="fit-problems-main">
+                <div class="fit-grid">
+                    <article class="fit-card reveal">
+                        <h3>Sales teams zijn teveel kostbare tijd kwijt aan het voorbereiden van klantmeetings.</h3>
+                        <p>Accountmanagers verzamelen handmatig data uit Power BI rapporten en CRM systemen waardoor waardevolle verkooptijd verloren gaat.</p>
+                    </article>
+                    <article class="fit-card reveal">
+                        <h3>Personeel is door gebrek aan technische kennis afhankelijk van IT voor simpele datavragen.</h3>
+                        <p>AI agents zetten vragen in natuurlijke taal om naar queries, zodat teams direct antwoorden krijgen zonder tijd te verliezen aan IT-verzoeken.</p>
+                    </article>
+                    <article class="fit-card reveal">
+                        <h3>Dagelijkse verzoeken en uitdraaien kosten onnodig uren en handmatig werk.</h3>
+                        <p>Overzichten van cijfers, klanten of operaties worden telkens opnieuw handmatig samengesteld. AI agents besparen tijd en kosten door terugkerende taken te automatiseren.</p>
+                    </article>
+                </div>
+            </div>
+            <aside class="fit-side reveal">
+                <div class="fit-cta">
+                    <span class="fit-cta-label">Volgende stap</span>
+                    <h4>Herkenbaar? Wij helpen u de juiste eerste use case scherp te krijgen.</h4>
+                    <p>In een korte intake brengen we in kaart waar de meeste businessimpact zit, welke data al beschikbaar is en welke AI use case de slimste eerste stap is. U krijgt snel duidelijkheid over haalbaarheid, ROI en de kortste route naar productie.</p>
+                    <ul class="fit-cta-list">
+                        <li>Inzicht in de meest kansrijke use case</li>
+                        <li>Snel duidelijk welke data al benut kan worden</li>
+                        <li>Heldere eerste stap richting productie</li>
+                    </ul>
+                    <div class="fit-link-wrap">
+                        <a href="#contact" class="btn-primary fit-cta-button">Breng uw eerste use case in kaart</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
 
 <!-- ── CASES ── -->
 <section class="cases-section" id="cases">
@@ -460,7 +827,7 @@
         <div class="cases-header reveal">
             <div>
                 <span class="section-label">Cases</span>
-                <h2 class="section-title">AI Agents live bij klanten</h2>
+                <h2 class="section-title">AI implementaties live bij klanten</h2>
                 <p class="section-sub">Bewezen implementaties uitgevoerd binnen MKB-omgevingen. Van vraag naar complete productie-integratie, met oplossingen die direct worden gebruikt door pionierende klanten</p>
             </div>
             <a href="cases.html" class="cases-link">Alle cases bekijken &#8594;</a>
@@ -470,24 +837,32 @@
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="SQL AI Agent" loading="lazy">
                 <div class="case-mini-body">
                     <div class="case-mini-branch">Groothandel</div>
-                    <h3>AI Agent: accountmanagers halen zelf data uit het warehouse</h3>
-                    <div class="case-mini-meta">Python + Azure AI Foundry</div>
+                    <h3>AI Agent voor voorbereiding van klantgesprekken</h3>
+                    <div class="case-mini-meta">Sneller voorbereid, meer commerciële kansen</div>
                 </div>
             </a>
             <a href="case-hr-agent.html" class="case-mini reveal">
                 <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="HR AI Agent" loading="lazy">
                 <div class="case-mini-body">
-                    <div class="case-mini-branch">Privacy &amp; Compliance</div>
-                    <h3>HR AI Agent maakt dashboarddata begrijpelijk voor management</h3>
-                    <div class="case-mini-meta">Fabric Data Agent + Azure AI Foundry</div>
+                    <div class="case-mini-branch">HR</div>
+                    <h3>AI Agent geïntegreerd in Power BI voor HR</h3>
+                    <div class="case-mini-meta">Sneller inzicht en betere HR-besluiten</div>
                 </div>
             </a>
             <a href="case-appointment-agent.html" class="case-mini reveal">
                 <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Appointment Agent" loading="lazy">
                 <div class="case-mini-body">
-                    <div class="case-mini-branch">Vastgoed &amp; Bouw</div>
-                    <h3>AI Agent automatiseert afspraken: van agenda tot Teams meeting</h3>
-                    <div class="case-mini-meta">Copilot Studio + Microsoft 365</div>
+                    <div class="case-mini-branch">Commercie</div>
+                    <h3>AI Agent automatiseert sales opvolging en planning</h3>
+                    <div class="case-mini-meta">Automatische opvolgmail en direct ingeplande meeting</div>
+                </div>
+            </a>
+            <a href="case-gespreksverslag-agent.html" class="case-mini reveal">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Gespreksverslag AI Agent" loading="lazy">
+                <div class="case-mini-body">
+                    <div class="case-mini-branch">B2B Sales</div>
+                    <h3>AI Agent zet klantgesprekken om in gespreksverslagen</h3>
+                    <div class="case-mini-meta">Audio-inspraak, direct dossier en inzicht over tijd</div>
                 </div>
             </a>
         </div>
@@ -612,25 +987,72 @@
 <!-- ── CTA ── -->
 <section class="cta-section" id="contact">
     <div class="container">
-        <div class="cta-content reveal">
-            <span class="section-label">Starten?</span>
-            <h2 class="section-title">Klaar om AI structureel te integreren in uw organisatie?</h2>
-            <p>Geen experiment, maar een gerichte route naar productie binnen uw Microsoft/Azure-omgeving.</p>
-            <p class="cta-quick">Vrijblijvend gesprek van 30 minuten · Plan voor organisatie/team/leiderschap · Route naar eerste productie use case binnen weken</p>
-            <a href="mailto:info@acentosolutions.nl" class="btn-primary">Plan een kennismaking &#8594;</a>
-            <div class="cta-contact-info">
-                <a href="mailto:info@acentosolutions.nl" class="cta-contact-item">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    info@acentosolutions.nl
-                </a>
-                <a href="tel:+31600000000" class="cta-contact-item">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                    +31 6 00 000 000
-                </a>
-                <span class="cta-contact-item">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    Regio Rotterdam
-                </span>
+        <div class="cta-layout">
+            <div class="cta-content reveal">
+                <span class="section-label">Laagdrempelig starten</span>
+                <h2 class="section-title">Vertel kort waar u winst wilt boeken met AI</h2>
+                <p>Geen uitgebreid aanvraagproces. U laat in een minuut weten waar de grootste kans of bottleneck zit, en wij reageren met een passende eerste stap.</p>
+                <p class="cta-quick">Vrijblijvend · Reactie binnen 1 werkdag · Geschikt voor eerste use case of concrete optimalisatievraag</p>
+                <ul class="cta-points">
+                    <li>Handig als u al een concreet idee heeft, maar ook als u nog twijfelt tussen sales, HR, operatie of data.</li>
+                    <li>We kijken eerst naar haalbaarheid, businessimpact en wat een logische eerste stap richting productie is.</li>
+                    <li>U zit nergens aan vast. Het doel van de intake is vooral helder krijgen waar de meeste waarde zit.</li>
+                </ul>
+                <div class="cta-contact-info">
+                    <a href="mailto:info@acentosolutions.nl" class="cta-contact-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        info@acentosolutions.nl
+                    </a>
+                    <span class="cta-contact-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+                        Reactie binnen 1 werkdag
+                    </span>
+                    <span class="cta-contact-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Regio Rotterdam
+                    </span>
+                </div>
+            </div>
+            <div class="intake-card reveal">
+                <h3>Plan een vrijblijvend gesprek</h3>
+                <p>Vul 3 korte vragen in. Wij reageren binnen 1 werkdag met een eerste richting of een voorstel voor een kort gesprek.</p>
+                <form class="intake-form" action="https://formsubmit.co/info@acentosolutions.nl" method="POST">
+                    <input type="hidden" name="_subject" value="Nieuwe aanvraag via Acento website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://keremp50.github.io/acento-website/?verzonden=1">
+                    <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="contact-name">Naam</label>
+                            <input id="contact-name" name="naam" type="text" placeholder="Uw naam" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-company">Bedrijf</label>
+                            <input id="contact-company" name="bedrijf" type="text" placeholder="Bedrijfsnaam" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-email">Werkmail</label>
+                            <input id="contact-email" name="email" type="email" placeholder="naam@bedrijf.nl" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-focus">Waar ligt de vraag?</label>
+                            <select id="contact-focus" name="focus" required>
+                                <option value="">Maak een keuze</option>
+                                <option value="Sales">Sales</option>
+                                <option value="HR">HR</option>
+                                <option value="Operatie">Operatie</option>
+                                <option value="Data en BI">Data en BI</option>
+                                <option value="Nog aan het verkennen">Nog aan het verkennen</option>
+                            </select>
+                        </div>
+                        <div class="form-field full">
+                            <label for="contact-message">Korte toelichting</label>
+                            <textarea id="contact-message" name="toelichting" placeholder="Waar loopt uw team nu tegenaan, of welke uitkomst wilt u bereiken?" required></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary form-submit">Plan een gesprek &#8594;</button>
+                    <p class="form-note">We gebruiken deze informatie alleen om gericht en snel op uw vraag terug te komen.</p>
+                </form>
             </div>
         </div>
     </div>
@@ -678,7 +1100,15 @@
     const hero = canvas.parentElement;
 
     let W, H, dpr;
-    let now = 0;
+    const GAP = 32;
+    const HOVER_RADIUS = 120;
+    const WAVE_SPEED = 320;
+    const WAVE_WIDTH = 160;
+    const WAVE_DECAY = 0.45;
+    const dots = [];
+    const waves = [];
+    let mouseX = -9999, mouseY = -9999;
+
     function resize() {
         dpr = Math.min(window.devicePixelRatio, 2);
         W = hero.offsetWidth;
@@ -686,431 +1116,149 @@
         canvas.width = W * dpr;
         canvas.height = H * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        buildGrid();
     }
 
-    const nodes = [];
-    const edges = [];
-    const pulses = [];
-    const adjacency = new Map();
+    function buildGrid() {
+        dots.length = 0;
+        const cols = Math.ceil(W / GAP) + 1;
+        const rows = Math.ceil(H / GAP) + 1;
+        const offsetX = (W % GAP) / 2;
+        const offsetY = (H % GAP) / 2;
 
-    function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
-    function dist(a, b) {
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        return Math.sqrt(dx * dx + dy * dy);
-    }
-    function edgeKey(a, b) { return a < b ? a + ':' + b : b + ':' + a; }
-    function canPlaceNode(x, y, minDistSq) {
-        for (let i = 0; i < nodes.length; i++) {
-            const dx = nodes[i].x - x;
-            const dy = nodes[i].y - y;
-            if ((dx * dx + dy * dy) < minDistSq) return false;
-        }
-        return true;
-    }
-    function placeNode(sample, minDist, attempts = 34, relax = 0.84) {
-        let d = minDist;
-        for (let pass = 0; pass < 3; pass++) {
-            const minDistSq = d * d;
-            for (let i = 0; i < attempts; i++) {
-                const p = sample();
-                if (canPlaceNode(p.x, p.y, minDistSq)) return p;
-            }
-            d *= relax;
-        }
-        return null;
-    }
-
-    function rebuildAdjacency() {
-        adjacency.clear();
-        for (let i = 0; i < nodes.length; i++) adjacency.set(i, []);
-        for (const e of edges) {
-            adjacency.get(e.a).push({ edge: e, to: e.b });
-            adjacency.get(e.b).push({ edge: e, to: e.a });
-        }
-    }
-
-    function initNetwork() {
-        nodes.length = 0;
-        edges.length = 0;
-        pulses.length = 0;
-        adjacency.clear();
-
-        const isMobile = W < 768;
-        const density = clamp((W * H) / (1366 * 760), 0.72, 1.35);
-        const region = {
-            x: W * (isMobile ? 0.14 : 0.13),
-            y: H * 0.04,
-            w: W * (isMobile ? 0.82 : 0.84),
-            h: H * 0.9
-        };
-        const minGapHub = isMobile ? 44 : 54;
-        const minGapSat = isMobile ? 17 : 20;
-        const minGapRoamer = isMobile ? 14 : 16.5;
-        const minGapRight = isMobile ? 15 : 18;
-
-        const hubCount = Math.round((isMobile ? 4 : 6) * density);
-        const hubRadiusX = region.w * 0.42;
-        const hubRadiusY = region.h * 0.36;
-        const centerX = region.x + region.w * 0.57;
-        const centerY = region.y + region.h * 0.5;
-        const hubIds = [];
-
-        for (let i = 0; i < hubCount; i++) {
-            const baseAngle = (Math.PI * 2 * i) / hubCount;
-            const pos = placeNode(() => {
-                const a = baseAngle + (Math.random() - 0.5) * 0.4;
-                return {
-                    x: clamp(centerX + Math.cos(a) * hubRadiusX + (Math.random() - 0.5) * 28, region.x + 20, region.x + region.w - 20),
-                    y: clamp(centerY + Math.sin(a) * hubRadiusY + (Math.random() - 0.5) * 24, region.y + 18, region.y + region.h - 18)
-                };
-            }, minGapHub, 30, 0.88);
-            if (!pos) continue;
-            nodes.push({
-                x: pos.x, y: pos.y, ox: pos.x, oy: pos.y,
-                baseR: 2 + Math.random() * 0.8,
-                glow: 0,
-                hub: true,
-                driftPhase: Math.random() * Math.PI * 2,
-                driftSpeed: 0.00022 + Math.random() * 0.00018,
-                driftAmpX: 2 + Math.random() * 2,
-                driftAmpY: 2 + Math.random() * 2.2,
-                twinklePhase: Math.random() * Math.PI * 2,
-                twinkleSpeed: 0.001 + Math.random() * 0.0012
-            });
-            hubIds.push(nodes.length - 1);
-        }
-
-        for (const hub of hubIds) {
-            const children = (isMobile ? 3 : 4) + Math.floor(Math.random() * (3 + Math.round(density * 2)));
-            const hubNode = nodes[hub];
-            for (let i = 0; i < children; i++) {
-                const pos = placeNode(() => {
-                    const a = Math.random() * Math.PI * 2;
-                    const r = 56 + Math.random() * Math.min(W, H) * 0.2;
-                    return {
-                        x: clamp(hubNode.x + Math.cos(a) * r + (Math.random() - 0.5) * 20, region.x + 10, region.x + region.w - 10),
-                        y: clamp(hubNode.y + Math.sin(a) * r + (Math.random() - 0.5) * 18, region.y + 10, region.y + region.h - 10)
-                    };
-                }, minGapSat, 22, 0.86);
-                if (!pos) continue;
-                nodes.push({
-                    x: pos.x, y: pos.y, ox: pos.x, oy: pos.y,
-                    baseR: 1.2 + Math.random() * 1,
-                    glow: 0,
-                    hub: false,
-                    driftPhase: Math.random() * Math.PI * 2,
-                    driftSpeed: 0.00035 + Math.random() * 0.0003,
-                    driftAmpX: 2 + Math.random() * 4.5,
-                    driftAmpY: 1.5 + Math.random() * 3.8,
-                    twinklePhase: Math.random() * Math.PI * 2,
-                    twinkleSpeed: 0.0012 + Math.random() * 0.0018
+        for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+                const x = offsetX + c * GAP;
+                const y = offsetY + r * GAP;
+                dots.push({
+                    ox: x, oy: y, x, y,
+                    col: c, row: r,
+                    baseAlpha: x / W,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: 0.0008 + Math.random() * 0.0012,
+                    glow: 0
                 });
             }
         }
-
-        const roamers = Math.round((isMobile ? 8 : 12) * density) + Math.floor(Math.random() * 4);
-        const rightRoamers = Math.round(roamers * 0.7);
-        const baseRoamers = roamers - rightRoamers;
-
-        for (let i = 0; i < baseRoamers; i++) {
-            const pos = placeNode(() => ({
-                x: region.x + Math.random() * region.w,
-                y: region.y + Math.random() * region.h
-            }), minGapRoamer, 18, 0.84);
-            if (!pos) continue;
-            nodes.push({
-                x: pos.x, y: pos.y, ox: pos.x, oy: pos.y,
-                baseR: 1.1 + Math.random() * 0.9,
-                glow: 0,
-                hub: false,
-                driftPhase: Math.random() * Math.PI * 2,
-                driftSpeed: 0.00025 + Math.random() * 0.00045,
-                driftAmpX: 1.5 + Math.random() * 5,
-                driftAmpY: 1.5 + Math.random() * 5,
-                twinklePhase: Math.random() * Math.PI * 2,
-                twinkleSpeed: 0.001 + Math.random() * 0.0022
-            });
-        }
-        for (let i = 0; i < rightRoamers; i++) {
-            const pos = placeNode(() => {
-                const xr = 0.4 + Math.pow(Math.random(), 0.62) * 0.6;
-                return {
-                    x: region.x + region.w * clamp(xr, 0.4, 1),
-                    y: region.y + region.h * (0.08 + Math.random() * 0.84)
-                };
-            }, minGapRight, 24, 0.86);
-            if (!pos) continue;
-            nodes.push({
-                x: pos.x, y: pos.y, ox: pos.x, oy: pos.y,
-                baseR: 1.1 + Math.random() * 0.9,
-                glow: 0,
-                hub: false,
-                driftPhase: Math.random() * Math.PI * 2,
-                driftSpeed: 0.00025 + Math.random() * 0.00045,
-                driftAmpX: 1.5 + Math.random() * 5,
-                driftAmpY: 1.5 + Math.random() * 5,
-                twinklePhase: Math.random() * Math.PI * 2,
-                twinkleSpeed: 0.001 + Math.random() * 0.0022
-            });
-        }
-
-        const maxDist = Math.min(W, H) * (isMobile ? 0.33 : 0.3);
-        const edgeSet = new Set();
-        const pushEdge = (a, b, strengthBias = 1) => {
-            if (a === b) return;
-            const key = edgeKey(a, b);
-            if (edgeSet.has(key)) return;
-            const d = dist(nodes[a], nodes[b]);
-            if (d > maxDist) return;
-            edgeSet.add(key);
-            const strength = clamp((1 - d / maxDist) * strengthBias, 0.15, 1);
-            edges.push({
-                a,
-                b,
-                d,
-                strength,
-                phase: Math.random() * Math.PI * 2
-            });
-        };
-
-        for (let i = 0; i < nodes.length; i++) {
-            const near = [];
-            for (let j = 0; j < nodes.length; j++) {
-                if (i === j) continue;
-                const d = dist(nodes[i], nodes[j]);
-                if (d < maxDist) near.push({ j, d });
-            }
-            near.sort((p, q) => p.d - q.d);
-            const targetLinks = nodes[i].hub ? 6 : 4;
-            for (let k = 0; k < Math.min(targetLinks, near.length); k++) {
-                pushEdge(i, near[k].j, nodes[i].hub ? 1.15 : 1);
-            }
-        }
-
-        const sortedHubs = [...hubIds].sort((a, b) => nodes[a].x - nodes[b].x);
-        for (let i = 0; i < sortedHubs.length - 1; i++) {
-            pushEdge(sortedHubs[i], sortedHubs[i + 1], 1.2);
-        }
-        if (sortedHubs.length > 2) {
-            pushEdge(sortedHubs[0], sortedHubs[sortedHubs.length - 1], 0.9);
-        }
-
-        for (let i = 0; i < Math.round(14 * density); i++) {
-            const a = Math.floor(Math.random() * nodes.length);
-            const b = Math.floor(Math.random() * nodes.length);
-            const d = dist(nodes[a], nodes[b]);
-            if (d > maxDist * 0.45 && d < maxDist * 0.95) {
-                pushEdge(a, b, 0.92);
-            }
-        }
-
-        rebuildAdjacency();
     }
 
-    function spawnPulse() {
-        if (edges.length === 0 || adjacency.size === 0) return;
-
-        const pathLen = 2 + Math.floor(Math.random() * 5);
-        const startNode = Math.floor(Math.random() * nodes.length);
-        const path = [];
-        let current = startNode;
-        const visited = new Set([current]);
-
-        for (let step = 0; step < pathLen; step++) {
-            const candidates = (adjacency.get(current) || []).filter(entry => {
-                return !visited.has(entry.to);
-            });
-            if (candidates.length === 0) break;
-            const chosen = candidates[Math.floor(Math.random() * candidates.length)];
-            const next = chosen.to;
-            path.push({ edge: chosen.edge, from: current, to: next });
-            visited.add(next);
-            current = next;
-        }
-
-        if (path.length >= 2) {
-            pulses.push({
-                path: path,
-                seg: 0,
-                t: 0,
-                speed: 0.00075 + Math.random() * 0.0007,
-                trailLen: 0.33 + Math.random() * 0.2
-            });
-        }
-    }
+    hero.addEventListener('mousemove', function(e) {
+        const rect = hero.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
+    });
+    hero.addEventListener('mouseleave', function() {
+        mouseX = -9999;
+        mouseY = -9999;
+    });
+    hero.addEventListener('click', function(e) {
+        const rect = hero.getBoundingClientRect();
+        waves.push({
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+            radius: 0,
+            life: 1
+        });
+    });
 
     let lastTime = 0;
-    let pulseTimer = 0;
 
     function animate(time) {
         requestAnimationFrame(animate);
-        const dt = Math.min(time - lastTime, 45);
+        const dt = Math.min(time - lastTime, 40) / 1000;
         lastTime = time;
-        now = time;
-        pulseTimer += dt;
-
-        if (pulseTimer > 980) {
-            pulseTimer = 0;
-            if (pulses.length < 5) spawnPulse();
-        }
-
         ctx.clearRect(0, 0, W, H);
 
-        for (const n of nodes) {
-            const t = now * n.driftSpeed + n.driftPhase;
-            n.x = n.ox + Math.sin(t) * n.driftAmpX;
-            n.y = n.oy + Math.cos(t * 0.92) * n.driftAmpY;
+        /* advance waves */
+        for (let i = waves.length - 1; i >= 0; i--) {
+            const w = waves[i];
+            w.radius += WAVE_SPEED * dt;
+            w.life -= WAVE_DECAY * dt;
+            if (w.life <= 0) { waves.splice(i, 1); }
         }
 
-        const viewZoom = W < 768 ? 1.08 : 1.16;
-        const zoomX = W * (W < 768 ? 0.62 : 0.7);
-        const zoomY = H * 0.5;
-        ctx.save();
-        ctx.translate(zoomX, zoomY);
-        ctx.scale(viewZoom, viewZoom);
-        ctx.translate(-zoomX, -zoomY);
+        for (const d of dots) {
+            /* ── continuous drift: dots breathe and float ── */
+            const drift = time * 0.0004;
+            const driftX = Math.sin(drift + d.col * 0.5 + d.row * 0.3) * 3.5
+                         + Math.sin(drift * 0.7 + d.phase) * 2;
+            const driftY = Math.cos(drift * 0.8 + d.col * 0.3 + d.row * 0.5) * 3.5
+                         + Math.cos(drift * 0.6 + d.phase) * 2;
+            d.x = d.ox + driftX;
+            d.y = d.oy + driftY;
 
-        const hazeX = W * 0.78;
-        const hazeY = H * 0.5;
-        const haze = ctx.createRadialGradient(hazeX, hazeY, 0, hazeX, hazeY, Math.min(W, H) * 0.45);
-        haze.addColorStop(0, 'rgba(128,105,255,0.07)');
-        haze.addColorStop(1, 'rgba(128,105,255,0)');
-        ctx.fillStyle = haze;
-        ctx.fillRect(0, 0, W, H);
+            /* ── ambient traveling wave (right to left) ── */
+            const ambientWave = 0.5 + 0.5 * Math.sin(d.ox * 0.012 - time * 0.0012 + d.oy * 0.008);
+            const ambientPulse = ambientWave * ambientWave * d.baseAlpha;
 
-        for (const e of edges) {
-            const a = nodes[e.a];
-            const b = nodes[e.b];
-            const shimmer = 0.55 + 0.45 * Math.sin(now * 0.0005 + e.phase);
-            const coreAlpha = 0.022 + e.strength * 0.07 + shimmer * 0.011;
-            const glowAlpha = 0.01 + e.strength * 0.03 + shimmer * 0.007;
+            /* hover glow */
+            const dx = d.x - mouseX;
+            const dy = d.y - mouseY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const hoverStrength = Math.max(0, 1 - dist / HOVER_RADIUS);
+            const hoverTarget = hoverStrength * hoverStrength;
+            d.glow += (hoverTarget - d.glow) * 0.12;
 
-            const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
-            grad.addColorStop(0, 'rgba(148,163,255,' + coreAlpha.toFixed(3) + ')');
-            grad.addColorStop(0.5, 'rgba(189,204,255,' + (coreAlpha * 1.05).toFixed(3) + ')');
-            grad.addColorStop(1, 'rgba(176,145,255,' + coreAlpha.toFixed(3) + ')');
-
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = grad;
-            ctx.lineWidth = 0.72 + e.strength * 0.86;
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = 'rgba(255,255,255,' + glowAlpha.toFixed(3) + ')';
-            ctx.lineWidth = 0.44 + e.strength * 0.58;
-            ctx.stroke();
-        }
-
-        for (const n of nodes) {
-            const tw = 0.45 + 0.55 * Math.sin(now * n.twinkleSpeed + n.twinklePhase);
-            const coreR = n.baseR * 1.16 + n.glow * 1.55 + tw * 0.18;
-            const haloR = coreR + (n.hub ? 7.4 : 5.4) + n.glow * 5.6;
-            const alpha = (n.hub ? 0.24 : 0.16) + tw * 0.06 + n.glow * 0.54;
-
-            const halo = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, haloR);
-            halo.addColorStop(0, 'rgba(255,255,255,' + (0.08 + n.glow * 0.14).toFixed(3) + ')');
-            halo.addColorStop(0.65, 'rgba(168,139,250,' + (0.04 + n.glow * 0.14).toFixed(3) + ')');
-            halo.addColorStop(1, 'rgba(168,139,250,0)');
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, haloR, 0, Math.PI * 2);
-            ctx.fillStyle = halo;
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, coreR, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255,255,255,' + alpha.toFixed(3) + ')';
-            ctx.fill();
-        }
-
-        for (let i = pulses.length - 1; i >= 0; i--) {
-            const p = pulses[i];
-            p.t += p.speed * dt;
-
-            if (p.t >= 1) {
-                nodes[p.path[p.seg].to].glow = 1;
-                p.seg++;
-                p.t = 0;
-                if (p.seg >= p.path.length) {
-                    pulses.splice(i, 1);
-                    continue;
+            /* click wave glow */
+            let waveGlow = 0;
+            for (const w of waves) {
+                const wdx = d.x - w.x;
+                const wdy = d.y - w.y;
+                const wDist = Math.sqrt(wdx * wdx + wdy * wdy);
+                const ringDist = Math.abs(wDist - w.radius);
+                if (ringDist < WAVE_WIDTH) {
+                    const strength = (1 - ringDist / WAVE_WIDTH) * w.life;
+                    if (strength > waveGlow) waveGlow = strength;
                 }
             }
 
-            ctx.lineCap = 'round';
+            const twinkle = 0.5 + 0.5 * Math.sin(time * d.speed + d.phase);
+            const fade = d.baseAlpha;
 
-            for (let s = Math.max(0, p.seg - 1); s <= p.seg; s++) {
-                const seg = p.path[s];
-                const fromN = nodes[seg.from];
-                const toN = nodes[seg.to];
-                const edgeDx = toN.x - fromN.x;
-                const edgeDy = toN.y - fromN.y;
+            /* combine: base + ambient + hover + wave */
+            const baseA = fade * (0.06 + twinkle * 0.08);
+            const ambientA = ambientPulse * 0.14;
+            const hoverA = d.glow * 0.55;
+            const waveA = waveGlow * 0.6;
+            const alpha = baseA + ambientA + hoverA + waveA;
 
-                let tStart, tEnd, fadeBase;
-                if (s === p.seg) {
-                    tEnd = p.t;
-                    tStart = Math.max(0, p.t - p.trailLen);
-                    fadeBase = 1;
-                } else {
-                    const overflow = p.t;
-                    tStart = Math.max(0, 1 - (p.trailLen - overflow));
-                    tEnd = 1;
-                    fadeBase = 1 - overflow * 1.5;
-                    if (fadeBase <= 0) continue;
-                }
+            if (alpha < 0.004) continue;
 
-                const x1 = fromN.x + edgeDx * tStart;
-                const y1 = fromN.y + edgeDy * tStart;
-                const x2 = fromN.x + edgeDx * tEnd;
-                const y2 = fromN.y + edgeDy * tEnd;
+            /* dot size */
+            const r = 1.1 + twinkle * 0.3 * fade + ambientPulse * 1.2 + d.glow * 2.2 + waveGlow * 2.5;
 
-                const grad = ctx.createLinearGradient(x1, y1, x2, y2);
-                grad.addColorStop(0, 'rgba(167,139,250,0)');
-                grad.addColorStop(0.35, 'rgba(173,157,255,' + (0.32 * fadeBase).toFixed(3) + ')');
-                grad.addColorStop(1, 'rgba(255,255,255,' + (0.66 * fadeBase).toFixed(3) + ')');
+            /* color: shifts whiter on hover and wave */
+            const boost = Math.max(d.glow, waveGlow);
+            const cr = Math.round(168 + boost * 87);
+            const cg = Math.round(155 + boost * 100);
+            const cb = 255;
 
+            ctx.beginPath();
+            ctx.arc(d.x, d.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(' + cr + ',' + cg + ',' + cb + ',' + Math.min(alpha, 1).toFixed(4) + ')';
+            ctx.fill();
+
+            /* glow halo */
+            if (alpha > 0.02) {
+                const glowR = r + 5 + twinkle * 3 + boost * 14;
+                const glow = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, glowR);
+                glow.addColorStop(0, 'rgba(' + cr + ',' + cg + ',' + cb + ',' + (Math.min(alpha, 1) * 0.35).toFixed(4) + ')');
+                glow.addColorStop(1, 'rgba(168,155,255,0)');
                 ctx.beginPath();
-                ctx.moveTo(x1, y1);
-                ctx.lineTo(x2, y2);
-                ctx.strokeStyle = grad;
-                ctx.lineWidth = 2.4;
-                ctx.stroke();
+                ctx.arc(d.x, d.y, glowR, 0, Math.PI * 2);
+                ctx.fillStyle = glow;
+                ctx.fill();
             }
-
-            const curSeg = p.path[p.seg];
-            const fn = nodes[curSeg.from];
-            const tn = nodes[curSeg.to];
-            const hx = fn.x + (tn.x - fn.x) * p.t;
-            const hy = fn.y + (tn.y - fn.y) * p.t;
-            const hGrad = ctx.createRadialGradient(hx, hy, 0, hx, hy, 12);
-            hGrad.addColorStop(0, 'rgba(255,255,255,0.42)');
-            hGrad.addColorStop(1, 'rgba(167,139,250,0)');
-            ctx.beginPath();
-            ctx.arc(hx, hy, 12, 0, Math.PI * 2);
-            ctx.fillStyle = hGrad;
-            ctx.fill();
-        }
-
-        ctx.restore();
-
-        for (const n of nodes) {
-            if (n.glow > 0) n.glow *= 0.965;
-            if (n.glow < 0.01) n.glow = 0;
         }
     }
 
     resize();
-    initNetwork();
     requestAnimationFrame(animate);
 
     let rT;
     window.addEventListener('resize', () => {
         clearTimeout(rT);
-        rT = setTimeout(() => { resize(); initNetwork(); }, 250);
+        rT = setTimeout(resize, 250);
     });
 })();
 </script>

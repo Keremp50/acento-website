@@ -60,6 +60,7 @@
             font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
+            text-wrap: balance;
         }
         .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
@@ -116,9 +117,10 @@
         .page-hero h1 {
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+            text-wrap: balance;
         }
         .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
-        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; text-wrap: pretty; }
         .hero-text { padding-bottom: 60px; }
 
         .hero-image {
@@ -126,36 +128,147 @@
             border-radius: 16px 16px 0 0; margin-top: 40px;
         }
 
-        /* INTRODUCTIE */
-        .intro-section { padding: 80px 0; background: var(--white); }
-        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-        .intro-heading { font-family: var(--font-serif, 'Lora', 'Playfair Display', serif); font-size: 3rem; font-weight: 700; color: var(--gray-500, #6b7280); line-height: 1.1; }
+        /* INTRO */
+        .intro-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .intro-heading {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            line-height: 1.1;
+        }
         .intro-table { width: 100%; }
-        .intro-row { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--border, #e5e5e5); }
-        .intro-row:last-child { border-bottom: 1px solid var(--border, #e5e5e5); }
-        .intro-label { font-size: 0.95rem; font-weight: 600; color: var(--black); }
-        .intro-value { font-size: 0.95rem; color: var(--black); text-align: right; }
+        .intro-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 24px;
+            padding: 18px 0;
+            border-top: 1px solid var(--border);
+        }
+        .intro-row:last-child { border-bottom: 1px solid var(--border); }
+        .intro-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--black);
+        }
+        .intro-value {
+            font-size: 0.95rem;
+            color: var(--black);
+            text-align: right;
+        }
 
-        /* CONTENT SECTIONS */
-        .content-section { padding: 80px 0; }
-        .content-section.alt { background: var(--white); }
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-        .content-label {
-            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block;
+        /* PROBLEM + SOLUTION */
+        .story-section {
+            padding: 0 0 80px;
+            background: var(--white);
         }
-        .content-title {
-            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
+        .story-header {
+            text-align: center;
+            margin-bottom: 28px;
         }
-        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
-        .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
-        .content-text p { margin-bottom: 16px; }
-        .content-highlight {
-            background: var(--primary-50); border-left: 3px solid var(--primary);
-            padding: 24px 28px; border-radius: 0 12px 12px 0; margin-top: 24px;
+        .story-header .section-title {
+            margin-bottom: 0;
+            max-width: 840px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .content-highlight p { color: var(--gray-700); font-size: 0.9rem; line-height: 1.75; margin: 0; font-weight: 500; }
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+        .story-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: var(--shadow-md);
+        }
+        .story-card.solution-card {
+            background: linear-gradient(180deg, var(--primary-50) 0%, var(--white) 100%);
+        }
+        .story-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .story-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            box-shadow: 0 0 0 5px rgba(108,60,233,0.08);
+        }
+        .story-card h3 {
+            color: var(--black);
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            text-wrap: balance;
+        }
+        .story-card p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.78;
+            margin-bottom: 16px;
+            text-wrap: pretty;
+        }
+        .story-card p:last-child { margin-bottom: 0; }
+        .story-highlight {
+            margin-top: 24px;
+            padding: 22px 24px;
+            border-radius: 16px;
+            background: var(--cream);
+            border: 1px solid rgba(108,60,233,0.1);
+        }
+        .story-highlight p {
+            margin: 0;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.7;
+            text-wrap: pretty;
+        }
+        .story-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+        .story-list li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--gray-600);
+            font-size: 0.92rem;
+            line-height: 1.72;
+        }
+        .story-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
 
         /* RESULTS */
         .results-section {
@@ -178,17 +291,29 @@
             background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
             border-radius: 16px; padding: 40px 32px; text-align: center;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
         .result-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
         .result-icon { font-size: 2rem; margin-bottom: 16px; }
         .result-number {
-            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 700; margin-bottom: 12px; line-height: 1.1;
+            font-family: var(--font-display); font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+            font-weight: 700; margin: 0 auto 14px; line-height: 1.14;
+            max-width: 14ch;
+            text-wrap: balance;
         }
         .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
-        .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
+        .result-text {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.92rem;
+            line-height: 1.68;
+            max-width: 32ch;
+            margin: 0 auto;
+            text-wrap: pretty;
+        }
 
         /* CTA */
         .cta-section {
@@ -198,7 +323,7 @@
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
         .cta-content .section-title em { color: inherit; }
-        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
+        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; text-wrap: pretty; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
             background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px;
@@ -228,7 +353,7 @@
             .container { padding: 0 24px; }
             .intro-grid { grid-template-columns: 1fr; gap: 40px; }
             .intro-heading { font-size: 2.4rem; }
-            .content-grid { grid-template-columns: 1fr; gap: 32px; }
+            .story-grid { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
         }
         @media (max-width: 768px) {
@@ -239,8 +364,15 @@
                 background: var(--cream); padding: 24px; gap: 16px; border-bottom: 1px solid var(--border);
                 box-shadow: var(--shadow-md);
             }
-            .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+            .intro-grid { gap: 32px; }
             .intro-heading { font-size: 2rem; }
+            .intro-row {
+                flex-direction: column;
+                align-items: start;
+                gap: 6px;
+            }
+            .intro-value { text-align: left; }
+            .story-card { padding: 28px 24px; }
             .hero-image { height: 240px; }
             .footer-content { flex-direction: column; gap: 12px; text-align: center; }
         }
@@ -257,11 +389,11 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
-            <li><a href="index.html#waarom">Waarom wij</a></li>
-            <li><a href="index.html#aanpak">Aanpak</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            <li><a href="index.html#voor-wie">Voor wie</a></li>
+            <li><a href="index.html#werkwijze">Aanpak</a></li>
+            <li><a href="index.html#waarom">Waarom Acento</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Plan een gesprek</a></li>
         </ul>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
     </div>
@@ -279,8 +411,8 @@
                 <span>&#8594;</span>
                 <span class="current">HR Data Agent</span>
             </div>
-            <h1>AI Agent geïntegreerd in Power BI voor HR-besluitvorming</h1>
-            <p>De agent leest data uit de HR-rapportage, interpreteert die in context en helpt bestuur en management om sneller te handelen op basis van betrouwbare HR-inzichten.</p>
+            <h1>HR-besluitvorming versneld door AI oplossing</h1>
+            <p>Het bestuur krijgt direct bruikbare HR-inzichten uit bestaande data, zonder afhankelijkheid van analisten of handmatig uitzoekwerk.</p>
         </div>
         <img class="hero-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&q=80" alt="Power BI dashboard met HR-gegevens" loading="eager">
     </div>
@@ -292,12 +424,12 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Power BI &ndash; Fabric Data Agent &ndash; Azure AI Foundry &ndash; SQL-model &ndash; Datamodellering</span>
+                    <span class="intro-label">Team</span>
+                    <span class="intro-value">Bestuur en HR-management</span>
                 </div>
                 <div class="intro-row">
-                    <span class="intro-label">Services</span>
-                    <span class="intro-value">AI Agents &ndash; HR Analytics &ndash; Besluitondersteuning</span>
+                    <span class="intro-label">Oplossing</span>
+                    <span class="intro-value">AI-gestuurde HR-analyse en besluitondersteuning</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
@@ -308,38 +440,28 @@
     </div>
 </section>
 
-<section class="content-section reveal">
+<section class="story-section reveal">
     <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De uitdaging</h2>
-            </div>
-            <div class="content-text">
-                <p>Het bestuur beschikte over HR-data in Power BI, maar miste een snelle manier om die data te interpreteren en om te zetten naar concrete acties. De cijfers waren aanwezig, maar de context en verbanden ontbraken vaak.</p>
-                <p>Met name analyses over meerdere tabellen tegelijk kostten veel tijd. Daardoor werd reactief gestuurd in plaats van proactief op trends, oorzaken en risico's binnen HR.</p>
-                <div class="content-highlight">
-                    <p>De behoefte was duidelijk: een geïntegreerde HR-specialist die data kan uitleggen en duiden op directieniveau.</p>
-                </div>
-            </div>
+        <div class="story-header reveal">
+            <span class="section-label">De uitdaging</span>
         </div>
-    </div>
-</section>
-
-<section class="content-section alt reveal">
-    <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze aanpak</h2>
-            </div>
-            <div class="content-text">
-                <p>We hebben een AI Agent geïntegreerd in de bestaande Power BI HR-rapportage. De agent heeft toegang tot de onderliggende data en kan die interpreteren in plaats van alleen cijfers tonen.</p>
-                <p>De agent legt verbanden tussen meerdere tabellen, herkent HR-patronen en geeft antwoorden in begrijpelijke taal. Zo krijgt het bestuur direct inzicht in wat er gebeurt, waarom het gebeurt en waar bijsturing nodig is.</p>
-                <div class="content-highlight">
-                    <p>Het resultaat is een eigen geïntegreerde HR-specialist in het bedrijf, beschikbaar op het moment dat besluitvorming daarom vraagt.</p>
+        <div class="story-grid">
+            <article class="story-card reveal">
+                <span class="story-label">Probleem</span>
+                <h3>HR-data beschikbaar, maar niet bruikbaar voor besluitvorming</h3>
+                <p>Het bestuur beschikte over uitgebreide HR-data, maar miste een manier om die cijfers snel te interpreteren en om te zetten naar concrete acties. Analyses kostten veel tijd, patronen kwamen te laat boven tafel en besluitvorming bleef reactief in plaats van proactief.</p>
+                <div class="story-highlight">
+                    <p>De behoefte was duidelijk: directe duiding van HR-cijfers op bestuursniveau, zonder afhankelijkheid van handmatige analyses.</p>
                 </div>
-            </div>
+            </article>
+            <article class="story-card solution-card reveal">
+                <span class="story-label">Oplossing</span>
+                <h3>AI die HR-data interpreteert en direct stuurinformatie levert</h3>
+                <p>We ontwikkelden een op maat gemaakte AI-oplossing die volledig is geïntegreerd in de bestaande rapportageomgeving. Het bestuur stelt in gewone taal een vraag en krijgt binnen seconden een onderbouwd antwoord: patronen in verzuim, verloop, capaciteit en de oorzaken daarachter.</p>
+                <div class="story-highlight">
+                    <p>Het resultaat is een virtuele HR-specialist, beschikbaar op elk moment dat het bestuur een beslissing moet nemen.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -347,21 +469,25 @@
 <section class="results-section reveal">
     <div class="container">
         <div class="results-header">
-            <span class="section-label">Impact</span>
-            <h2 class="section-title">Van dashboards naar strategische beslissingen</h2>
+            <span class="section-label">Concrete impact</span>
+            <h2 class="section-title">Wat dit u oplevert in euro's en uren</h2>
+            <p style="color: rgba(255,255,255,0.45); font-size: 1rem; max-width: 520px; margin: 12px auto 0; line-height: 1.75; text-wrap: pretty;">Bedrijven investeren niet in technologie omwille van de technologie. Ze investeren als de terugverdientijd helder is. Die is hier helder.</p>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">Direct inzicht</div>
-                <div class="result-text">Bestuur kan HR-data direct interpreteren zonder aparte vertaalslag</div>
+                <div class="result-icon">⚡</div>
+                <div class="result-number purple">Van 4 uur naar 4 minuten</div>
+                <div class="result-text">Een HR-analyse die een analist een halve werkdag kost, levert de agent in seconden. Gemiddeld scheelt dat 15–20 uur analysetijd per week — uren die het bestuur nu besteedt aan beslissen in plaats van zoeken. Dat is direct terug te zien in de loonkosten.</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">Tabel-overstijgend</div>
-                <div class="result-text">Verbanden tussen meerdere tabellen worden automatisch meegenomen in analyses</div>
+                <div class="result-icon">💶</div>
+                <div class="result-number green">€15.000 – €45.000 per voorkomen vertrekker</div>
+                <div class="result-text">Elke onverwachte vertrekker kost 6 tot 9 maanden salaris aan werving, onboarding en verloren productiviteit. De agent detecteert verzuim- en verlooppatronen weken eerder dan een menselijke analist — zodat u ingrijpt voordat iemand zijn ontslag indient. Eén voorkomen vertrek betaalt de oplossing al terug.</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">Beter handelen</div>
-                <div class="result-text">Management krijgt concrete HR-duiding om sneller en gerichter te sturen</div>
+                <div class="result-icon">📊</div>
+                <div class="result-number amber">Geen extra €55.000+/jaar aan HR-capaciteit</div>
+                <div class="result-text">Een fulltime HR-analist kost €55.000 tot €70.000 per jaar. De agent levert dezelfde analytische diepgang — 24/7, direct beschikbaar, zonder wervingstraject, zonder inwerkperiode en zonder afhankelijkheid van externe consultancy. De ROI is meetbaar vanaf dag één.</div>
             </div>
         </div>
     </div>
@@ -371,10 +497,10 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook een geïntegreerde HR AI Agent in Power BI?</h2>
-            <p>Wij bouwen agents die HR-data interpreteren, verbanden leggen en uw bestuur ondersteunen met direct toepasbare inzichten.</p>
+            <h2 class="section-title">Weet u wat uw HR-data u nu kost?</h2>
+            <p>De meeste organisaties hebben de data al — maar missen de capaciteit om er snel op te sturen. Wij laten u in een kort gesprek zien wat er voor uw situatie mogelijk is en wat het u oplevert.</p>
             <div class="cta-actions">
-                <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
+                <a href="index.html#contact" class="btn-primary">Vraag een korte intake aan &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
             </div>
         </div>

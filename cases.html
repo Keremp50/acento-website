@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cases | Acento</title>
-    <meta name="description" content="Bekijk onze projecten op het gebied van AI agents, data engineering en BI oplossingen.">
+    <meta name="description" content="Bekijk onze AI agent cases binnen Microsoft Azure, met voorbeelden voor sales, HR en operationele toepassingen in productie.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..700&family=Lora:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
@@ -99,8 +99,9 @@
         .page-hero h1 {
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+            text-wrap: balance;
         }
-        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; text-wrap: pretty; }
 
         /* ── CASES GRID ── */
         .cases-section { padding: 60px 0 100px; }
@@ -177,11 +178,11 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
-            <li><a href="index.html#waarom">Waarom wij</a></li>
-            <li><a href="index.html#aanpak">Aanpak</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            <li><a href="index.html#voor-wie">Voor wie</a></li>
+            <li><a href="index.html#werkwijze">Aanpak</a></li>
+            <li><a href="index.html#waarom">Waarom Acento</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Plan een gesprek</a></li>
         </ul>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
     </div>
@@ -197,7 +198,7 @@
             <span class="current">Cases</span>
         </div>
         <h1>AI Agents live in productie bij voorgangers</h1>
-        <p>Volledig geïntegreerd in de Microsoft Azure-omgeving van onze klanten, van datafundament tot operationele uitvoering.</p>
+        <p>Praktische AI agent cases binnen de Microsoft Azure-omgeving van onze klanten, gericht op commerciële, HR- en operationele impact.</p>
     </div>
 </section>
 
@@ -240,16 +241,27 @@
                     </div>
                 </a>
 
+                <a href="case-gespreksverslag-agent.html" class="case-card reveal" data-category="ai-agents">
+                    <img class="case-card-image" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="Team bespreekt klantgesprekken en actiepunten" loading="lazy">
+                    <div class="case-card-body">
+                        <div class="case-card-branch">B2B Sales</div>
+                        <h3>AI Agent verwerkt audio-opnames tot gespreksverslagen</h3>
+                        <p>Na een klantgesprek spreekt sales een audio-opname in. De agent maakt direct een gespreksverslag, slaat het dossier op en analyseert ontwikkelingen over meerdere meetings.</p>
+                        <span class="case-card-link">Bekijk case &#8594;</span>
+                    </div>
+                </a>
+
             </div>
         </div>
 
-        <div class="cases-group">
+        <!-- Backup: datafundament-cases verborgen op de website, maar behouden om later eenvoudig terug te plaatsen. -->
+        <div class="cases-group" hidden data-visibility="backup-only">
             <span class="cases-group-label">Data &amp; Integratie</span>
             <h2 class="cases-group-title">Het datafundament eronder</h2>
             <div class="cases-grid">
 
                 <a href="case-datawarehouse-migratie.html" class="case-card reveal" data-category="data-engineering">
-                    <img class="case-card-image" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Business team bespreekt dashboard en rapportages" loading="lazy">
+                    <img class="case-card-image" src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Business team bespreekt dashboard en rapportages" loading="lazy">
                     <div class="case-card-body">
                         <div class="case-card-branch">Drukkerij</div>
                         <h3>Power BI opnieuw opgebouwd op het nieuwe dataplatform</h3>

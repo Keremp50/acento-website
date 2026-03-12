@@ -60,6 +60,7 @@
             font-family: var(--font-display);
             font-size: clamp(2rem, 4vw, 3rem);
             line-height: 1.18; font-weight: 700; margin-bottom: 20px; color: var(--black);
+            text-wrap: balance;
         }
         .section-title em { font-style: normal; font-weight: inherit; color: inherit; }
 
@@ -116,9 +117,10 @@
         .page-hero h1 {
             font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700; line-height: 1.15; margin-bottom: 16px;
+            text-wrap: balance;
         }
         .page-hero h1 em { font-style: normal; font-weight: inherit; color: inherit; }
-        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+        .page-hero p { color: rgba(255,255,255,0.55); font-size: 1.05rem; line-height: 1.8; max-width: 600px; text-wrap: pretty; }
         .hero-text { padding-bottom: 60px; }
 
         .hero-image {
@@ -136,26 +138,86 @@
         .intro-label { font-size: 0.95rem; font-weight: 600; color: var(--black); }
         .intro-value { font-size: 0.95rem; color: var(--black); text-align: right; }
 
-        /* ── CONTENT SECTIONS ── */
-        .content-section { padding: 80px 0; }
-        .content-section.alt { background: var(--white); }
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-        .content-label {
-            font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-            color: var(--primary); font-weight: 600; margin-bottom: 16px; display: block;
+        /* PROBLEM + SOLUTION */
+        .story-section {
+            padding: 0 0 80px;
+            background: var(--white);
         }
-        .content-title {
-            font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
-            font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: var(--black);
+        .story-header {
+            text-align: center;
+            margin-bottom: 28px;
         }
-        .content-title em { font-style: normal; font-weight: inherit; color: inherit; }
-        .content-text { color: var(--gray-500); font-size: 0.95rem; line-height: 1.85; }
-        .content-text p { margin-bottom: 16px; }
-        .content-highlight {
-            background: var(--primary-50); border-left: 3px solid var(--primary);
-            padding: 24px 28px; border-radius: 0 12px 12px 0; margin-top: 24px;
+        .story-header .section-title {
+            margin-bottom: 0;
+            max-width: 840px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .content-highlight p { color: var(--gray-700); font-size: 0.9rem; line-height: 1.75; margin: 0; font-weight: 500; }
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+        .story-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: var(--shadow-md);
+        }
+        .story-card.solution-card {
+            background: linear-gradient(180deg, var(--primary-50) 0%, var(--white) 100%);
+        }
+        .story-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .story-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            box-shadow: 0 0 0 5px rgba(108,60,233,0.08);
+        }
+        .story-card h3 {
+            color: var(--black);
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            text-wrap: balance;
+        }
+        .story-card p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+            line-height: 1.78;
+            margin-bottom: 16px;
+            text-wrap: pretty;
+        }
+        .story-card p:last-child { margin-bottom: 0; }
+        .story-highlight {
+            margin-top: 24px;
+            padding: 22px 24px;
+            border-radius: 16px;
+            background: var(--cream);
+            border: 1px solid rgba(108,60,233,0.1);
+        }
+        .story-highlight p {
+            margin: 0;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+            font-weight: 500;
+            line-height: 1.7;
+            text-wrap: pretty;
+        }
 
         /* ── RESULTS ── */
         .results-section {
@@ -184,11 +246,12 @@
         .result-number {
             font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem);
             font-weight: 700; margin-bottom: 12px; line-height: 1.1;
+            text-wrap: balance;
         }
         .result-number.purple { color: var(--white); }
         .result-number.green { color: var(--accent-light); }
         .result-number.amber { color: var(--warm-light); }
-        .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; }
+        .result-text { color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; text-wrap: pretty; }
 
         /* ── CTA ── */
         .cta-section {
@@ -198,7 +261,7 @@
         }
         .cta-content { max-width: 580px; margin: 0 auto; }
         .cta-content .section-title em { color: inherit; }
-        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; }
+        .cta-content p { color: var(--gray-500); font-size: 1.05rem; line-height: 1.8; margin-bottom: 32px; text-wrap: pretty; }
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px;
             background: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px;
@@ -228,7 +291,7 @@
             .container { padding: 0 24px; }
             .intro-grid { grid-template-columns: 1fr; gap: 40px; }
             .intro-heading { font-size: 2.4rem; }
-            .content-grid { grid-template-columns: 1fr; gap: 32px; }
+            .story-grid { grid-template-columns: 1fr; }
             .results-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
         }
         @media (max-width: 768px) {
@@ -257,11 +320,11 @@
             <span class="logo-text">Acento</span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html#ai-agents">AI Agents</a></li>
             <li><a href="cases.html" class="active">Cases</a></li>
-            <li><a href="index.html#waarom">Waarom wij</a></li>
-            <li><a href="index.html#aanpak">Aanpak</a></li>
-            <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+            <li><a href="index.html#voor-wie">Voor wie</a></li>
+            <li><a href="index.html#werkwijze">Aanpak</a></li>
+            <li><a href="index.html#waarom">Waarom Acento</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Plan een gesprek</a></li>
         </ul>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">&#9776;</button>
     </div>
@@ -279,8 +342,8 @@
                 <span>&#8594;</span>
                 <span class="current">Sales Follow-up Agent</span>
             </div>
-            <h1>AI Agent automatiseert opvolging na klantgesprekken</h1>
-            <p>Sales geeft alleen de gewenste week of periode door. De agent haalt beschikbaarheid uit Outlook, verstuurt automatische opties naar de klant en plant na voorkeur direct een Teams meeting.</p>
+            <h1>Sales opvolging geautomatiseerd door AI oplossing</h1>
+            <p>Na elk klantgesprek wordt de opvolging automatisch afgehandeld. Sales houdt momentum zonder handmatige stappen in mail, agenda en planning.</p>
         </div>
         <img class="hero-image" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&q=80" alt="Salesgesprek in vergaderruimte" loading="eager">
     </div>
@@ -292,12 +355,12 @@
             <h2 class="intro-heading">Introductie</h2>
             <div class="intro-table">
                 <div class="intro-row">
-                    <span class="intro-label">Tools / Technieken</span>
-                    <span class="intro-value">Copilot Studio &ndash; Outlook agenda &ndash; Microsoft Graph &ndash; Teams</span>
+                    <span class="intro-label">Team</span>
+                    <span class="intro-value">Commercieel team</span>
                 </div>
                 <div class="intro-row">
-                    <span class="intro-label">Services</span>
-                    <span class="intro-value">AI Agents &ndash; Sales automatisering &ndash; Workflow integratie</span>
+                    <span class="intro-label">Oplossing</span>
+                    <span class="intro-value">AI-gestuurde sales opvolging en planning</span>
                 </div>
                 <div class="intro-row">
                     <span class="intro-label">Branche</span>
@@ -308,37 +371,28 @@
     </div>
 </section>
 
-<section class="content-section reveal">
+<section class="story-section reveal">
     <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">Het probleem</span>
-                <h2 class="content-title">De uitdaging</h2>
-            </div>
-            <div class="content-text">
-                <p>Na elk klantgesprek moest sales handmatig opvolgen: agenda controleren, tijdsvoorstellen mailen, op reactie wachten en daarna alsnog een meeting aanmaken. Dat zorgde voor veel kleine, repetitieve taken.</p>
-                <div class="content-highlight">
-                    <p>Vooral de stap tussen gesprek en opvolgmail kostte tijd, terwijl snelheid juist belangrijk is om momentum in het salesproces te houden.</p>
-                </div>
-            </div>
+        <div class="story-header reveal">
+            <span class="section-label">De uitdaging</span>
         </div>
-    </div>
-</section>
-
-<section class="content-section alt reveal">
-    <div class="container">
-        <div class="content-grid">
-            <div>
-                <span class="content-label">De oplossing</span>
-                <h2 class="content-title">Onze aanpak</h2>
-            </div>
-            <div class="content-text">
-                <p>De sales manager geeft aan in welke week of periode de afspraak gepland moet worden. De AI Agent haalt vervolgens automatisch de beschikbare momenten uit Outlook en verstuurt direct een opvolgmail met concrete opties naar de klant.</p>
-                <p>Wanneer de klant met een voorkeur reageert, maakt de agent automatisch de Teams meeting aan met de juiste tijd en deelnemers. Zo wordt de volledige opvolgflow na het klantgesprek geautomatiseerd.</p>
-                <div class="content-highlight">
-                    <p>Van klantgesprek naar ingeplande Teams meeting zonder handmatige schakels in mail, agenda en planning.</p>
+        <div class="story-grid">
+            <article class="story-card reveal">
+                <span class="story-label">Probleem</span>
+                <h3>Sales verloor momentum door handmatige opvolging</h3>
+                <p>Na elk klantgesprek volgde een reeks kleine, repetitieve taken: agenda controleren, tijdsvoorstellen mailen, wachten op reactie en dan alsnog een meeting aanmaken. Dit kostte niet alleen tijd, maar zorgde er ook voor dat de snelheid uit het salesproces verdween op het moment dat die het hardst nodig was.</p>
+                <div class="story-highlight">
+                    <p>De stap tussen klantgesprek en opvolgactie duurde te lang, terwijl snelheid juist het verschil maakt in commerciële trajecten.</p>
                 </div>
-            </div>
+            </article>
+            <article class="story-card solution-card reveal">
+                <span class="story-label">Oplossing</span>
+                <h3>AI die de volledige opvolging na het gesprek afhandelt</h3>
+                <p>We ontwikkelden een op maat gemaakte AI-oplossing die volledig is geïntegreerd in de bestaande bedrijfsomgeving. Sales geeft alleen aan wanneer de vervolgafspraak moet plaatsvinden. De oplossing regelt vervolgens automatisch de beschikbaarheid, verstuurt opties naar de klant en plant bij voorkeur direct de meeting in.</p>
+                <div class="story-highlight">
+                    <p>Van klantgesprek naar ingeplande vervolgafspraak zonder handmatige schakels in mail, agenda en planning.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -346,21 +400,25 @@
 <section class="results-section reveal">
     <div class="container">
         <div class="results-header">
-            <span class="section-label">Impact</span>
-            <h2 class="section-title">Concrete resultaten</h2>
+            <span class="section-label">Concrete impact</span>
+            <h2 class="section-title">Meer deals. Zelfde team. Geen extra headcount.</h2>
+            <p style="color: rgba(255,255,255,0.45); font-size: 1rem; max-width: 520px; margin: 12px auto 0; line-height: 1.75; text-wrap: pretty;">Elke salesmedewerker die stopt met plannen en begint met verkopen, levert direct meer op. Dat is de rekening.</p>
         </div>
         <div class="results-grid">
             <div class="result-card reveal">
-                <div class="result-number purple">Tijdswinst</div>
-                <div class="result-text">Sales bespaart wekelijks tijd doordat opvolging en planning niet meer handmatig hoeft</div>
+                <div class="result-icon">⏱️</div>
+                <div class="result-number purple">3–5 extra verkoopuren per week per rep</div>
+                <div class="result-text">Opvolging, agenda-beheer en meeting-setup kosten een gemiddelde salesmedewerker 4 tot 7 uur per week. De agent neemt dit volledig over — zodat die uren direct terugvloeien naar gesprekken voeren en deals sluiten.</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number green">Sneller opvolgen</div>
-                <div class="result-text">Automatische opvolgmail met agenda-opties direct na het klantgesprek</div>
+                <div class="result-icon">⚡</div>
+                <div class="result-number green">Opvolging binnen 60 seconden. Niet de volgende ochtend.</div>
+                <div class="result-text">Leads die binnen een uur worden opgevolgd zijn 7x vaker bereid tot een vervolggesprek. De agent verstuurt de mail direct na afloop van het gesprek — terwijl uw concurrent nog aan zijn inbox zit.</div>
             </div>
             <div class="result-card reveal">
-                <div class="result-number amber">Automatisch gepland</div>
-                <div class="result-text">Bij klantvoorkeur maakt de agent direct een Teams meeting aan</div>
+                <div class="result-icon">💶</div>
+                <div class="result-number amber">Meer deals sluiten — zonder extra mensen</div>
+                <div class="result-text">Elke salesmedewerker die 3 uur per week minder kwijt is aan plannen, heeft ruimte voor één extra klantgesprek per dag. Over een kwartaal loopt dat op tot tientallen extra contactmomenten — en dus meer kansen om te scoren, met hetzelfde team en hetzelfde budget.</div>
             </div>
         </div>
     </div>
@@ -370,10 +428,10 @@
     <div class="container">
         <div class="cta-content">
             <span class="section-label">Volgende stap</span>
-            <h2 class="section-title">Ook sales opvolging automatisch laten verlopen?</h2>
-            <p>Wij bouwen AI Agents die uw commerciële team ontlasten met geautomatiseerde opvolging, planning en meeting-setup.</p>
+            <h2 class="section-title">Hoeveel uur is uw salesteam nu kwijt aan plannen?</h2>
+            <p>De meeste commerciële teams verliezen 20–30% van hun week aan admin rondom afspraken. Wij laten u in een kort gesprek zien wat dat u kost — en wat het oplevert als u het wegneemt.</p>
             <div class="cta-actions">
-                <a href="index.html#contact" class="btn-primary">Neem contact op &#8594;</a>
+                <a href="index.html#contact" class="btn-primary">Vraag een korte intake aan &#8594;</a>
                 <a href="cases.html" class="btn-secondary">Bekijk meer cases</a>
             </div>
         </div>
